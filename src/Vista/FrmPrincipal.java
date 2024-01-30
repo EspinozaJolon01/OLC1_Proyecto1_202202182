@@ -5,11 +5,14 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import javax.swing.JFileChooser;
@@ -242,13 +245,30 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         
-            eliminar.setOpaque(true); // Para que se vea el color de fondo
-            eliminar.setBackground(Color.RED); // Color de fondo personalizado
-            eliminar.setForeground(Color.WHITE); // Color del texto
+        JMenuItem guardar =  new JMenuItem("Guardar");
+        guardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showSaveDialog(FrmPrincipal.this); 
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+                    //guardarArchivo(index, file);
+            }
+            }
+        });
         
-        
-        
+        JMenuItem guardarComo = new JMenuItem("Guardar como");
+        guardarComo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                guardarComoArchivo(index);
+            }
+        });
+
         popMenu.add(eliminar);
+        popMenu.add(guardar);
+        popMenu.add(guardarComo);
         popMenu.show(jTabbedPane1, evt.getX(), evt.getY()+15);
                 
 
@@ -320,6 +340,36 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTabbedPane1MouseExited
 
+    
+    private void guardarComoArchivo(int index) {
+        // Obtener el JTextArea correspondiente al índice seleccionado
+        Component component = jTabbedPane1.getComponentAt(index);
+        if (component instanceof JPanel) {
+            JPanel panel = (JPanel) component;
+            Component[] components = panel.getComponents();
+            for (Component comp : components) {
+                if (comp instanceof JTextArea) {
+                    JTextArea textArea = (JTextArea) comp;
+                    // Mostrar un JFileChooser para seleccionar la ubicación y el nombre del archivo
+                    JFileChooser fileChooser = new JFileChooser();
+                    int result = fileChooser.showSaveDialog(this);
+                    if (result == JFileChooser.APPROVE_OPTION) {
+                        File file = fileChooser.getSelectedFile();
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                            // Escribir el contenido del JTextArea en el archivo
+                            writer.write(textArea.getText());
+                            // Mostrar mensaje de éxito
+                            System.out.println("Archivo guardado como en: " + file.getAbsolutePath());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            // Mostrar mensaje de error en caso de fallo
+                        }
+                    }
+                    break; // Salir del bucle una vez que se encuentre el JTextArea
+                }
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
