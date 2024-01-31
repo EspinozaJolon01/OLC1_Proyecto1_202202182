@@ -6,6 +6,7 @@ package Vista;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
@@ -17,9 +18,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -236,40 +240,35 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int index = jTabbedPane1.getSelectedIndex();
-        JPopupMenu popMenu =  new JPopupMenu();
-        JMenuItem eliminar= new JMenuItem("Eliminar");
-        eliminar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jTabbedPane1.remove(index);
-            }
-        });
         
-        JMenuItem guardar =  new JMenuItem("Guardar");
-        guardar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                int result = fileChooser.showSaveDialog(FrmPrincipal.this); 
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    File file = fileChooser.getSelectedFile();
-                    //guardarArchivo(index, file);
-            }
-            }
-        });
-        
-        JMenuItem guardarComo = new JMenuItem("Guardar como");
-        guardarComo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                guardarComoArchivo(index);
-            }
-        });
+        if(index > -1){
+             JPopupMenu popMenu =  new JPopupMenu();
+            JMenuItem eliminar= new JMenuItem("Eliminar");
+            eliminar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    jTabbedPane1.remove(index);
+                }
+            });
 
-        popMenu.add(eliminar);
-        popMenu.add(guardar);
-        popMenu.add(guardarComo);
-        popMenu.show(jTabbedPane1, evt.getX(), evt.getY()+15);
+            JMenuItem guardar =  new JMenuItem("Guardar");
+            guardar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    saveFile();
+
+                }
+            });
+
+            
+
+            popMenu.add(eliminar);
+            popMenu.add(guardar);
+            
+            popMenu.show(jTabbedPane1, evt.getX(), evt.getY()+15);
+                
+            
+        }
                 
 
     }//GEN-LAST:event_jTabbedPane1MousePressed
@@ -281,45 +280,38 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnAbrirArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirArchivoActionPerformed
         // TODO add your handling code here:
-        JPanel panel = new JPanel();
+         JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos DF", "df");
+        chooser.setFileFilter(filter);
+        chooser.setAcceptAllFileFilterUsed(false); // Evitar que se acepten todos los tipos de archivo
 
-        // Crear un JTextArea editable con tamaño predeterminado
-        JTextArea textArea1 = new JTextArea();
-        
-        //
-        
-        
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        File archivo = chooser.getSelectedFile();
+        int option = chooser.showOpenDialog(null);
+        if (option == JFileChooser.APPROVE_OPTION) {
+            File archivo = chooser.getSelectedFile();
+            String extension = getFileExtension(archivo);
+            if (extension.equalsIgnoreCase("df")) {
+                // El archivo seleccionado tiene la extensión correcta (.df)
+                try {
+                    String fileName = archivo.toPath().getFileName().toString();
+                    String fileNameWithoutExtension = fileName.replaceFirst("[.][^.]+$", "");
+                    String St = new String(Files.readAllBytes(archivo.toPath()));
 
-        if (archivo != null) { // Verificar si se seleccionó un archivo
-            try {
-                
-                String fileName = archivo.toPath().getFileName().toString(); // Obtener el nombre del archivo
-                String fileNameWithoutExtension = fileName.replaceFirst("[.][^.]+$", "");
-            
-                String St = new String(Files.readAllBytes(archivo.toPath()));
-                // Establecer el tamaño preferido del JTextArea
-                textArea1.setPreferredSize(new Dimension(523, 200));
+                    JTextArea textArea1 = new JTextArea();
+                    textArea1.setPreferredSize(new Dimension(523, 200));
+                    textArea1.setEditable(true);
+                    textArea1.setText(St);
 
-                // Permitir la edición del JTextArea
-                textArea1.setEditable(true);
-
-                // Agregar el JTextArea al panel
-                panel.add(textArea1);
-
-                // Agregar el panel al JTabbedPane
-                jTabbedPane1.addTab(fileNameWithoutExtension, panel);
-                
-                 textArea1.setText(St);
-            } catch (IOException e) {
-                e.printStackTrace();
-                // Manejar la excepción apropiadamente, por ejemplo, mostrar un mensaje de error al usuario
+                    JPanel panel = new JPanel();
+                    panel.add(textArea1);
+                    jTabbedPane1.addTab(fileNameWithoutExtension, panel);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    // Manejar la excepción
+                }
+            } else {
+                // Mostrar mensaje de extensión incorrecta
+                JOptionPane.showMessageDialog(null, "Seleccione un archivo con extensión .df", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } else {
-            // Manejar el caso en que el usuario no selecciona ningún archivo
-            // Por ejemplo, mostrar un mensaje al usuario informándole que debe seleccionar un archivo
         }
         
         
@@ -341,35 +333,84 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane1MouseExited
 
     
-    private void guardarComoArchivo(int index) {
-        // Obtener el JTextArea correspondiente al índice seleccionado
-        Component component = jTabbedPane1.getComponentAt(index);
-        if (component instanceof JPanel) {
-            JPanel panel = (JPanel) component;
-            Component[] components = panel.getComponents();
-            for (Component comp : components) {
-                if (comp instanceof JTextArea) {
-                    JTextArea textArea = (JTextArea) comp;
-                    // Mostrar un JFileChooser para seleccionar la ubicación y el nombre del archivo
-                    JFileChooser fileChooser = new JFileChooser();
-                    int result = fileChooser.showSaveDialog(this);
-                    if (result == JFileChooser.APPROVE_OPTION) {
-                        File file = fileChooser.getSelectedFile();
-                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                            // Escribir el contenido del JTextArea en el archivo
-                            writer.write(textArea.getText());
-                            // Mostrar mensaje de éxito
-                            System.out.println("Archivo guardado como en: " + file.getAbsolutePath());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                            // Mostrar mensaje de error en caso de fallo
-                        }
-                    }
-                    break; // Salir del bucle una vez que se encuentre el JTextArea
+private void saveFile() {
+    int index = jTabbedPane1.getSelectedIndex();
+
+    if (index != -1) {
+        // Obtener el nombre de la pestaña seleccionada
+        String tabTitle = jTabbedPane1.getTitleAt(index);
+
+        // Obtener el componente (panel) de la pestaña actual
+        Component selectedComponent = jTabbedPane1.getComponentAt(index);
+
+        // Verificar si el componente es un contenedor válido
+        if (selectedComponent instanceof Container) {
+            JTextArea textArea = findJTextArea(selectedComponent);
+
+            if (textArea != null) {
+                // Obtener el contenido del JTextArea
+                String content = textArea.getText();
+
+                // Definir la ruta y el nombre del archivo
+                String filePath = "C:\\Users\\Usuario\\Desktop\\Usac\\" + tabTitle + ".df";
+
+                try {
+                    File file = new File(filePath);
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+                    writer.write(content);
+                    writer.close();
+                    JOptionPane.showMessageDialog(null, "Archivo guardado exitosamente.", "Guardado", JOptionPane.INFORMATION_MESSAGE);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error al guardar el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo encontrar el JTextArea en la pestaña seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
+}
+
+// Método para encontrar un JTextArea dentro de un contenedor
+private JTextArea findJTextArea(Component container) {
+    if (container instanceof JTextArea) {
+        return (JTextArea) container;
+    }
+
+    if (container instanceof JScrollPane) {
+        JScrollPane scrollPane = (JScrollPane) container;
+        Component viewportView = scrollPane.getViewport().getView();
+
+        if (viewportView instanceof JTextArea) {
+            return (JTextArea) viewportView;
+        }
+    }
+
+    if (container instanceof Container) {
+        Component[] components = ((Container) container).getComponents();
+
+        for (Component comp : components) {
+            JTextArea textArea = findJTextArea(comp);
+            if (textArea != null) {
+                return textArea;
+            }
+        }
+    }
+
+    return null;
+}
+
+
+
+    private String getFileExtension(File file) {
+    String extension = "";
+    String fileName = file.getName();
+    int dotIndex = fileName.lastIndexOf('.');
+    if (dotIndex > 0 && dotIndex < fileName.length() - 1) {
+        extension = fileName.substring(dotIndex + 1).toLowerCase();
+    }
+    return extension;
+}
     /**
      * @param args the command line arguments
      */
