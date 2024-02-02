@@ -90,6 +90,9 @@ exec {lexeme=yytext(); return Grafica;}
 /* Comentarios */
 ( "!"(.)* ) {/*Ignore*/}
 
+/* multi comentario */
+"<!"([^!]|\n|!([^>]|[^>!]))*"!>" {/*Ignore*/}
+
 
 {L}({L}|{D})* {lexeme=yytext(); return Identificador;}
 ("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
