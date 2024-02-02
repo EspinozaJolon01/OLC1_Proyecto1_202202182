@@ -10,6 +10,8 @@ package Analisador;
  */
 public enum Tokens {
    
+    
+    RESERVADA,
     Igual,
     Suma,
     Coma,
@@ -20,11 +22,18 @@ public enum Tokens {
     Parentesis_c,
     Llave_a,
     Llave_c,
-    D_variable,
-    Tipo,
-    Program,
-    End,
     Identificador,
     Numero,
-    ERROR
+    Dos_puntos,
+    Reserve,
+    P_coma,
+    Parent_a,
+    Parent_c,
+    Punto,
+    C_dobles_a,
+    C_dobles_c,
+    ERROR,
+    Aritmeticas,
+    Tipo_dato,
+    Estadisticas
 }

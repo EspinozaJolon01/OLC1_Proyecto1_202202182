@@ -365,10 +365,111 @@ public class FrmPrincipal extends javax.swing.JFrame {
                             result += "  <Error lexico>\t\t" + lexer.lexeme + "\n";
                         
                         break;
-                     case Program:
-                            result += "  <Inicio>\t\t" + lexer.lexeme + "\n";
+                     case RESERVADA:
+                            result += "  <Reservada>\t\t" + lexer.lexeme + "\n";
                         
                         break;
+                        
+                     case Igual:
+                            result += "  <igual>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+
+                     case Coma:
+                            result += "  <coma>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                      
+                        
+                        case Parentesis_a:
+                            result += "  <Parentesis_a>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        case Parentesis_c:
+                            result += "  <Parentesis_c>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        case Llave_a:
+                            result += "  <Parentesis_a>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                       
+                        case Llave_c:
+                            result += "  <Llave_c>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                       
+                        case Identificador:
+                            result += "  <Identificador>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                       
+                        case Numero:
+                            result += "  <Numero>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        case Dos_puntos:
+                            result += "  <Dos_puntos>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        case Reserve:
+                            result += "  <Reserve>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        case P_coma:
+                            result += "  <P_coma>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        case Parent_a:
+                            result += "  <Parent_a>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        
+                        case Parent_c:
+                            result += "  <Parent_c>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                         case Punto:
+                            result += "  <Punto>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                         case C_dobles_a:
+                            result += "  <C_dobles_a>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                         case C_dobles_c:
+                            result += "  <C_dobles_c>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        case Aritmeticas:
+                            result += "  <Aritméticas>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        case Tipo_dato:
+                            result += "  <Tipo_dato>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        case Estadisticas:
+                            result += "  <Estadísticas>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+
+
+                        
+                        
+                        
+                       
+                         
                     default:
                        result += "Token: " + token + "\n";
                 }
@@ -407,7 +508,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 if(textArea != null){
                     String content = textArea.getText();
                     
-                    return content;
+                    return content.toLowerCase();
                    
                 }
                 

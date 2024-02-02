@@ -11,30 +11,42 @@ import static Analisador.Tokens.*;
 %type Tokens
 L=[a-zA-Z_]+
 D=[0-9]+
-espacio=[ ,\t,\r,\n]+
+espacio=[ \t\r\n]+
 %{
     public String lexeme;
 %}
 %%
 
-{espacio} {/*Ignore*/}
-"!"* {/*Ignore*/}
-"<!"     {
-            int commentDepth = 1;
-            while(commentDepth > 0) {
-                String text = yytext();
-                int pos = text.indexOf("!>");
-                if(pos != -1) {
-                    yychar += pos + 2;
-                    commentDepth--;
-                } else {
-                    yychar += yylength();
-                    yytext();
-                }
-            }
-        }
 
-"!>"*    {/*Ignore single line comments*/}
+
+program |
+end program |
+end |
+var |
+arr |
+console |
+print |
+column |
+@ |
+::  {lexeme=yytext(); return RESERVADA;}
+
+char |
+double {lexeme=yytext(); return Tipo_dato;}
+
+
+
+sum |
+res |
+mul |
+div | 
+mod {lexeme=yytext(); return Aritmeticas;}
+
+
+media |
+mediana |
+moda |
+varianza {lexeme=yytext(); return Estadisticas;}
+
 
 "=" {lexeme=yytext(); return Igual;}
 "+" {lexeme=yytext(); return Suma;}
@@ -46,12 +58,19 @@ espacio=[ ,\t,\r,\n]+
 ")" {lexeme=yytext(); return Parentesis_c;}
 "{" {lexeme=yytext(); return Llave_a;}
 "}" {lexeme=yytext(); return Llave_c;}
-"var" {lexeme=yytext(); return D_variable;}
-"double" {lexeme=yytext(); return Tipo;}
-"char[]" {lexeme=yytext(); return Tipo;}
+":" {lexeme=yytext(); return Dos_puntos;}
+"<-" {lexeme=yytext(); return Reserve;}
+";" {lexeme=yytext(); return P_coma;}
+"[" {lexeme=yytext(); return Parent_a;}
+"]" {lexeme=yytext(); return Parent_c;}
+"." {lexeme=yytext(); return Punto;}
+"“" {lexeme=yytext(); return C_dobles_a;}
+"”" {lexeme=yytext(); return C_dobles_c;}
 
-"PROGRAM" {lexeme=yytext(); return Program;}
-"END" {lexeme=yytext(); return End;}
+
+{espacio} {/*Ignore*/}
+
+
 {L}({L}|{D})* {lexeme=yytext(); return Identificador;}
 ("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
- . {return ERROR;}
+ . {lexeme=yytext(); return ERROR;}
