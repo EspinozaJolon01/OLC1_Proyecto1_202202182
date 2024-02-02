@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package Analisador;
 
+import Analisador.Tokens;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -11,11 +12,20 @@ import java.awt.Dimension;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.StringReader;
 import java.nio.file.Files;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -24,6 +34,8 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+
 
 /**
  *
@@ -168,7 +180,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAbrirArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEjecutar)
                     .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(133, Short.MAX_VALUE))
         );
@@ -255,7 +267,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             guardar.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    saveFile();
+                    guardar();
 
                 }
             });
@@ -319,6 +331,55 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
+        
+        String texto = obtenerTextArea();
+        
+        
+        File archivo = new File("archivo.txt");
+        PrintWriter write;
+        try {
+            
+            write =  new PrintWriter(archivo);
+            write.print(texto);
+            write.close();  
+        } catch (FileNotFoundException e) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, e);
+        }
+        
+        try {
+            Reader lector =  new BufferedReader(new FileReader("archivo.txt"));
+            Lexer lexer = new Lexer(lector);
+            
+            String result = "";
+            
+            while (true) {                
+                Tokens token = lexer.yylex();
+                if(token == null){
+                    result += "Fin";
+                    txtConsola.setText(result);
+                    return;
+                }
+                
+                switch (token) {
+                    case ERROR:
+                            result += "  <Error lexico>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                     case Program:
+                            result += "  <Inicio>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                    default:
+                       result += "Token: " + token + "\n";
+                }
+                
+            }
+            
+        } catch (FileNotFoundException e) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, e);
+        }catch(IOException e){
+             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, e);
+        }
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
@@ -333,7 +394,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane1MouseExited
 
     
-private void saveFile() {
+    public String obtenerTextArea(){
+        int index = jTabbedPane1.getSelectedIndex();
+        
+        if(index != -1){
+            
+            Component sectedComponent =  jTabbedPane1.getComponentAt(index);
+            
+            if(sectedComponent instanceof Container){
+                JTextArea textArea = findJTextArea(sectedComponent);
+                
+                if(textArea != null){
+                    String content = textArea.getText();
+                    
+                    return content;
+                   
+                }
+                
+            }
+        }
+        return null;
+    }
+    
+private void guardar() {
     int index = jTabbedPane1.getSelectedIndex();
 
     if (index != -1) {

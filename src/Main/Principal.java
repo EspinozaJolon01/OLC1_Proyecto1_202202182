@@ -4,10 +4,17 @@
  */
 package Main;
 
+import Analisador.FrmPrincipal;
+
 /**
  *
  * @author Usuario
  */
 public class Principal {
+    public static void main(String[] args) {
+        FrmPrincipal vista =  new FrmPrincipal();
+        vista.setVisible(true);
+       
+    }
     
 }

@@ -159,7 +159,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnAbrirArchivo" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="btnCrear" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="btnEjecutar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnEjecutar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnReportes" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="133" max="32767" attributes="0"/>
