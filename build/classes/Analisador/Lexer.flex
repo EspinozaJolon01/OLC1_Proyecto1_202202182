@@ -48,6 +48,23 @@ moda |
 varianza {lexeme=yytext(); return Estadisticas;}
 
 
+graphpie |
+titulo |
+label |
+grapPie |
+graphbar |
+ejex |
+ejey |
+titulox |
+tituloy |
+grapbar |
+graphline |
+grapline |
+histogram |
+exec {lexeme=yytext(); return Grafica;}
+
+
+
 "=" {lexeme=yytext(); return Igual;}
 "+" {lexeme=yytext(); return Suma;}
 "," {lexeme=yytext(); return Coma;}
@@ -69,6 +86,9 @@ varianza {lexeme=yytext(); return Estadisticas;}
 
 
 {espacio} {/*Ignore*/}
+
+/* Comentarios */
+( "!"(.)* ) {/*Ignore*/}
 
 
 {L}({L}|{D})* {lexeme=yytext(); return Identificador;}

@@ -5,6 +5,7 @@
 package Analisador;
 
 import Analisador.Tokens;
+import JFlex.sym;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -461,6 +462,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         
                         case Estadisticas:
                             result += "  <Estadísticas>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        case Grafica:
+                            result += "  <Grafica>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
 

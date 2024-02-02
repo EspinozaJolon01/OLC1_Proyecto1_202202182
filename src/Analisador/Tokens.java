@@ -35,5 +35,6 @@ public enum Tokens {
     ERROR,
     Aritmeticas,
     Tipo_dato,
-    Estadisticas
+    Estadisticas,
+    Grafica
 }
