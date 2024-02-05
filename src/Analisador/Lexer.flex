@@ -12,10 +12,19 @@ import static Analisador.Tokens.*;
 L=[a-zA-Z_]+
 D=[0-9]+
 espacio=[ \t\r\n]+
+
+
+
+
+%line
+%column
+%ignorecase
+
 %{
     public String lexeme;
 %}
 %%
+
 
 
 
@@ -83,6 +92,8 @@ exec {lexeme=yytext(); return Grafica;}
 "." {lexeme=yytext(); return Punto;}
 "“" {lexeme=yytext(); return C_dobles_a;}
 "”" {lexeme=yytext(); return C_dobles_c;}
+"“"([^\n]+)"”" {lexeme=yytext(); return Titulo;} 
+
 
 
 {espacio} {/*Ignore*/}
@@ -95,5 +106,11 @@ exec {lexeme=yytext(); return Grafica;}
 
 
 {L}({L}|{D})* {lexeme=yytext(); return Identificador;}
-("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
- . {lexeme=yytext(); return ERROR;}
+(-?{D}+\.?{D}*)|{D}*\.{D}+ {lexeme=yytext(); return Numero;}
+
+ . { 
+    lexeme=yytext();
+    int linea = yyline;
+    int columna = yycolumn;
+    return ERROR;
+}

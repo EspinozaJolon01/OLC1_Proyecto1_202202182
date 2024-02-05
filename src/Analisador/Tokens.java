@@ -36,5 +36,6 @@ public enum Tokens {
     Aritmeticas,
     Tipo_dato,
     Estadisticas,
-    Grafica
+    Grafica,
+    Titulo
 }

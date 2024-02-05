@@ -363,7 +363,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 
                 switch (token) {
                     case ERROR:
-                            result += "  <Error lexico>\t\t" + lexer.lexeme + "\n";
+                           result += "  <Error léxico>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                      case RESERVADA:
@@ -469,6 +469,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
                             result += "  <Grafica>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
+                        
+                        case Titulo:
+                            result += "  <Titulo_grafica>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        
 
 
                         
