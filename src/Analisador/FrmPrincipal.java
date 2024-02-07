@@ -350,7 +350,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
-        
+        lista.limpiar();
+        lista_token.limpiar();
         String texto = obtenerTextArea();
         
         
@@ -382,7 +383,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 switch (token) {
                     case ERROR:
                            result += "  <Error léxico>\t\t" + lexer.lexeme + "\n";
-                           error =  new Errores(conteo_errores, "Lexico", "el caracter : " + lexer.lexeme + "no pertenece");
+                           error =  new Errores(conteo_errores, "Lexico", "El caracter : " + lexer.lexeme + "no pertenece al lenguaje.");
                            lista.agegarLista(error);
                            conteo_errores++;
                         break;
@@ -654,7 +655,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
         // TODO add your handling code here:
-        lista.recorrer();
+        lista.reportesErrores();
         System.out.println("-------------------");
         lista_token.recorrer();
         

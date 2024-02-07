@@ -28,4 +28,7 @@ public class Lista_tokens {
         }
     }
     
+    public void limpiar(){
+        lista.clear();
+    }
 }
