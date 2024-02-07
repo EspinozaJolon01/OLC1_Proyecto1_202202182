@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/Tokens.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/Lexer.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/Compilador.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Lista/Lista_errores.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Clases/Tokens_L.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Clases/Errores.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Lista/Lista_tokens.java</file>
             <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/FrmPrincipal.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/Lexer.flex</file>
             <file>file:/C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Main/Principal.java</file>
         </group>
     </open-files>

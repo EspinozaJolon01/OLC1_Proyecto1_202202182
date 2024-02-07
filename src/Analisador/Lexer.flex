@@ -13,11 +13,6 @@ L=[a-zA-Z_]+
 D=[0-9]+
 espacio=[ \t\r\n]+
 
-
-
-
-%line
-%column
 %ignorecase
 
 %{
@@ -27,50 +22,49 @@ espacio=[ \t\r\n]+
 
 
 
+program {lexeme=yytext(); return Program;}
+end {lexeme=yytext(); return End;}
+var {lexeme=yytext(); return Var;}
+arr {lexeme=yytext(); return Arr;}
+console {lexeme=yytext(); return Console;}
+print {lexeme=yytext(); return Print;}
+column {lexeme=yytext(); return Column;}    
+"@" {lexeme=yytext(); return Arroba;}
+"::"  {lexeme=yytext(); return Doble_puntos;}
 
-program |
-end program |
-end |
-var |
-arr |
-console |
-print |
-column |
-@ |
-::  {lexeme=yytext(); return RESERVADA;}
-
-char |
-double {lexeme=yytext(); return Tipo_dato;}
+(char|double) {lexeme=yytext(); return Tipo_dato;}
 
 
 
-sum |
-res |
-mul |
-div | 
-mod {lexeme=yytext(); return Aritmeticas;}
 
+//A :: aritmeticas
+sum {lexeme=yytext(); return A_sum;}
+res {lexeme=yytext(); return A_res;}
+mul {lexeme=yytext(); return A_mul;}
+div {lexeme=yytext(); return A_div;} 
+mod {lexeme=yytext(); return A_mod;}
 
-media |
-mediana |
-moda |
-varianza {lexeme=yytext(); return Estadisticas;}
+//E :: estadisticas
+media {lexeme=yytext(); return E_media;}
+mediana {lexeme=yytext(); return E_mediana;}
+moda {lexeme=yytext(); return E_moda;}
+varianza {lexeme=yytext(); return E_varianza;}
 
-
-graphpie |
-titulo |
-label |
-grapPie |
-graphbar |
-ejex |
-ejey |
-titulox |
-tituloy |
-grapbar |
-graphline |
-grapline |
-histogram |
-exec {lexeme=yytext(); return Grafica;}
+//G :: grafica
+graphpie {lexeme=yytext(); return G_graphpie;}
+titulo {lexeme=yytext(); return G_titulo;}
+label {lexeme=yytext(); return G_label;}
+grapPie {lexeme=yytext(); return G_grapPie;}
+graphbar {lexeme=yytext(); return G_graphbar;}
+ejex {lexeme=yytext(); return G_ejex;}
+ejey {lexeme=yytext(); return G_ejey;}
+titulox {lexeme=yytext(); return G_titulox;}
+tituloy {lexeme=yytext(); return G_tituloy;}
+grapbar {lexeme=yytext(); return G_grapbar;}
+graphline {lexeme=yytext(); return G_graphline;}
+grapline {lexeme=yytext(); return G_grapline;}
+histogram {lexeme=yytext(); return G_histogram;}
+exec {lexeme=yytext(); return G_exec;}
 
 
 
@@ -92,8 +86,6 @@ exec {lexeme=yytext(); return Grafica;}
 "." {lexeme=yytext(); return Punto;}
 "“" {lexeme=yytext(); return C_dobles_a;}
 "”" {lexeme=yytext(); return C_dobles_c;}
-"“"([^\n]+)"”" {lexeme=yytext(); return Titulo;} 
-
 
 
 {espacio} {/*Ignore*/}
@@ -108,9 +100,4 @@ exec {lexeme=yytext(); return Grafica;}
 {L}({L}|{D})* {lexeme=yytext(); return Identificador;}
 (-?{D}+\.?{D}*)|{D}*\.{D}+ {lexeme=yytext(); return Numero;}
 
- . { 
-    lexeme=yytext();
-    int linea = yyline;
-    int columna = yycolumn;
-    return ERROR;
-}
+ . {lexeme=yytext(); return ERROR;}

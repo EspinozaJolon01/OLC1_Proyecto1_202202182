@@ -5,11 +5,16 @@
 package Analisador;
 
 import Analisador.Tokens;
+import Clases.Errores;
+import Clases.Tokens_L;
 import JFlex.sym;
+import Lista.Lista_errores;
+import Lista.Lista_tokens;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.List;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +43,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 
+
 /**
  *
  * @author Usuario
@@ -47,10 +53,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form FrmPrincipal
      */
-    
+    Lista_errores lista = new Lista_errores();
+    Lista_tokens lista_token =  new Lista_tokens();
+    Tokens_L tokens_L;
+    Errores error;
     int contador = 2;
+    int conteo_errores = 1;
+    int conteo_tokens = 1;
+    
+    
+    
+
+    
+    
     
     public FrmPrincipal() {
+        
         initComponents();
         contador = 2;
         this.setLocationRelativeTo(null);
@@ -364,21 +382,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 switch (token) {
                     case ERROR:
                            result += "  <Error léxico>\t\t" + lexer.lexeme + "\n";
-                        
+                           error =  new Errores(conteo_errores, "Lexico", "el caracter : " + lexer.lexeme + "no pertenece");
+                           lista.agegarLista(error);
+                           conteo_errores++;
                         break;
-                     case RESERVADA:
-                            result += "  <Reservada>\t\t" + lexer.lexeme + "\n";
-                        
+                     case Program:
+                            result += "  <Program>\t\t" + lexer.lexeme + "\n";
+                            tokens_L = new Tokens_L(conteo_tokens, lexer.lexeme, "Program");
+                            lista_token.agegarLista(tokens_L);
+                            conteo_tokens++;
                         break;
                         
                      case Igual:
                             result += "  <igual>\t\t" + lexer.lexeme + "\n";
-                        
+                            tokens_L = new Tokens_L(conteo_tokens, lexer.lexeme, "igual");
+                            lista_token.agegarLista(tokens_L);
+                            conteo_tokens++;
                         break;
 
                      case Coma:
                             result += "  <coma>\t\t" + lexer.lexeme + "\n";
-                        
+                            tokens_L = new Tokens_L(conteo_tokens, lexer.lexeme, "coma");
+                            lista_token.agegarLista(tokens_L);
+                            conteo_tokens++;
                         break;
                       
                         
@@ -450,30 +476,160 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         
                         break;
                         
-                        case Aritmeticas:
-                            result += "  <Aritméticas>\t\t" + lexer.lexeme + "\n";
-                        
-                        break;
+
                         
                         case Tipo_dato:
                             result += "  <Tipo_dato>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         
-                        case Estadisticas:
-                            result += "  <Estadísticas>\t\t" + lexer.lexeme + "\n";
+
+                        
+                        case End:
+                            result += "  <End>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
-                        case Grafica:
-                            result += "  <Grafica>\t\t" + lexer.lexeme + "\n" ;
+                        case Var:
+                            result += "  <Var>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
-                        case Titulo:
-                            result += "  <Titulo_grafica>\t\t" + lexer.lexeme + "\n" ;
+                        case Arr:
+                            result += "  <Arr>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
+                        
+                        case Console:
+                            result += "  <Console>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        
+                        case Print:
+                            result += "  <Print>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case Column:
+                            result += "  <Column>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case Arroba:
+                            result += "  <Arroba>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case Doble_puntos:
+                            result += "  <Doble_puntos>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case A_sum:
+                            result += "  <A_sum>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case A_res:
+                            result += "  <A_res>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case A_mul:
+                            result += "  <A_mul>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case A_div:
+                            result += "  <A_div>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case A_mod:
+                            result += "  <A_mod>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case E_media:
+                            result += "  <E_media>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case E_mediana:
+                            result += "  <E_mediana>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        
+                        case E_moda:
+                            result += "  <E_moda>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        
+                        case E_varianza:
+                            result += "  <E_varianza>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        case G_graphpie:
+                            result += "  <G_graphpie>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_titulo:
+                            result += "  <G_titulo>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_label:
+                            result += "  <G_label>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_grapPie:
+                            result += "  <G_grapPie>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_graphbar:
+                            result += "  <G_graphbar>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_ejex:
+                            result += "  <G_ejex>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_ejey:
+                            result += "  <G_ejey>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_titulox:
+                            result += "  <G_titulox>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_tituloy:
+                            result += "  <G_tituloy>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_grapbar:
+                            result += "  <G_grapbar>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_graphline:
+                            result += "  <G_graphline>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_grapline:
+                            result += "  <G_grapline>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_histogram:
+                            result += "  <G_histogram>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        case G_exec:
+                            result += "  <G_exec>\t\t" + lexer.lexeme + "\n" ;
+                        
+                        break;
+                        
+                        
                         
                         
 
@@ -498,6 +654,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
         // TODO add your handling code here:
+        lista.recorrer();
+        System.out.println("-------------------");
+        lista_token.recorrer();
+        
+        
     }//GEN-LAST:event_btnReportesActionPerformed
 
     private void jTabbedPane1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseExited
