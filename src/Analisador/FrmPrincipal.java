@@ -383,7 +383,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 switch (token) {
                     case ERROR:
                            result += "  <Error léxico>\t\t" + lexer.lexeme + "\n";
-                           error =  new Errores(conteo_errores, "Lexico", "El caracter : " + lexer.lexeme + "no pertenece al lenguaje.");
+                           error =  new Errores(conteo_errores, "Lexico", "El caracter : " + lexer.lexeme + " no pertenece al lenguaje.");
                            lista.agegarLista(error);
                            conteo_errores++;
                         break;
@@ -411,6 +411,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         
                         case Parentesis_a:
                             result += "  <Parentesis_a>\t\t" + lexer.lexeme + "\n";
+                            tokens_L = new Tokens_L(conteo_tokens, lexer.lexeme, "Parentesis_a");
+                            lista_token.agegarLista(tokens_L);
+                            conteo_tokens++;
                         
                         break;
                         case Parentesis_c:
@@ -655,9 +658,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Se creo los Reportes correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         lista.reportesErrores();
-        System.out.println("-------------------");
-        lista_token.recorrer();
+        lista_token.reporte();
         
         
     }//GEN-LAST:event_btnReportesActionPerformed

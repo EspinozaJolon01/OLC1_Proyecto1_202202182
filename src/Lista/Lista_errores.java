@@ -47,7 +47,7 @@ public class Lista_errores {
         htmlCodigo.append(" <meta charset=\"UTF-8\">");
         htmlCodigo.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">");
         htmlCodigo.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-        htmlCodigo.append("<title>Reporte</title>");
+        htmlCodigo.append("<title>Reportes errores</title>");
         htmlCodigo.append("</head>");
         htmlCodigo.append("<h1>Reporte de Errores</h1>");
         htmlCodigo.append("<center>");
@@ -86,7 +86,7 @@ public class Lista_errores {
         
           try {
 
-            File file = new File("C:/Users/Usuario/Desktop/Usac/reporte" + ".html");
+            File file = new File("C:/Users/Usuario/Desktop/Usac/reporte-errores" + ".html");
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(htmlCodigo.toString());
             fileWriter.close();
