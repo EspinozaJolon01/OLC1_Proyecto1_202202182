@@ -542,13 +542,44 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         
 
                         
-                        case Tipo_dato:
+                        case Tipo_char:
                             for (char c : lexer.lexeme.toCharArray()) {
                                 C_columna++;
                             }
-                            result += "  <Tipo_dato>\t\t" + lexer.lexeme + "\n";
+                            result += "  <Tipo_char>\t\t" + lexer.lexeme + "\n";
                         
                         break;
+                        
+                        case Tipo_double:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
+                            result += "  <Tipo_double>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        case E_min:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
+                            result += "  <E_min>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        case E_max:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
+                            result += "  <E_max>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        case G_values:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
+                            result += "  <G_values>\t\t" + lexer.lexeme + "\n";
+                        
+                        break;
+                        
+                        
                         
 
                         

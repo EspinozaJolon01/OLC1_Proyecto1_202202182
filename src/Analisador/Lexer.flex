@@ -29,27 +29,19 @@ arr {lexeme=yytext(); return Arr;}
 console {lexeme=yytext(); return Console;}
 print {lexeme=yytext(); return Print;}
 column {lexeme=yytext(); return Column;}    
-
-
-(char|double) {lexeme=yytext(); return Tipo_dato;}
-
-
-
-
-//A :: aritmeticas
+char {lexeme=yytext(); return Tipo_char;}
+double {lexeme=yytext(); return Tipo_double;}
 sum {lexeme=yytext(); return A_sum;}
 res {lexeme=yytext(); return A_res;}
 mul {lexeme=yytext(); return A_mul;}
 div {lexeme=yytext(); return A_div;} 
 mod {lexeme=yytext(); return A_mod;}
-
-//E :: estadisticas
+min {lexeme=yytext(); return E_min;} 
+max {lexeme=yytext(); return E_max;}
 media {lexeme=yytext(); return E_media;}
 mediana {lexeme=yytext(); return E_mediana;}
 moda {lexeme=yytext(); return E_moda;}
 varianza {lexeme=yytext(); return E_varianza;}
-
-//G :: grafica
 graphpie {lexeme=yytext(); return G_graphpie;}
 titulo {lexeme=yytext(); return G_titulo;}
 label {lexeme=yytext(); return G_label;}
@@ -63,10 +55,8 @@ grapbar {lexeme=yytext(); return G_grapbar;}
 graphline {lexeme=yytext(); return G_graphline;}
 grapline {lexeme=yytext(); return G_grapline;}
 histogram {lexeme=yytext(); return G_histogram;}
+values {lexeme=yytext(); return G_values;}
 exec {lexeme=yytext(); return G_exec;}
-
-
-
 "=" {lexeme=yytext(); return Igual;}
 "+" {lexeme=yytext(); return Suma;}
 "," {lexeme=yytext(); return Coma;}
