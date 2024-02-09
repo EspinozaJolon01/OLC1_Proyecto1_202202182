@@ -350,6 +350,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
+        conteo_errores = 1;
+        conteo_tokens = 1;
+        int C_fila = 1;
+        int C_columna = 0;
         lista.limpiar();
         lista_token.limpiar();
         String texto = obtenerTextArea();
@@ -382,12 +386,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 
                 switch (token) {
                     case ERROR:
+                        for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                            result += "  <Error léxico>\t\t" + lexer.lexeme + "\n";
                            error =  new Errores(conteo_errores, "Lexico", "El caracter : " + lexer.lexeme + " no pertenece al lenguaje.");
                            lista.agegarLista(error);
                            conteo_errores++;
                         break;
                      case Program:
+                         for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Program>\t\t" + lexer.lexeme + "\n";
                             tokens_L = new Tokens_L(conteo_tokens, lexer.lexeme, "Program");
                             lista_token.agegarLista(tokens_L);
@@ -395,6 +405,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         break;
                         
                      case Igual:
+                         for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <igual>\t\t" + lexer.lexeme + "\n";
                             tokens_L = new Tokens_L(conteo_tokens, lexer.lexeme, "igual");
                             lista_token.agegarLista(tokens_L);
@@ -402,6 +415,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         break;
 
                      case Coma:
+                         for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <coma>\t\t" + lexer.lexeme + "\n";
                             tokens_L = new Tokens_L(conteo_tokens, lexer.lexeme, "coma");
                             lista_token.agegarLista(tokens_L);
@@ -410,6 +426,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                       
                         
                         case Parentesis_a:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Parentesis_a>\t\t" + lexer.lexeme + "\n";
                             tokens_L = new Tokens_L(conteo_tokens, lexer.lexeme, "Parentesis_a");
                             lista_token.agegarLista(tokens_L);
@@ -417,65 +436,106 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         
                         break;
                         case Parentesis_c:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Parentesis_c>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         case Llave_a:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Parentesis_a>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                        
                         case Llave_c:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Llave_c>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                        
                         case Identificador:
-                            result += "  <Identificador>\t\t" + lexer.lexeme + "\n";
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
+                            
+                            result += "  <Identificador>\t\t" + lexer.lexeme + " fila " + (C_fila) + " columnas " +(C_columna)+"\n";
                         
                         break;
                        
                         case Numero:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
+                            
                             result += "  <Numero>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         case Dos_puntos:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Dos_puntos>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         
                         case Reserve:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Reserve>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         
                         case P_coma:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <P_coma>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         
                         case Parent_a:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Parent_a>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         
                         
                         case Parent_c:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Parent_c>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         
                          case Punto:
+                             for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Punto>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         
                          case C_dobles_a:
+                             for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <C_dobles_a>\t\t" + lexer.lexeme + "\n";
                         
                         break;
                         
                          case C_dobles_c:
+                             for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <C_dobles_c>\t\t" + lexer.lexeme + "\n";
                         
                         break;
@@ -483,6 +543,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
                         
                         case Tipo_dato:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Tipo_dato>\t\t" + lexer.lexeme + "\n";
                         
                         break;
@@ -490,159 +553,254 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
                         
                         case End:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <End>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case Var:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Var>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case Arr:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Arr>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case Console:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Console>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         
                         case Print:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Print>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case Column:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Column>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case Arroba:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Arroba>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case Doble_puntos:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <Doble_puntos>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case A_sum:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <A_sum>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case A_res:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <A_res>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case A_mul:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <A_mul>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case A_div:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <A_div>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case A_mod:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <A_mod>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case E_media:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <E_media>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case E_mediana:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <E_mediana>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         
                         case E_moda:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <E_moda>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         
                         case E_varianza:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <E_varianza>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         
                         case G_graphpie:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_graphpie>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_titulo:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_titulo>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_label:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_label>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_grapPie:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_grapPie>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_graphbar:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_graphbar>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_ejex:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_ejex>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_ejey:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_ejey>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_titulox:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_titulox>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_tituloy:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_tituloy>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_grapbar:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_grapbar>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_graphline:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_graphline>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_grapline:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_grapline>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_histogram:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_histogram>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
                         case G_exec:
+                            for (char c : lexer.lexeme.toCharArray()) {
+                                C_columna++;
+                            }
                             result += "  <G_exec>\t\t" + lexer.lexeme + "\n" ;
                         
                         break;
+                        case Tabulacion:
+                            C_columna += 4;
                         
+                        break;
+                        case S_Linea:
+                            C_columna = 0;
+                            C_fila ++;
+                            
+                        break;
+                        case Espacio_b:
+                            C_columna +=1;
+                        break;
                         
-                        
-                        
-
-
-                        
-                        
-                        
-                       
-                         
                     default:
                        result += "Token: " + token + "\n";
                 }

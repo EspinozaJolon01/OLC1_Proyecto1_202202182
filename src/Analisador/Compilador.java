@@ -15,45 +15,45 @@ import java.nio.file.Paths;
  * @author Usuario
  */
 public class Compilador {
+
+    
+    
     public static void main(String[] args) throws Exception {
-        String ruta1 = "C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/Lexer.flex";
-//        String ruta2 = "C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/LexerCup.flex";
-//        String[] rutaS = {"-parser","Sintax","C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/Sintax.cup"};
-        generarLexer(ruta1);
-        
+        System.out.println (new File ("").getAbsolutePath ());
+        String rutap = new File ("").getAbsolutePath ()+"/";
+        String ruta1 = rutap +"src/Analisador/Lexer.flex";
+        String ruta2 = rutap+"src/Analisador/LexerCup.flex";
+        String[] rutaS = {"-parser", "Sintax", rutap+"src/Analisador/Sintax.cup"};
+        generar(ruta1, ruta2, rutaS);
     }
     
-    
-   public static void generarLexer(String ruta){
-        File archivo =  new File(ruta);
+    public static void generar(String ruta1, String ruta2, String[] rutaS) throws IOException, Exception{
+        File archivo;
+        archivo = new File(ruta1);
         JFlex.Main.generate(archivo);
-    }
-//    public static void generar(String ruta1, String ruta2, String[] rutaS) throws IOException, Exception{
-//        File archivo;
-//        archivo = new File(ruta1);
-//        JFlex.Main.generate(archivo);
-//        archivo = new File(ruta2);
-//        JFlex.Main.generate(archivo);
-//        java_cup.Main.main(rutaS);
-//        
-//        Path rutaSym = Paths.get("C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/sym.java");
-//        if (Files.exists(rutaSym)) {
-//            Files.delete(rutaSym);
-//        }
-//        Files.move(
-//                Paths.get("C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/sym.java"), 
-//                Paths.get("C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/sym.java")
-//        );
-//        Path rutaSin = Paths.get("C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/Sintax.java");
-//        if (Files.exists(rutaSin)) {
-//            Files.delete(rutaSin);
-//        }
-//        Files.move(
-//                Paths.get("C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/Sintax.java"), 
-//                Paths.get("C:/Users/Usuario/Desktop/DataForge/OLC1_Proyecto1_202202182/src/Analisador/Sintax.java")
-//        );
-//    }
+        archivo = new File(ruta2);
+        JFlex.Main.generate(archivo);
+        java_cup.Main.main(rutaS);
+        System.out.println (new File (".").getAbsolutePath ());
+        String rutap = new File ("").getAbsolutePath ()+"/";
+        Path rutaSym = Paths.get(rutap+"src/Analisador/sym.java");
+        if (Files.exists(rutaSym)) {
+            Files.delete(rutaSym);
+        }
+        Files.move(
+                Paths.get(rutap+"sym.java"), 
+                Paths.get(rutap+"src/Analisador/sym.java")
+        );
+        Path rutaSin = Paths.get(rutap+"src/Analisador/Sintax.java");
+        if (Files.exists(rutaSin)) {
+            Files.delete(rutaSin);
+        }
+        Files.move(
+                Paths.get(rutap+"Sintax.java"), 
+                Paths.get(rutap+"src/Analisador/Sintax.java")
+        );
     
+    }
     
     
 }

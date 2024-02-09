@@ -11,7 +11,7 @@ import static Analisador.Tokens.*;
 %type Tokens
 L=[a-zA-Z_]+
 D=[0-9]+
-espacio=[ \t\r\n]+
+espacio=[\r]+
 
 %ignorecase
 
@@ -29,8 +29,7 @@ arr {lexeme=yytext(); return Arr;}
 console {lexeme=yytext(); return Console;}
 print {lexeme=yytext(); return Print;}
 column {lexeme=yytext(); return Column;}    
-"@" {lexeme=yytext(); return Arroba;}
-"::"  {lexeme=yytext(); return Doble_puntos;}
+
 
 (char|double) {lexeme=yytext(); return Tipo_dato;}
 
@@ -86,6 +85,11 @@ exec {lexeme=yytext(); return G_exec;}
 "." {lexeme=yytext(); return Punto;}
 "“" {lexeme=yytext(); return C_dobles_a;}
 "”" {lexeme=yytext(); return C_dobles_c;}
+"@" {lexeme=yytext(); return Arroba;}
+"::" {lexeme=yytext(); return Doble_puntos;}
+"\t" { return Tabulacion;}
+"\n" { return S_Linea;}
+" " { return Espacio_b;}
 
 
 {espacio} {/*Ignore*/}

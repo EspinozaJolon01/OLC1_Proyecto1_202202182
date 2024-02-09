@@ -37,8 +37,7 @@ arr {return new Symbol(sym.Arr, yychar, yyline, yytext());}
 console {return new Symbol(sym.Console, yychar, yyline, yytext());}
 print {return new Symbol(sym.Print, yychar, yyline, yytext());}
 column {return new Symbol(sym.Column, yychar, yyline, yytext());}  
-"@" {return new Symbol(sym.Arroba, yychar, yyline, yytext());}
-"::"   {return new Symbol(sym.Doble_puntos, yychar, yyline, yytext());}
+
 
 char {return new Symbol(sym.Tipo_dato, yychar, yyline, yytext());}
 double {return new Symbol(sym.Tipo_dato, yychar, yyline, yytext());}
@@ -74,25 +73,26 @@ histogram {return new Symbol(sym.G_histogram, yychar, yyline, yytext());}
 exec {return new Symbol(sym.G_exec, yychar, yyline, yytext());}
 
 
-
-( "=" ) {return new Symbol(sym.Igual, yychar, yyline, yytext());}
-( "+" ) {return new Symbol(sym.Suma, yychar, yyline, yytext());}
+"=" {return new Symbol(sym.Igual, yychar, yyline, yytext());}
+"+" {return new Symbol(sym.Suma, yychar, yyline, yytext());}
 "," {return new Symbol(sym.Coma, yychar, yyline, yytext());}
-( "-" ) {return new Symbol(sym.Resta, yychar, yyline, yytext());}
-( "*" ) {return new Symbol(sym.Multiplicacion, yychar, yyline, yytext());}
-( "/" ) {return new Symbol(sym.Division, yychar, yyline, yytext());}
-( "(" ) {return new Symbol(sym.Parentesis_a, yychar, yyline, yytext());}
-( ")" ) {return new Symbol(sym.Parentesis_c, yychar, yyline, yytext());}
-( "{" ) {return new Symbol(sym.Llave_a, yychar, yyline, yytext());}
-( "}" ) {return new Symbol(sym.Llave_c, yychar, yyline, yytext());}
-( ":" ) {return new Symbol(sym.Dos_puntos, yychar, yyline, yytext());}
-( "<-" ) {return new Symbol(sym.Reserve, yychar, yyline, yytext());}
-( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
-( "[" ) {return new Symbol(sym.Parent_a, yychar, yyline, yytext());}
-( "]" ) {return new Symbol(sym.Parent_c, yychar, yyline, yytext());}
-( "." ) {return new Symbol(sym.Punto, yychar, yyline, yytext());}
-( "“" ) {return new Symbol(sym.C_dobles_a, yychar, yyline, yytext());}
-( "”" ) {return new Symbol(sym.C_dobles_c, yychar, yyline, yytext());}
+"-" {return new Symbol(sym.Resta, yychar, yyline, yytext());}
+"*" {return new Symbol(sym.Multiplicacion, yychar, yyline, yytext());}
+"/" {return new Symbol(sym.Division, yychar, yyline, yytext());}
+"(" {return new Symbol(sym.Parentesis_a, yychar, yyline, yytext());}
+")" {return new Symbol(sym.Parentesis_c, yychar, yyline, yytext());}
+"{" {return new Symbol(sym.Llave_a, yychar, yyline, yytext());}
+"}" {return new Symbol(sym.Llave_c, yychar, yyline, yytext());}
+":" {return new Symbol(sym.Dos_puntos, yychar, yyline, yytext());}
+"<-" {return new Symbol(sym.Reserve, yychar, yyline, yytext());}
+";" {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
+"[" {return new Symbol(sym.Parent_a, yychar, yyline, yytext());}
+"]" {return new Symbol(sym.Parent_c, yychar, yyline, yytext());}
+"." {return new Symbol(sym.Punto, yychar, yyline, yytext());}
+"“" {return new Symbol(sym.C_dobles_a, yychar, yyline, yytext());}
+"”" {return new Symbol(sym.C_dobles_c, yychar, yyline, yytext());}
+"@" {return new Symbol(sym.Arroba, yychar, yyline, yytext());}
+"::"   {return new Symbol(sym.Doble_puntos, yychar, yyline, yytext());}
 
 
 

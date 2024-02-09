@@ -65,5 +65,8 @@ public enum Tokens {
     C_dobles_c,
     ERROR,
     Tipo_dato,
+    Tabulacion,
+    S_Linea,
+    Espacio_b
     
 }
