@@ -884,72 +884,84 @@ public class FrmPrincipal extends javax.swing.JFrame {
         return null;
     }
     
-private void guardar() {
-    int index = jTabbedPane1.getSelectedIndex();
+    private void guardar() {
+        int index = jTabbedPane1.getSelectedIndex();
 
-    if (index != -1) {
-        // Obtener el nombre de la pestaña seleccionada
-        String tabTitle = jTabbedPane1.getTitleAt(index);
+        if (index != -1) {
+            // Obtener el nombre de la pestaña seleccionada
+            String tabTitle = jTabbedPane1.getTitleAt(index);
 
-        // Obtener el componente (panel) de la pestaña actual
-        Component selectedComponent = jTabbedPane1.getComponentAt(index);
+            // Obtener el componente (panel) de la pestaña actual
+            Component selectedComponent = jTabbedPane1.getComponentAt(index);
 
-        // Verificar si el componente es un contenedor válido
-        if (selectedComponent instanceof Container) {
-            JTextArea textArea = findJTextArea(selectedComponent);
+            // Verificar si el componente es un contenedor válido
+            if (selectedComponent instanceof Container) {
+                JTextArea textArea = findJTextArea(selectedComponent);
 
-            if (textArea != null) {
-                // Obtener el contenido del JTextArea
-                String content = textArea.getText();
+                if (textArea != null) {
+                    // Obtener el contenido del JTextArea
+                    String content = textArea.getText();
 
-                // Definir la ruta y el nombre del archivo
-                String filePath = "C:\\Users\\Usuario\\Desktop\\Usac\\" + tabTitle + ".df";
+                    // Definir la ruta y el nombre del archivo
+                    String filePath = "C:\\Users\\Usuario\\Desktop\\Usac\\" + tabTitle + ".df";
 
-                try {
-                    File file = new File(filePath);
-                    BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-                    writer.write(content);
-                    writer.close();
-                    JOptionPane.showMessageDialog(null, "Archivo guardado exitosamente.", "Guardado", JOptionPane.INFORMATION_MESSAGE);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Error al guardar el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    try {
+                        File file = new File(filePath);
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+                        writer.write(content);
+                        writer.close();
+                        JOptionPane.showMessageDialog(null, "Archivo guardado exitosamente.", "Guardado", JOptionPane.INFORMATION_MESSAGE);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Error al guardar el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo encontrar el JTextArea en la pestaña seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "No se pudo encontrar el JTextArea en la pestaña seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-}
-
-// Método para encontrar un JTextArea dentro de un contenedor
-private JTextArea findJTextArea(Component container) {
-    if (container instanceof JTextArea) {
-        return (JTextArea) container;
-    }
-
-    if (container instanceof JScrollPane) {
-        JScrollPane scrollPane = (JScrollPane) container;
-        Component viewportView = scrollPane.getViewport().getView();
-
-        if (viewportView instanceof JTextArea) {
-            return (JTextArea) viewportView;
-        }
-    }
-
-    if (container instanceof Container) {
-        Component[] components = ((Container) container).getComponents();
-
-        for (Component comp : components) {
-            JTextArea textArea = findJTextArea(comp);
-            if (textArea != null) {
-                return textArea;
             }
         }
     }
 
-    return null;
-}
+    // Método para encontrar un JTextArea dentro de un contenedor
+    private JTextArea findJTextArea(Component container) {
+        if (container instanceof JTextArea) {
+            return (JTextArea) container;
+        }
+
+        if (container instanceof JScrollPane) {
+            JScrollPane scrollPane = (JScrollPane) container;
+            Component viewportView = scrollPane.getViewport().getView();
+
+            if (viewportView instanceof JTextArea) {
+                return (JTextArea) viewportView;
+            }
+        }
+
+        if (container instanceof Container) {
+            Component[] components = ((Container) container).getComponents();
+
+            for (Component comp : components) {
+                JTextArea textArea = findJTextArea(comp);
+                if (textArea != null) {
+                    return textArea;
+                }
+            }
+        }
+
+        return null;
+    }
+    
+    public void sintactico(){
+        String texto = obtenerTextArea();
+        Sintax s = new Sintax(new Analisador.LexerCup(new StringReader(texto)));
+        
+        try {
+            s.parse();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 
 

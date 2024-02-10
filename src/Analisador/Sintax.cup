@@ -31,6 +31,8 @@ start with INICIO;
 INICIO ::= Program SENTENCIA End Program 
             ;
 
-SENTENCIA ::= Var Dos_puntos Tipo_char Identificador Reserve Numero End P_coma
+SENTENCIA ::= Var Dos_puntos Tipo_double Doble_puntos Identificador Reserve Numero End P_coma  |
+              Var Dos_puntos Tipo_char Doble_puntos Identificador Reserve C_dobles_a Identificador C_dobles_c End P_coma |
+              Var Dos_puntos Tipo_double Doble_puntos Identificador Reserve Identificador End P_coma 
              ;
 
