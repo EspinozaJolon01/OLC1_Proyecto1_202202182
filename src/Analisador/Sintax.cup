@@ -6,13 +6,12 @@ import java_cup.runtime.Symbol;
 
 parser code
 {:
-    public void sytax_error(Symbol s){
-        System.out.println("Error sintactico: " + s.value + s.left+ "linea: "  + s.left + "columna: " + s.right);
+     public void syntax_error(Symbol s){
+        System.out.println("Error sintactico: "+s.value+" linea: "+s.left+" columna: "+s.right);
     }
-
-    public void unrecovered_syntax_error(Symbol s){
-            System.out.println("Error lexico: " + s.value + s.left+ "linea: "  + s.left + "columna: " + s.right);
-        }
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
+        System.out.println("Error sintactico unrecovered: "+s.value+" linea: "+s.left+" columna: "+s.right);
+    }
 
 :}
 
@@ -23,15 +22,21 @@ G_graphpie,G_titulo,G_label,G_grapPie,G_graphbar,G_ejex,G_ejey,G_titulox,G_titul
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
-non terminal INICIO, SENTENCIA;
+non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,TDOUBLE,TCHAR,TARRELGOS,
+OPERA,OARIT,OESTAD,CADENA;
 
 start with INICIO;
 
-INICIO ::= Program SENTENCIA End Program 
-            ;
+INICIO ::= Program CODIGO End Program ;
+CODIGO ::= COMPILACION |      ;
+COMPILACION ::= SENTENCIA |  SENTENCIA COMPILACION;
 
-SENTENCIA ::= Var Dos_puntos Tipo_double Doble_puntos Identificador Reserve Numero End P_coma  |
-              Var Dos_puntos Tipo_char Parent_a Parent_c Doble_puntos Identificador Reserve C_dobles_a Identificador C_dobles_c End P_coma |
-              Var Dos_puntos Tipo_double Doble_puntos Identificador Reserve Identificador End P_coma 
-             ;
+SENTENCIA ::= TDOUBLE |  TCHAR |  TARRELGOS;
+
+
+//TDOUBLE ::= Var Dos_puntos Tipo_double Doble_puntos Identificador Reserve OPERA End P_coma  ;
+
+//OPERA ::= OARIT | OESTAD | Numero | Arroba Identificador;
+
+             
 

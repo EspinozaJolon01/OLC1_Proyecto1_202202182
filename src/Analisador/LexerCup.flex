@@ -13,11 +13,12 @@ import Clases.Tokens_L;
 %%
 %class LexerCup
 %type java_cup.runtime.Symbol
+%public
+%line 
+%char 
 %cup
-%full
-%line
-%char
-%column
+%unicode 
+%ignorecase 
 L=[a-zA-Z_]+
 D=[0-9]+
 espacio=[ \t\r\n]+
@@ -45,12 +46,12 @@ espacio=[ \t\r\n]+
 
 %%
 
-program {System.out.println("Inicio: "+ yytext() +
+"program" {System.out.println("Inicio: "+ yytext() +
     ", en la linea: "+yyline+", en la columna: "+yycolumn); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Program");
                             lista_token.agegarLista(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Program, yyline, yycolumn, yytext());}
-end     {return new Symbol(sym.End, yyline, yycolumn, yytext());}
+"end"     {return new Symbol(sym.End, yyline, yycolumn, yytext());}
 var     {return new Symbol(sym.Var, yyline, yycolumn, yytext());}
 arr  {return new Symbol(sym.Arr, yyline, yycolumn, yytext());}
 console    {return new Symbol(sym.Console, yyline, yycolumn, yytext());}
