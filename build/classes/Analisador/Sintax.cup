@@ -23,7 +23,7 @@ Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
 non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,TDOUBLE,TCHAR,TARRELGOS,
-OPERA,OARIT,OESTAD,CADENA,STRING,TIP_A,ARR_NUM,ARR_CA;
+OPERA,OARIT,OESTAD,STRING,TIP_A,ARR_NUM,ARR_CA;
 
 start with INICIO;
 
@@ -39,11 +39,10 @@ TDOUBLE ::= Var Dos_puntos Tipo_double Doble_puntos Identificador Reserve OPERA 
 
 OPERA ::= OARIT | OESTAD | Numero | Arroba Identificador | Identificador;
 
-TCHAR ::= Var Dos_puntos Tipo_char Parent_a Parent_c Doble_puntos Identificador Reserve CADENA End P_coma  ;
+TCHAR ::= Var Dos_puntos Tipo_char Parent_a Parent_c Doble_puntos Identificador Reserve C_dobles_a STRING C_dobles_c End P_coma  ;
 
-CADENA ::=  Identificador | C_dobles_a STRING C_dobles_c;
 
-STRING ::=  Identificador STRING | Numero STRING;       
+STRING ::=  Identificador | Numero ;       
 
 
 //arreglos
