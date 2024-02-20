@@ -22,8 +22,9 @@ G_graphpie,G_titulo,G_label,G_grapPie,G_graphbar,G_ejex,G_ejey,G_titulox,G_titul
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
-non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,TDOUBLE,TCHAR,TARRELGOS,
-OPERA,OARIT,OESTAD,STRING,TIP_A,ARR_NUM,ARR_CA;
+non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,TDOUBLE,TCHAR,TARRELGOS,Valor_Arr,dato_char,
+OPERA,OARIT,OESTAD,STRING,TIP_A,ARR_NUM,ARR_CA,SUMA,RESTA,MULTI,DIVISION,MODULO,VARIABLE_NUM,Clasifiacion,
+Num_arre,multi_arr,dato_string;
 
 start with INICIO;
 
@@ -42,14 +43,47 @@ OPERA ::= OARIT | OESTAD | Numero | Arroba Identificador | Identificador;
 TCHAR ::= Var Dos_puntos Tipo_char Parent_a Parent_c Doble_puntos Identificador Reserve C_dobles_a STRING C_dobles_c End P_coma  ;
 
 
-STRING ::=  Identificador | Numero ;       
+STRING ::=  Identificador  | Numero ;  
+
+//Operaciones Aritméticas
+
+OARIT ::= SUMA | RESTA | MULTI | DIVISION | MODULO ;
+
+SUMA ::= A_sum Parentesis_a VARIABLE_NUM Parentesis_c ;
+
+RESTA ::= A_res Parentesis_a VARIABLE_NUM Parentesis_c ;
+
+MULTI ::= A_mul Parentesis_a VARIABLE_NUM Parentesis_c ; 
+
+DIVISION ::= A_div Parentesis_a VARIABLE_NUM Parentesis_c ;
+
+MODULO ::= A_mod Parentesis_a VARIABLE_NUM Parentesis_c ;
+
+VARIABLE_NUM ::= OPERA | OPERA Coma VARIABLE_NUM;
+     
 
 
 //arreglos
 
-TARRELGOS ::= Arr Dos_puntos Tipo_double Doble_puntos Arroba Identificador Reserve TIP_A End P_coma  ;
+TARRELGOS ::= Arr Dos_puntos Clasifiacion Doble_puntos Arroba Identificador Reserve Parent_a TIP_A Parent_c End P_coma  ;
+
+
+Clasifiacion ::= Tipo_double | Tipo_char Parent_a Parent_c ;
+
+//double
 
 TIP_A ::= ARR_NUM | ARR_CA ;
+
+ARR_NUM ::= OPERA | OPERA Coma  ARR_NUM;
+
+
+//char
+ARR_CA ::= Valor_Arr | Valor_Arr Coma ARR_CA;
+
+Valor_Arr ::= C_dobles_a dato_char C_dobles_c;
+
+dato_char ::= Identificador dato_char | Numero dato_char |  ; 
+
 
 
 
