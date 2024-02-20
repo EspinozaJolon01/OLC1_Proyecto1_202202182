@@ -4,6 +4,7 @@
  */
 package Lista;
 
+import Analisador.LexerCup;
 import Clases.Errores;
 import java.awt.Desktop;
 import java.io.File;
@@ -18,21 +19,21 @@ import java.util.List;
 public class Lista_errores {
     
     
-    public static List<Errores> lista_E =  new ArrayList<>();
+//    public static List<Errores> lista_E =  new ArrayList<>();
     
 //    public void agegarLista(Errores error){
 //        lista.add(error);
 //    }
     
     public void recorrer(){
-        for (int i = 0; i < lista_E.size(); i++) {
-            Errores error =  lista_E.get(i);
+        for (int i = 0; i < LexerCup.lista_E.size(); i++) {
+            Errores error =  LexerCup.lista_E.get(i);
             System.out.println("#: " + error.conteo + "tipo: " + error.tipo + "Despcion: " + error.descip);
         }
     }
     
     public void limpiar(){
-        lista_E.clear();
+        LexerCup.lista_E.clear();
         
     }
     
@@ -66,8 +67,8 @@ public class Lista_errores {
         htmlCodigo.append("<tr>");
         
         
-        for(int i=0;i <lista_E.size();i++){
-             Errores error =  lista_E.get(i);
+        for(int i=0;i <LexerCup.lista_E.size();i++){
+             Errores error =  LexerCup.lista_E.get(i);
              htmlCodigo.append("<td>" + error.conteo+ "</td>");
              htmlCodigo.append("<td>"+ error.tipo + "</td>");
              htmlCodigo.append("<td>"+ error.descip+"</td>");

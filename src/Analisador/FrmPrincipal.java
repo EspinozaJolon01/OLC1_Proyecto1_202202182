@@ -56,7 +56,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form FrmPrincipal
      */
-    Lista_errores lista = new Lista_errores();
+    Lista_errores lista_errores = new Lista_errores();
     Lista_tokens lista_token =  new Lista_tokens();
     Tokens_L tokens_L;
     Errores error;
@@ -365,7 +365,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
-
+        lista_token.limpiar();
+        lista_errores.limpiar();
         
         try {
             
@@ -385,7 +386,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Se creo los Reportes correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        lista.reportesErrores();
+        lista_errores.reportesErrores();
         lista_token.reporte();
         
         
