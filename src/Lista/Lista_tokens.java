@@ -4,6 +4,7 @@
  */
 package Lista;
 
+import Analisador.LexerCup;
 import Clases.Errores;
 import Clases.Tokens_L;
 import java.awt.Desktop;
@@ -18,22 +19,22 @@ import java.util.List;
  */
 public class Lista_tokens {
     
-    List<Tokens_L> lista =  new ArrayList<>();
+    //public static List<Tokens_L> lista_T =  new ArrayList<>();
     
     
-    public void agegarLista(Tokens_L tokens){
-        lista.add(tokens);
-    }
+//    public void agegarLista(Tokens_L tokens){
+//        lista.add(tokens);
+//    }
     
     public void recorrer(){
-        for (int i = 0; i < lista.size(); i++) {
-            Tokens_L tokens =  lista.get(i);
+        for (int i = 0; i < LexerCup.lista_T.size(); i++) {
+            Tokens_L tokens =  LexerCup.lista_T.get(i);
             System.out.println("#: " + tokens.conteo + "lexem: " + tokens.lexema + "tipo: " + tokens.tipo);
         }
     }
     
     public void limpiar(){
-        lista.clear();
+        LexerCup.lista_T.clear();
     }
     
     public void reporte(){
@@ -64,13 +65,13 @@ public class Lista_tokens {
         htmlCodigo.append("<tr>");
         
         
-        for(int i=0;i <lista.size();i++){
-             Tokens_L tokens_L =  lista.get(i);
+        for(int i=0;i <LexerCup.lista_T.size();i++){
+             Tokens_L tokens_L =  LexerCup.lista_T.get(i);
              htmlCodigo.append("<td>" + tokens_L.conteo+ "</td>");
              htmlCodigo.append("<td>"+ tokens_L.lexema + "</td>");
              htmlCodigo.append("<td>"+ tokens_L.tipo+"</td>");
-             htmlCodigo.append("<td></td>");
-             htmlCodigo.append("<td></td>");
+             htmlCodigo.append("<td>"+ tokens_L.Linea+"</td>");
+             htmlCodigo.append("<td>"+ tokens_L.Columna+"</td>");
              htmlCodigo.append("</tr>");
              
         }

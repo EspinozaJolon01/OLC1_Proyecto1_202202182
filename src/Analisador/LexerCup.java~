@@ -9,10 +9,10 @@
  */
 package Analisador;
 import java_cup.runtime.Symbol;
-import Lista.Lista_errores;
-import Lista.Lista_tokens;
 import Clases.Errores;
 import Clases.Tokens_L;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @SuppressWarnings("fallthrough")
@@ -443,15 +443,10 @@ public class LexerCup implements java_cup.runtime.Scanner {
   private boolean zzEOFDone;
 
   /* user code: */
-    public Symbol symbol(int type, Object value){
-        return new Symbol(type, yyline,yycolumn,value);
-    }
-    public Symbol symbol(int type){
-        return new Symbol(type, yyline,yycolumn);
-    }
+    public static List<Errores> lista_E =  new ArrayList<>();
+    public static List<Tokens_L> lista_T =  new ArrayList<>();
 
-    Lista_errores lista = new Lista_errores();
-    Lista_tokens lista_token =  new Lista_tokens();
+    
     Tokens_L tokens_L;
     Errores error;
     int conteo_errores = 1;
@@ -893,291 +888,459 @@ public class LexerCup implements java_cup.runtime.Scanner {
           // fall through
           case 61: break;
           case 3:
-            { return new Symbol(sym.Parentesis_a, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "ParentA",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Parentesis_a, yyline, yycolumn, yytext());
             }
           // fall through
           case 62: break;
           case 4:
-            { return new Symbol(sym.Parentesis_c, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "ParentC",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Parentesis_c, yyline, yycolumn, yytext());
             }
           // fall through
           case 63: break;
           case 5:
-            { return new Symbol(sym.Multiplicacion, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "multi",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Multiplicacion, yyline, yycolumn, yytext());
             }
           // fall through
           case 64: break;
           case 6:
-            { return new Symbol(sym.Suma, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "mas",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Suma, yyline, yycolumn, yytext());
             }
           // fall through
           case 65: break;
           case 7:
-            { return new Symbol(sym.Coma, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "coma",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Coma, yyline, yycolumn, yytext());
             }
           // fall through
           case 66: break;
           case 8:
-            { return new Symbol(sym.Resta, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "menos",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Resta, yyline, yycolumn, yytext());
             }
           // fall through
           case 67: break;
           case 9:
-            { return new Symbol(sym.Punto, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Punto",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Punto, yyline, yycolumn, yytext());
             }
           // fall through
           case 68: break;
           case 10:
-            { return new Symbol(sym.Division, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "div",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Division, yyline, yycolumn, yytext());
             }
           // fall through
           case 69: break;
           case 11:
-            { return new Symbol(sym.Numero, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Numero",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Numero, yyline, yycolumn, yytext());
             }
           // fall through
           case 70: break;
           case 12:
-            { return new Symbol(sym.Dos_puntos, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "dos_puntos",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Dos_puntos, yyline, yycolumn, yytext());
             }
           // fall through
           case 71: break;
           case 13:
-            { return new Symbol(sym.P_coma, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Punto_com",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.P_coma, yyline, yycolumn, yytext());
             }
           // fall through
           case 72: break;
           case 14:
-            { return new Symbol(sym.Igual, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "igual",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Igual, yyline, yycolumn, yytext());
             }
           // fall through
           case 73: break;
           case 15:
-            { return new Symbol(sym.Arroba, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Arroba",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Arroba, yyline, yycolumn, yytext());
             }
           // fall through
           case 74: break;
           case 16:
-            { return new Symbol(sym.Identificador, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "String",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Identificador, yyline, yycolumn, yytext());
             }
           // fall through
           case 75: break;
           case 17:
-            { return new Symbol(sym.Parent_a, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "ParentA",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Parent_a, yyline, yycolumn, yytext());
             }
           // fall through
           case 76: break;
           case 18:
-            { return new Symbol(sym.Parent_c, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "ParentC",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Parent_c, yyline, yycolumn, yytext());
             }
           // fall through
           case 77: break;
           case 19:
-            { return new Symbol(sym.Llave_a, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "llaveA",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Llave_a, yyline, yycolumn, yytext());
             }
           // fall through
           case 78: break;
           case 20:
-            { return new Symbol(sym.Llave_c, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "llaveC",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Llave_c, yyline, yycolumn, yytext());
             }
           // fall through
           case 79: break;
           case 21:
-            { return new Symbol(sym.C_dobles_a, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "CDobles",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.C_dobles_a, yyline, yycolumn, yytext());
             }
           // fall through
           case 80: break;
           case 22:
-            { return new Symbol(sym.C_dobles_c, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "CDobles",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.C_dobles_c, yyline, yycolumn, yytext());
             }
           // fall through
           case 81: break;
           case 23:
-            { return new Symbol(sym.Doble_puntos, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Doble_puntos",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Doble_puntos, yyline, yycolumn, yytext());
             }
           // fall through
           case 82: break;
           case 24:
-            { return new Symbol(sym.Reserve, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reserv",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Reserve, yyline, yycolumn, yytext());
             }
           // fall through
           case 83: break;
           case 25:
-            { return new Symbol(sym.Arr, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Arreglo",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Arr, yyline, yycolumn, yytext());
             }
           // fall through
           case 84: break;
           case 26:
-            { return new Symbol(sym.A_div, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_D",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.A_div, yyline, yycolumn, yytext());
             }
           // fall through
           case 85: break;
           case 27:
-            { return new Symbol(sym.End, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reservada",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.End, yyline, yycolumn, yytext());
             }
           // fall through
           case 86: break;
           case 28:
-            { return new Symbol(sym.E_max, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_max",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.E_max, yyline, yycolumn, yytext());
             }
           // fall through
           case 87: break;
           case 29:
-            { return new Symbol(sym.E_min, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_min",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.E_min, yyline, yycolumn, yytext());
             }
           // fall through
           case 88: break;
           case 30:
-            { return new Symbol(sym.A_mod, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_mod",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.A_mod, yyline, yycolumn, yytext());
             }
           // fall through
           case 89: break;
           case 31:
-            { return new Symbol(sym.A_mul, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_M",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.A_mul, yyline, yycolumn, yytext());
             }
           // fall through
           case 90: break;
           case 32:
-            { return new Symbol(sym.A_res, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_R",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.A_res, yyline, yycolumn, yytext());
             }
           // fall through
           case 91: break;
           case 33:
-            { return new Symbol(sym.A_sum, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_S",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.A_sum, yyline, yycolumn, yytext());
             }
           // fall through
           case 92: break;
           case 34:
-            { return new Symbol(sym.Var, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reservada",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Var, yyline, yycolumn, yytext());
             }
           // fall through
           case 93: break;
           case 35:
-            { return new Symbol(sym.Tipo_char, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "char[]",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Tipo_char, yyline, yycolumn, yytext());
             }
           // fall through
           case 94: break;
           case 36:
-            { return new Symbol(sym.G_ejex, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gejex",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_ejex, yyline, yycolumn, yytext());
             }
           // fall through
           case 95: break;
           case 37:
-            { return new Symbol(sym.G_ejey, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gejey",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_ejey, yyline, yycolumn, yytext());
             }
           // fall through
           case 96: break;
           case 38:
-            { return new Symbol(sym.G_exec, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gexec",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_exec, yyline, yycolumn, yytext());
             }
           // fall through
           case 97: break;
           case 39:
-            { return new Symbol(sym.E_moda, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_moda",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.E_moda, yyline, yycolumn, yytext());
             }
           // fall through
           case 98: break;
           case 40:
-            { return new Symbol(sym.G_label, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "label",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_label, yyline, yycolumn, yytext());
             }
           // fall through
           case 99: break;
           case 41:
-            { return new Symbol(sym.E_media, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_media",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.E_media, yyline, yycolumn, yytext());
             }
           // fall through
           case 100: break;
           case 42:
-            { return new Symbol(sym.Print, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "imprimir",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Print, yyline, yycolumn, yytext());
             }
           // fall through
           case 101: break;
           case 43:
-            { return new Symbol(sym.Column, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "column",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Column, yyline, yycolumn, yytext());
             }
           // fall through
           case 102: break;
           case 44:
-            { return new Symbol(sym.Tipo_double, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Double",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Tipo_double, yyline, yycolumn, yytext());
             }
           // fall through
           case 103: break;
           case 45:
-            { return new Symbol(sym.G_titulo, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "titulo",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_titulo, yyline, yycolumn, yytext());
             }
           // fall through
           case 104: break;
           case 46:
-            { return new Symbol(sym.G_values, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gvalues",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_values, yyline, yycolumn, yytext());
             }
           // fall through
           case 105: break;
           case 47:
-            { return new Symbol(sym.Console, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Imprimir",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Console, yyline, yycolumn, yytext());
             }
           // fall through
           case 106: break;
           case 48:
-            { return new Symbol(sym.G_grapbar, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gbar",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_grapbar, yyline, yycolumn, yytext());
             }
           // fall through
           case 107: break;
           case 49:
-            { return new Symbol(sym.G_grapPie, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "grafica",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_grapPie, yyline, yycolumn, yytext());
             }
           // fall through
           case 108: break;
           case 50:
-            { return new Symbol(sym.E_mediana, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_mediana",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.E_mediana, yyline, yycolumn, yytext());
             }
           // fall through
           case 109: break;
           case 51:
             { System.out.println("Inicio: "+ yytext() +
-    ", en la linea: "+yyline+", en la columna: "+yycolumn); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Program");
-                            lista_token.agegarLista(tokens_L);
+    ", en la linea: "+yyline+", en la columna: "+yycolumn); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reservada",yyline,yycolumn);
+                            lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Program, yyline, yycolumn, yytext());
             }
           // fall through
           case 110: break;
           case 52:
-            { return new Symbol(sym.G_titulox, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gtitulox",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_titulox, yyline, yycolumn, yytext());
             }
           // fall through
           case 111: break;
           case 53:
-            { return new Symbol(sym.G_tituloy, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gtituiloy",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_tituloy, yyline, yycolumn, yytext());
             }
           // fall through
           case 112: break;
           case 54:
-            { return new Symbol(sym.G_graphbar, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "graBar",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_graphbar, yyline, yycolumn, yytext());
             }
           // fall through
           case 113: break;
           case 55:
-            { return new Symbol(sym.G_graphpie, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_g",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_graphpie, yyline, yycolumn, yytext());
             }
           // fall through
           case 114: break;
           case 56:
-            { return new Symbol(sym.G_grapline, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gline",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_grapline, yyline, yycolumn, yytext());
             }
           // fall through
           case 115: break;
           case 57:
-            { return new Symbol(sym.E_varianza, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_varianza",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.E_varianza, yyline, yycolumn, yytext());
             }
           // fall through
           case 116: break;
           case 58:
-            { return new Symbol(sym.G_graphline, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gline",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_graphline, yyline, yycolumn, yytext());
             }
           // fall through
           case 117: break;
           case 59:
-            { return new Symbol(sym.G_histogram, yyline, yycolumn, yytext());
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Ghisto",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.G_histogram, yyline, yycolumn, yytext());
             }
           // fall through
           case 118: break;

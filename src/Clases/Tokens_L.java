@@ -13,14 +13,19 @@ public class Tokens_L {
     public int conteo;
     public String lexema;
     public String tipo;
-    public String Linea;
-    public String Columna;
+    public int Linea;
+    public int Columna;
     
     
-    public Tokens_L(int conteo, String lexema,String tipo){
+    public Tokens_L(int conteo, String lexema,String tipo, int Linea, int Columna){
         this.conteo = conteo;
         this.lexema = lexema;
         this.tipo = tipo;
+        this.Columna = Columna;
+        this.Linea = Linea;
     }
+
+
+
     
 }
