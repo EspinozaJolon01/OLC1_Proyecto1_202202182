@@ -8,66 +8,65 @@ package Analisador;
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int G_grapbar = 31;
-  public static final int G_label = 24;
-  public static final int Coma = 39;
+  public static final int G_grapbar = 30;
+  public static final int G_label = 23;
+  public static final int Coma = 38;
   public static final int End = 3;
-  public static final int Llave_c = 46;
-  public static final int E_min = 16;
+  public static final int Llave_c = 45;
+  public static final int E_min = 15;
   public static final int Arr = 5;
-  public static final int Llave_a = 45;
-  public static final int A_div = 14;
-  public static final int G_exec = 36;
-  public static final int G_grapline = 33;
+  public static final int Llave_a = 44;
+  public static final int A_div = 13;
+  public static final int G_exec = 35;
+  public static final int G_grapline = 32;
   public static final int Var = 4;
   public static final int Column = 8;
-  public static final int Arroba = 55;
-  public static final int A_mul = 13;
-  public static final int G_histogram = 34;
-  public static final int A_mod = 15;
-  public static final int Tipo_char = 9;
-  public static final int G_graphline = 32;
-  public static final int G_graphpie = 22;
-  public static final int Punto = 52;
-  public static final int Parent_c = 51;
-  public static final int Parent_a = 50;
+  public static final int Arroba = 54;
+  public static final int A_mul = 12;
+  public static final int G_histogram = 33;
+  public static final int A_mod = 14;
+  public static final int G_graphline = 31;
+  public static final int G_graphpie = 21;
+  public static final int Punto = 51;
+  public static final int Parent_c = 50;
+  public static final int Parent_a = 49;
   public static final int Console = 6;
-  public static final int Division = 42;
-  public static final int G_tituloy = 30;
-  public static final int Parentesis_c = 44;
-  public static final int G_titulox = 29;
-  public static final int G_graphbar = 26;
-  public static final int Parentesis_a = 43;
-  public static final int P_coma = 49;
+  public static final int Division = 41;
+  public static final int G_tituloy = 29;
+  public static final int Parentesis_c = 43;
+  public static final int G_titulox = 28;
+  public static final int G_graphbar = 25;
+  public static final int Parentesis_a = 42;
+  public static final int P_coma = 48;
   public static final int EOF = 0;
   public static final int error = 1;
-  public static final int Reserve = 48;
-  public static final int A_sum = 11;
-  public static final int E_max = 17;
-  public static final int G_ejey = 28;
-  public static final int G_titulo = 23;
-  public static final int G_ejex = 27;
-  public static final int C_dobles_c = 54;
-  public static final int G_grapPie = 25;
+  public static final int Reserve = 47;
+  public static final int A_sum = 10;
+  public static final int E_max = 16;
+  public static final int G_ejey = 27;
+  public static final int G_titulo = 22;
+  public static final int G_ejex = 26;
+  public static final int Tipo = 9;
+  public static final int C_dobles_c = 53;
+  public static final int G_grapPie = 24;
   public static final int Print = 7;
-  public static final int ERROR = 59;
-  public static final int C_dobles_a = 53;
-  public static final int E_varianza = 21;
-  public static final int Doble_puntos = 56;
-  public static final int Dos_puntos = 47;
-  public static final int Tipo_double = 10;
-  public static final int G_values = 35;
-  public static final int Identificador = 57;
-  public static final int E_mediana = 19;
-  public static final int Resta = 40;
-  public static final int E_moda = 20;
-  public static final int A_res = 12;
-  public static final int Multiplicacion = 41;
-  public static final int Numero = 58;
-  public static final int Suma = 38;
+  public static final int ERROR = 58;
+  public static final int C_dobles_a = 52;
+  public static final int E_varianza = 20;
+  public static final int Doble_puntos = 55;
+  public static final int Dos_puntos = 46;
+  public static final int G_values = 34;
+  public static final int Identificador = 56;
+  public static final int E_mediana = 18;
+  public static final int Resta = 39;
+  public static final int E_moda = 19;
+  public static final int A_res = 11;
+  public static final int Multiplicacion = 40;
+  public static final int Numero = 57;
+  public static final int Suma = 37;
   public static final int Program = 2;
-  public static final int E_media = 18;
-  public static final int Igual = 37;
+  public static final int E_media = 17;
+  public static final int Igual = 36;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -78,8 +77,7 @@ public class sym {
   "Console",
   "Print",
   "Column",
-  "Tipo_char",
-  "Tipo_double",
+  "Tipo",
   "A_sum",
   "A_res",
   "A_mul",

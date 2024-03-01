@@ -15,16 +15,14 @@ parser code
 
 :}
 
-terminal Program,End,Var,Arr,Console,Print,Column,Tipo_char,Tipo_double,
+terminal Program,End,Var,Arr,Console,Print,Column,Tipo,
 A_sum,A_res,A_mul,A_div,A_mod,
 E_min,E_max,E_media,E_mediana,E_moda,E_varianza,
 G_graphpie,G_titulo,G_label,G_grapPie,G_graphbar,G_ejex,G_ejey,G_titulox,G_tituloy,G_grapbar,G_graphline,G_grapline,G_histogram,G_values,G_exec,
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
-non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,TDOUBLE,TCHAR,TARRELGOS,Valor_Arr,dato_char,
-OPERA,OARIT,OESTAD,STRING,TIP_A,ARR_NUM,ARR_CA,SUMA,RESTA,MULTI,DIVISION,MODULO,VARIABLE_NUM,Clasifiacion,
-Num_arre,multi_arr,dato_string;
+non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR;
 
 start with INICIO;
 
@@ -32,57 +30,31 @@ INICIO ::= Program CODIGO End Program ;
 CODIGO ::= COMPILACION |      ;
 COMPILACION ::= SENTENCIA |  SENTENCIA COMPILACION;
 
-SENTENCIA ::= TDOUBLE |  TCHAR |  TARRELGOS;
+SENTENCIA ::=  DECLRACION |  TARRELGOS;
 
-//variables 
-
-TDOUBLE ::= Var Dos_puntos Tipo_double Doble_puntos Identificador Reserve OPERA End P_coma  ;
-
-OPERA ::= OARIT | OESTAD | Numero | Arroba Identificador | Identificador;
-
-TCHAR ::= Var Dos_puntos Tipo_char Parent_a Parent_c Doble_puntos Identificador Reserve C_dobles_a STRING C_dobles_c End P_coma  ;
+//----------------DECLARACION DE VARIABLEN
+DECLRACION ::= Var Dos_puntos Tipo:T Doble_puntos Identificador:I Reserve CONTENIDO:N End P_coma  {:  System.out.println("tipo: " +T );  :};
 
 
-STRING ::=  Identificador  | Numero ;  
+CONTENIDO ::= TIPCONTENIDO ;
 
-//Operaciones Aritméticas
+TIPCONTENIDO ::= Identificador 
+            | Numero  
+            | C_dobles_a  Identificador  C_dobles_c;
+                
+//----------------DECLARACION DE ARREGLO
+TARRELGOS ::= Arr Dos_puntos Tipo Doble_puntos Arroba Identificador Reserve Parent_a LISTA_VALORES Parent_c End P_coma ;
 
-OARIT ::= SUMA | RESTA | MULTI | DIVISION | MODULO ;
+LISTA_VALORES ::= VALOR
+                 | VALOR Coma LISTA_VALORES;
 
-SUMA ::= A_sum Parentesis_a VARIABLE_NUM Parentesis_c ;
-
-RESTA ::= A_res Parentesis_a VARIABLE_NUM Parentesis_c ;
-
-MULTI ::= A_mul Parentesis_a VARIABLE_NUM Parentesis_c ; 
-
-DIVISION ::= A_div Parentesis_a VARIABLE_NUM Parentesis_c ;
-
-MODULO ::= A_mod Parentesis_a VARIABLE_NUM Parentesis_c ;
-
-VARIABLE_NUM ::= OPERA | OPERA Coma VARIABLE_NUM;
-     
+VALOR ::= Numero
+          | C_dobles_a Numero C_dobles_c
+          | Identificador ;
 
 
-//arreglos
+//----------------DECLARACION DE OPERACIONES ARITMETICAS 
 
-TARRELGOS ::= Arr Dos_puntos Clasifiacion Doble_puntos Arroba Identificador Reserve Parent_a TIP_A Parent_c End P_coma  ;
-
-
-Clasifiacion ::= Tipo_double | Tipo_char Parent_a Parent_c ;
-
-//double
-
-TIP_A ::= ARR_NUM | ARR_CA ;
-
-ARR_NUM ::= OPERA | OPERA Coma  ARR_NUM;
-
-
-//char
-ARR_CA ::= Valor_Arr | Valor_Arr Coma ARR_CA;
-
-Valor_Arr ::= C_dobles_a dato_char C_dobles_c;
-
-dato_char ::= Identificador dato_char | Numero dato_char |  ; 
 
 
 

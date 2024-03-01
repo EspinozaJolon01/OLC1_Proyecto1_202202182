@@ -370,6 +370,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         try {
             
+            
             String texto = obtenerTextArea();
             LexerCup scan = new LexerCup(new StringReader(texto));
             Parser parser = new Parser(scan);

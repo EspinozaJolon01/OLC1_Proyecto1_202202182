@@ -70,14 +70,11 @@ column     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Column, yyline, yycolumn, yytext());}
-char     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "char[]",yyline,yycolumn);
+char\[\]|double     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Tipos",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.Tipo_char, yyline, yycolumn, yytext());}
-double     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Double",yyline,yycolumn);
-                            lista_T.add(tokens_L);
-                            conteo_tokens++;
-        return new Symbol(sym.Tipo_double, yyline, yycolumn, yytext());}
+        return new Symbol(sym.Tipo, yyline, yycolumn, yytext());}
+
 sum     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_S",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
