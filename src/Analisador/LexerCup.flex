@@ -229,6 +229,10 @@ exec {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conte
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Reserve, yyline, yycolumn, yytext());}
+"->" {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reserv",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Reservemenor, yyline, yycolumn, yytext());}
 ";" {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Punto_com",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;

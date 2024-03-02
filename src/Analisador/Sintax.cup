@@ -15,14 +15,15 @@ parser code
 
 :}
 
-terminal Program,End,Var,Arr,Console,Print,Column,Tipo,Cadena,
+terminal Program,End,Var,Arr,Console,Print,Column,Tipo,Cadena,Reservemenor,
 OPA,A_mod,
 OPE,
 G_graphpie,G_titulo,G_label,G_grapPie,G_graphbar,G_ejex,G_ejey,G_titulox,G_tituloy,G_grapbar,G_graphline,G_grapline,G_histogram,G_values,G_exec,
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
-non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR,COMENT,EXP,CONT,FUNES,DATO;
+non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR,COMENT,EXP,CONT,FUNES,DATO,
+COMENTARIO,CADENA;
 
 start with INICIO;
 
@@ -31,6 +32,7 @@ CODIGO ::= COMPILACION |      ;
 COMPILACION ::= SENTENCIA |  SENTENCIA COMPILACION;
 
 SENTENCIA ::=  DECLRACION |  TARRELGOS | COMENT;
+
 
 //----------------DECLARACION DE VARIABLEN--------------------------------------------------------------------------
 
@@ -75,15 +77,20 @@ DATO ::= DATO Coma TIPCONTENIDO
 
 //----------------DECLARACION DE IMPRESION EN CONSOLA --------------------------------------------------------------------------
 
-COMENT ::= Console Doble_puntos Print Igual EXP End P_coma ;
+COMENT ::= Console Doble_puntos COMENTARIO ;
+
+COMENTARIO ::= Print Igual EXP End P_coma
+        | Column Igual CADENA Reservemenor TIPCONTENIDO End P_coma;
+
+CADENA ::= Cadena | Identificador ;
 
 EXP ::= EXP Coma CONT
-        | CONT Coma;
+        | CONT ;
 
-CONT ::= Numero
-        | Cadena
-        | Identificador ;
+CONT ::= TIPCONTENIDO;
 
+
+//----------------DECLARACION DE  FUNCIONES DE GRAFICACION --------------------------------------------------------------------------
 
 
 
