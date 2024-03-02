@@ -22,6 +22,8 @@ import java.util.List;
 L=[a-zA-Z_]+
 D=[0-9]+
 espacio=[ \t\r\n]+
+ESPACIO=[ ]
+NUMERO = {D}+("."{D}+)?
 
 %{
     public static List<Errores> lista_E =  new ArrayList<>();
@@ -78,47 +80,47 @@ char\[\]|double     {System.out.println("Encontrado "+ yytext()); tokens_L = new
 sum     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_S",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_sum, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());}
 res     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_R",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_res, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());}
 mul     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_M",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_mul, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());}
 div     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_D",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_div, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());}
 mod     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_mod",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_mod, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());}
 min     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_min",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_min, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());}
 max     {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_max",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_max, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());}
 media   {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_media",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_media, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());}
 mediana {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_mediana",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_mediana, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());}
 moda    {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_moda",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_moda, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());}
 varianza {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_varianza",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_varianza, yyline, yycolumn, yytext());}
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());}
 graphpie {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_g",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
@@ -263,10 +265,15 @@ exec {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conte
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Identificador, yyline, yycolumn, yytext());}
-{D}+("."{D}+)? {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Numero",yyline,yycolumn);
+{NUMERO} {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Numero",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Numero, yyline, yycolumn, yytext());}
+
+"\“"({L}|{D}|{ESPACIO}|{NUMERO})*"\”"  {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "cadena",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Cadena, yyline, yycolumn, yytext());}
 
 {espacio} {/*Ignore*/}
 

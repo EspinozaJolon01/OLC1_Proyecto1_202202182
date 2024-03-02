@@ -15,14 +15,14 @@ parser code
 
 :}
 
-terminal Program,End,Var,Arr,Console,Print,Column,Tipo,
-A_sum,A_res,A_mul,A_div,A_mod,
-E_min,E_max,E_media,E_mediana,E_moda,E_varianza,
+terminal Program,End,Var,Arr,Console,Print,Column,Tipo,Cadena,
+OPA,A_mod,
+OPE,
 G_graphpie,G_titulo,G_label,G_grapPie,G_graphbar,G_ejex,G_ejey,G_titulox,G_tituloy,G_grapbar,G_graphline,G_grapline,G_histogram,G_values,G_exec,
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
-non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR;
+non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR,COMENT,EXP,CONT,FUNES,DATO;
 
 start with INICIO;
 
@@ -30,30 +30,67 @@ INICIO ::= Program CODIGO End Program ;
 CODIGO ::= COMPILACION |      ;
 COMPILACION ::= SENTENCIA |  SENTENCIA COMPILACION;
 
-SENTENCIA ::=  DECLRACION |  TARRELGOS;
+SENTENCIA ::=  DECLRACION |  TARRELGOS | COMENT;
 
-//----------------DECLARACION DE VARIABLEN
+//----------------DECLARACION DE VARIABLEN--------------------------------------------------------------------------
+
 DECLRACION ::= Var Dos_puntos Tipo:T Doble_puntos Identificador:I Reserve CONTENIDO:N End P_coma  {:  System.out.println("tipo: " +T );  :};
 
 
 CONTENIDO ::= TIPCONTENIDO ;
+            
 
 TIPCONTENIDO ::= Identificador 
             | Numero  
-            | C_dobles_a  Identificador  C_dobles_c;
+            | Cadena
+            | Arroba Identificador
+            | OPA Parentesis_a CONTENIDO Coma CONTENIDO Parentesis_c
+            | OPE Parentesis_a FUNES Parentesis_c
+             ; 
+
+
                 
-//----------------DECLARACION DE ARREGLO
+//----------------DECLARACION DE ARREGLO--------------------------------------------------------------------------
+
 TARRELGOS ::= Arr Dos_puntos Tipo Doble_puntos Arroba Identificador Reserve Parent_a LISTA_VALORES Parent_c End P_coma ;
 
-LISTA_VALORES ::= VALOR
-                 | VALOR Coma LISTA_VALORES;
-
-VALOR ::= Numero
-          | C_dobles_a Numero C_dobles_c
-          | Identificador ;
+LISTA_VALORES ::= LISTA_VALORES Coma TIPCONTENIDO
+                 | TIPCONTENIDO   ;
+                 
 
 
-//----------------DECLARACION DE OPERACIONES ARITMETICAS 
+
+
+
+//----------------DECLARACION DE ESTADISTICAS --------------------------------------------------------------------------
+
+
+
+FUNES ::= Parent_a  DATO  Parent_c
+        | DATO ;
+
+DATO ::= DATO Coma TIPCONTENIDO
+        | TIPCONTENIDO ; 
+
+
+//----------------DECLARACION DE IMPRESION EN CONSOLA --------------------------------------------------------------------------
+
+COMENT ::= Console Doble_puntos Print Igual EXP End P_coma ;
+
+EXP ::= EXP Coma CONT
+        | CONT Coma;
+
+CONT ::= Numero
+        | Cadena
+        | Identificador ;
+
+
+
+
+
+
+
+
 
 
 

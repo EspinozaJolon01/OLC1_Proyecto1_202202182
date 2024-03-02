@@ -71,18 +71,18 @@ public class LexerCup implements java_cup.runtime.Scanner {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\11\0\1\1\1\2\2\3\1\2\22\0\1\1\1\4"+
-    "\6\0\1\5\1\6\1\7\1\10\1\11\1\12\1\13"+
-    "\1\14\12\15\1\16\1\17\1\20\1\21\1\22\1\0"+
-    "\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32"+
-    "\1\33\1\34\1\35\1\31\1\36\1\37\1\40\1\41"+
-    "\1\42\1\31\1\43\1\44\1\45\1\46\1\47\1\31"+
-    "\1\50\1\51\1\52\1\53\1\0\1\54\1\0\1\31"+
-    "\1\0\1\24\1\25\1\26\1\27\1\30\1\31\1\32"+
-    "\1\33\1\34\1\35\1\31\1\36\1\37\1\40\1\41"+
-    "\1\42\1\31\1\43\1\44\1\45\1\46\1\47\1\31"+
-    "\1\50\1\51\1\52\1\55\1\0\1\56\7\0\1\3"+
-    "\252\0\2\57\115\0\1\60\u019c\0\1\61\1\62\12\0"+
+    "\11\0\1\1\1\2\2\3\1\2\22\0\1\4\1\5"+
+    "\6\0\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
+    "\1\15\12\16\1\17\1\20\1\21\1\22\1\23\1\0"+
+    "\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33"+
+    "\1\34\1\35\1\36\1\32\1\37\1\40\1\41\1\42"+
+    "\1\43\1\32\1\44\1\45\1\46\1\47\1\50\1\32"+
+    "\1\51\1\52\1\53\1\54\1\0\1\55\1\0\1\32"+
+    "\1\0\1\25\1\26\1\27\1\30\1\31\1\32\1\33"+
+    "\1\34\1\35\1\36\1\32\1\37\1\40\1\41\1\42"+
+    "\1\43\1\32\1\44\1\45\1\46\1\47\1\50\1\32"+
+    "\1\51\1\52\1\53\1\56\1\0\1\57\7\0\1\3"+
+    "\252\0\2\60\115\0\1\61\u019c\0\1\62\1\63\12\0"+
     "\2\3\326\0\u0100\3";
 
   private static int [] zzUnpackcmap_blocks() {
@@ -114,24 +114,24 @@ public class LexerCup implements java_cup.runtime.Scanner {
     "\1\10\1\11\1\12\1\13\1\14\1\15\1\1\1\16"+
     "\1\17\16\20\1\21\1\22\1\23\1\24\1\1\1\25"+
     "\1\26\1\0\1\27\1\0\1\30\5\20\1\0\5\20"+
-    "\1\0\6\20\1\0\4\20\1\0\1\20\1\0\1\13"+
-    "\2\0\1\31\3\20\1\32\1\20\1\32\1\20\1\33"+
-    "\3\20\1\0\1\20\1\34\1\20\1\35\1\36\1\37"+
-    "\1\35\2\20\1\0\2\40\1\41\1\20\1\0\1\20"+
-    "\1\42\1\41\1\0\1\2\3\20\1\0\1\20\1\43"+
-    "\1\44\1\45\2\20\1\0\2\20\1\0\1\46\2\20"+
-    "\1\0\1\20\1\0\2\20\2\0\2\20\1\0\6\20"+
-    "\1\0\1\47\2\50\1\51\1\20\1\51\1\20\1\0"+
-    "\2\20\1\0\1\52\1\53\1\20\1\0\1\52\5\20"+
-    "\1\0\1\20\1\0\1\20\1\0\1\20\1\0\1\20"+
-    "\2\54\2\55\1\20\1\0\2\56\1\57\2\20\1\0"+
-    "\1\20\1\0\1\20\1\0\2\60\1\20\1\0\2\61"+
-    "\1\62\1\63\1\64\1\63\1\64\1\20\1\0\1\65"+
-    "\1\20\1\0\2\66\2\67\1\20\1\0\2\70\2\71"+
-    "\2\72";
+    "\1\0\6\20\1\0\4\20\1\0\1\20\3\0\1\31"+
+    "\1\13\2\0\1\32\3\20\1\33\1\20\1\33\1\20"+
+    "\1\34\3\20\1\0\1\20\1\35\1\20\1\36\1\37"+
+    "\1\40\1\36\2\20\1\0\2\41\1\42\1\20\1\0"+
+    "\1\20\1\43\1\42\2\0\1\2\3\20\1\0\1\20"+
+    "\1\44\1\45\1\46\2\20\1\0\2\20\1\0\1\47"+
+    "\2\20\1\0\1\20\1\0\2\20\2\0\2\20\1\0"+
+    "\6\20\1\0\1\50\2\51\1\52\1\20\1\52\1\20"+
+    "\1\0\2\20\1\0\1\53\1\54\1\20\1\0\1\53"+
+    "\5\20\1\0\1\20\1\0\1\20\1\0\1\20\1\0"+
+    "\1\20\2\55\2\56\1\20\1\0\2\57\1\60\2\20"+
+    "\1\0\1\20\1\0\1\20\1\0\2\61\1\20\1\0"+
+    "\2\62\1\63\1\64\1\65\1\64\1\65\1\20\1\0"+
+    "\1\66\1\20\1\0\2\67\2\70\1\20\1\0\2\71"+
+    "\2\72\2\73";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[212];
+    int [] result = new int[216];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -156,36 +156,36 @@ public class LexerCup implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\63\0\146\0\231\0\63\0\63\0\63\0\63"+
-    "\0\63\0\63\0\63\0\63\0\314\0\377\0\63\0\u0132"+
-    "\0\63\0\63\0\u0165\0\u0198\0\u01cb\0\u01fe\0\u0231\0\u0264"+
-    "\0\u0297\0\u02ca\0\u02fd\0\u0330\0\u0363\0\u0396\0\u03c9\0\u03fc"+
-    "\0\63\0\63\0\63\0\63\0\u042f\0\63\0\63\0\u0462"+
-    "\0\63\0\u0495\0\63\0\u04c8\0\u04fb\0\u052e\0\u0561\0\u0594"+
-    "\0\u05c7\0\u05fa\0\u062d\0\u0660\0\u0693\0\u06c6\0\u06f9\0\u072c"+
-    "\0\u075f\0\u0792\0\u07c5\0\u07f8\0\u082b\0\u085e\0\u0891\0\u08c4"+
-    "\0\u08f7\0\u092a\0\u095d\0\u0990\0\u09c3\0\u0462\0\u09f6\0\u0a29"+
-    "\0\u0198\0\u0a5c\0\u0a8f\0\u0ac2\0\u0198\0\u0af5\0\63\0\u0b28"+
-    "\0\u0198\0\u0b5b\0\u0b8e\0\u0bc1\0\u0bf4\0\u0c27\0\u0198\0\u0c5a"+
-    "\0\u0198\0\u0c8d\0\u0198\0\63\0\u0cc0\0\u0cf3\0\u0d26\0\u0198"+
-    "\0\63\0\u0198\0\u0d59\0\u0d8c\0\u0dbf\0\u0df2\0\63\0\u0e25"+
-    "\0\u09f6\0\u0e58\0\u0e8b\0\u0ebe\0\u0ef1\0\u0f24\0\u0198\0\u0198"+
-    "\0\u0198\0\u0f57\0\u0f8a\0\u0fbd\0\u0ff0\0\u1023\0\u1056\0\u0198"+
-    "\0\u1089\0\u10bc\0\u10ef\0\u1122\0\u1155\0\u1188\0\u11bb\0\u11ee"+
-    "\0\u1221\0\u1254\0\u1287\0\u12ba\0\u12ed\0\u1320\0\u1353\0\u1386"+
-    "\0\u13b9\0\u13ec\0\u141f\0\u0198\0\u1452\0\u1485\0\u0198\0\u14b8"+
-    "\0\63\0\u14eb\0\u151e\0\u1551\0\u1584\0\u15b7\0\63\0\u0198"+
-    "\0\u15ea\0\u161d\0\u0198\0\u1650\0\u1683\0\u16b6\0\u16e9\0\u171c"+
-    "\0\u174f\0\u1782\0\u17b5\0\u17e8\0\u181b\0\u184e\0\u1881\0\u18b4"+
-    "\0\u18e7\0\u191a\0\u0198\0\63\0\u194d\0\u1980\0\u0198\0\63"+
-    "\0\u0198\0\u19b3\0\u19e6\0\u1a19\0\u1a4c\0\u1a7f\0\u1ab2\0\u1ae5"+
-    "\0\u0198\0\63\0\u1b18\0\u1b4b\0\u0198\0\63\0\u0198\0\u0198"+
-    "\0\u0198\0\63\0\63\0\u1b7e\0\u1bb1\0\u0198\0\u1be4\0\u1c17"+
-    "\0\u0198\0\63\0\u0198\0\63\0\u1c4a\0\u1c7d\0\u0198\0\63"+
-    "\0\u0198\0\63\0\u0198\0\63";
+    "\0\0\0\64\0\150\0\234\0\64\0\64\0\64\0\64"+
+    "\0\64\0\64\0\64\0\64\0\320\0\u0104\0\64\0\u0138"+
+    "\0\64\0\64\0\u016c\0\u01a0\0\u01d4\0\u0208\0\u023c\0\u0270"+
+    "\0\u02a4\0\u02d8\0\u030c\0\u0340\0\u0374\0\u03a8\0\u03dc\0\u0410"+
+    "\0\64\0\64\0\64\0\64\0\u0444\0\u0478\0\64\0\u04ac"+
+    "\0\64\0\u04e0\0\64\0\u0514\0\u0548\0\u057c\0\u05b0\0\u05e4"+
+    "\0\u0618\0\u064c\0\u0680\0\u06b4\0\u06e8\0\u071c\0\u0750\0\u0784"+
+    "\0\u07b8\0\u07ec\0\u0820\0\u0854\0\u0888\0\u08bc\0\u08f0\0\u0924"+
+    "\0\u0958\0\u098c\0\u09c0\0\u09f4\0\u0a28\0\u0478\0\u0a5c\0\64"+
+    "\0\u04ac\0\u0a90\0\u0ac4\0\u01a0\0\u0af8\0\u0b2c\0\u0b60\0\u01a0"+
+    "\0\u0b94\0\64\0\u0bc8\0\u01a0\0\u0bfc\0\u0c30\0\u0c64\0\u0c98"+
+    "\0\u0ccc\0\u01a0\0\u0d00\0\u01a0\0\u0d34\0\u01a0\0\64\0\u0d68"+
+    "\0\u0d9c\0\u0dd0\0\u01a0\0\64\0\u01a0\0\u0e04\0\u0e38\0\u0e6c"+
+    "\0\u0ea0\0\64\0\u0ed4\0\u0f08\0\u0a90\0\u0f3c\0\u0f70\0\u0fa4"+
+    "\0\u0fd8\0\u100c\0\u01a0\0\u01a0\0\u01a0\0\u1040\0\u1074\0\u10a8"+
+    "\0\u10dc\0\u1110\0\u1144\0\u01a0\0\u1178\0\u11ac\0\u11e0\0\u1214"+
+    "\0\u1248\0\u127c\0\u12b0\0\u12e4\0\u1318\0\u134c\0\u1380\0\u13b4"+
+    "\0\u13e8\0\u141c\0\u1450\0\u1484\0\u14b8\0\u14ec\0\u1520\0\u01a0"+
+    "\0\u1554\0\u1588\0\u01a0\0\u15bc\0\64\0\u15f0\0\u1624\0\u1658"+
+    "\0\u168c\0\u16c0\0\64\0\u01a0\0\u16f4\0\u1728\0\u01a0\0\u175c"+
+    "\0\u1790\0\u17c4\0\u17f8\0\u182c\0\u1860\0\u1894\0\u18c8\0\u18fc"+
+    "\0\u1930\0\u1964\0\u1998\0\u19cc\0\u1a00\0\u1a34\0\u01a0\0\64"+
+    "\0\u1a68\0\u1a9c\0\u01a0\0\64\0\u01a0\0\u1ad0\0\u1b04\0\u1b38"+
+    "\0\u1b6c\0\u1ba0\0\u1bd4\0\u1c08\0\u01a0\0\64\0\u1c3c\0\u1c70"+
+    "\0\u01a0\0\64\0\u01a0\0\u01a0\0\u01a0\0\64\0\64\0\u1ca4"+
+    "\0\u1cd8\0\u01a0\0\u1d0c\0\u1d40\0\u01a0\0\64\0\u01a0\0\64"+
+    "\0\u1d74\0\u1da8\0\u01a0\0\64\0\u01a0\0\64\0\u01a0\0\64";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[212];
+    int [] result = new int[216];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -208,107 +208,110 @@ public class LexerCup implements java_cup.runtime.Scanner {
   private static final int [] ZZ_TRANS = zzUnpacktrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\2\3\1\0\1\4\1\5\1\6\1\7\1\10"+
-    "\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20"+
-    "\1\21\1\2\1\22\1\23\1\24\1\25\1\26\1\27"+
-    "\1\24\1\30\1\31\2\24\1\32\1\33\2\24\1\34"+
-    "\1\35\1\36\1\37\1\24\1\40\3\24\1\41\1\42"+
-    "\1\43\1\44\1\2\1\45\1\46\1\47\64\0\2\3"+
-    "\60\0\2\4\2\0\57\4\13\0\1\50\1\0\1\15"+
-    "\63\0\1\51\50\0\1\52\5\0\1\53\65\0\1\24"+
-    "\6\0\17\24\1\54\7\24\25\0\1\24\6\0\27\24"+
-    "\25\0\1\24\6\0\7\24\1\55\5\24\1\56\11\24"+
-    "\25\0\1\24\6\0\10\24\1\57\4\24\1\60\11\24"+
-    "\4\0\1\61\20\0\1\24\6\0\11\24\1\62\2\24"+
-    "\1\63\7\24\1\64\2\24\25\0\1\24\6\0\17\24"+
-    "\1\65\7\24\25\0\1\24\6\0\10\24\1\66\16\24"+
-    "\4\0\1\67\20\0\1\24\6\0\1\70\26\24\25\0"+
-    "\1\24\6\0\1\71\3\24\1\72\3\24\1\73\4\24"+
-    "\1\74\4\24\1\75\4\24\4\0\1\76\20\0\1\24"+
-    "\6\0\17\24\1\77\7\24\25\0\1\24\6\0\4\24"+
-    "\1\100\22\24\25\0\1\24\6\0\22\24\1\101\4\24"+
-    "\25\0\1\24\6\0\10\24\1\102\16\24\4\0\1\103"+
-    "\20\0\1\24\6\0\1\104\26\24\56\0\1\105\31\0"+
-    "\1\106\45\0\4\107\1\110\56\107\15\0\1\24\6\0"+
-    "\17\24\1\111\7\24\25\0\1\24\6\0\1\112\26\24"+
-    "\25\0\1\24\6\0\12\24\1\113\1\24\1\114\12\24"+
-    "\25\0\1\24\6\0\23\24\1\115\3\24\25\0\1\24"+
-    "\6\0\22\24\1\116\4\24\57\0\1\117\30\0\1\24"+
-    "\6\0\4\24\1\120\22\24\25\0\1\24\6\0\3\24"+
-    "\1\121\23\24\25\0\1\24\6\0\4\24\1\122\22\24"+
-    "\25\0\1\24\6\0\1\123\26\24\25\0\1\24\6\0"+
-    "\20\24\1\124\6\24\5\0\1\125\46\0\1\125\13\0"+
-    "\1\125\17\0\1\24\6\0\1\24\1\126\25\24\25\0"+
-    "\1\24\6\0\24\24\1\127\2\24\25\0\1\24\6\0"+
-    "\3\24\1\130\23\24\25\0\1\24\6\0\14\24\1\131"+
-    "\12\24\25\0\1\24\6\0\3\24\1\132\23\24\25\0"+
-    "\1\24\6\0\12\24\1\133\14\24\50\0\1\134\37\0"+
-    "\1\24\6\0\10\24\1\135\4\24\1\136\11\24\4\0"+
-    "\1\137\20\0\1\24\6\0\20\24\1\140\6\24\5\0"+
-    "\1\141\17\0\1\24\6\0\13\24\1\142\13\24\25\0"+
-    "\1\24\6\0\21\24\1\143\5\24\55\0\1\144\32\0"+
-    "\1\24\6\0\12\24\1\145\4\24\1\146\7\24\47\0"+
-    "\1\147\23\0\4\107\1\150\100\107\1\151\40\107\15\0"+
-    "\1\24\6\0\17\24\1\152\7\24\25\0\1\24\6\0"+
-    "\22\24\1\153\4\24\25\0\1\24\6\0\20\24\1\154"+
-    "\6\24\5\0\1\155\17\0\1\24\6\0\1\24\1\156"+
-    "\25\24\25\0\1\24\6\0\24\24\1\157\1\160\1\24"+
-    "\25\0\1\24\6\0\2\24\1\161\24\24\25\0\1\24"+
-    "\6\0\16\24\1\162\10\24\25\0\1\24\6\0\21\24"+
-    "\1\163\5\24\55\0\1\164\32\0\1\24\6\0\4\24"+
-    "\1\165\22\24\25\0\1\24\6\0\10\24\1\166\16\24"+
-    "\4\0\1\167\20\0\1\24\6\0\1\170\26\24\25\0"+
-    "\1\24\6\0\14\24\1\171\12\24\25\0\1\24\6\0"+
-    "\6\24\1\172\20\24\50\0\1\173\37\0\1\24\6\0"+
-    "\22\24\1\174\4\24\56\0\1\175\31\0\1\24\6\0"+
-    "\22\24\1\176\4\24\25\0\1\24\6\0\10\24\1\177"+
-    "\16\24\4\0\1\200\3\0\4\107\1\150\15\107\1\151"+
-    "\40\107\15\0\1\24\6\0\27\24\1\201\24\0\1\24"+
-    "\6\0\13\24\1\202\13\24\25\0\1\24\6\0\15\24"+
-    "\1\203\11\24\51\0\1\204\36\0\1\24\6\0\12\24"+
-    "\1\205\14\24\25\0\1\24\6\0\1\24\1\206\5\24"+
-    "\1\207\2\24\1\210\3\24\1\211\10\24\25\0\1\24"+
-    "\6\0\15\24\1\212\11\24\51\0\1\213\36\0\1\24"+
-    "\6\0\12\24\1\214\14\24\25\0\1\24\6\0\1\215"+
-    "\26\24\34\0\1\216\53\0\1\24\6\0\21\24\1\217"+
-    "\5\24\25\0\1\24\6\0\17\24\1\220\7\24\55\0"+
-    "\1\221\32\0\1\24\6\0\12\24\1\222\14\24\46\0"+
-    "\1\223\41\0\1\24\6\0\4\24\1\224\22\24\25\0"+
-    "\1\24\6\0\1\225\26\24\34\0\1\226\112\0\1\227"+
-    "\23\0\1\24\6\0\14\24\1\230\12\24\25\0\1\24"+
-    "\6\0\12\24\1\231\14\24\46\0\1\232\41\0\1\24"+
-    "\6\0\4\24\1\233\22\24\25\0\1\24\6\0\1\234"+
-    "\26\24\25\0\1\24\6\0\1\24\1\235\10\24\1\236"+
-    "\3\24\1\237\10\24\25\0\1\24\6\0\10\24\1\240"+
-    "\16\24\4\0\1\241\20\0\1\24\6\0\10\24\1\242"+
-    "\16\24\4\0\1\243\20\0\1\24\6\0\6\24\1\244"+
-    "\20\24\42\0\1\245\45\0\1\24\6\0\14\24\1\246"+
-    "\12\24\50\0\1\247\37\0\1\24\6\0\1\250\26\24"+
-    "\25\0\1\24\6\0\15\24\1\251\11\24\51\0\1\252"+
-    "\36\0\1\24\6\0\20\24\1\253\6\24\5\0\1\254"+
-    "\17\0\1\24\6\0\14\24\1\255\12\24\50\0\1\256"+
-    "\37\0\1\24\6\0\4\24\1\257\22\24\40\0\1\260"+
-    "\47\0\1\24\6\0\17\24\1\261\7\24\25\0\1\24"+
-    "\6\0\1\262\26\24\25\0\1\24\6\0\10\24\1\263"+
-    "\16\24\4\0\1\264\20\0\1\24\6\0\10\24\1\265"+
-    "\16\24\4\0\1\266\20\0\1\24\6\0\14\24\1\267"+
-    "\12\24\50\0\1\270\37\0\1\24\6\0\4\24\1\271"+
-    "\22\24\40\0\1\272\47\0\1\24\6\0\17\24\1\273"+
-    "\7\24\53\0\1\274\34\0\1\24\6\0\1\275\26\24"+
-    "\34\0\1\276\53\0\1\24\6\0\13\24\1\277\13\24"+
-    "\25\0\1\24\6\0\24\24\1\300\1\301\1\24\60\0"+
-    "\1\302\1\303\26\0\1\24\6\0\26\24\1\304\62\0"+
-    "\1\305\25\0\1\24\6\0\17\24\1\306\7\24\25\0"+
-    "\1\24\6\0\14\24\1\307\12\24\50\0\1\310\37\0"+
-    "\1\24\6\0\4\24\1\311\22\24\40\0\1\312\47\0"+
-    "\1\24\6\0\4\24\1\313\22\24\40\0\1\314\47\0"+
-    "\1\24\6\0\1\315\26\24\34\0\1\316\53\0\1\24"+
-    "\6\0\1\317\26\24\34\0\1\320\53\0\1\24\6\0"+
-    "\4\24\1\321\22\24\40\0\1\322\47\0\1\24\6\0"+
-    "\13\24\1\323\13\24\47\0\1\324\23\0";
+    "\1\2\2\3\1\0\1\3\1\4\1\5\1\6\1\7"+
+    "\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17"+
+    "\1\20\1\21\1\2\1\22\1\23\1\24\1\25\1\26"+
+    "\1\27\1\24\1\30\1\31\2\24\1\32\1\33\2\24"+
+    "\1\34\1\35\1\36\1\37\1\24\1\40\3\24\1\41"+
+    "\1\42\1\43\1\44\1\2\1\45\1\46\1\47\65\0"+
+    "\2\3\1\0\1\3\57\0\2\4\2\0\60\4\14\0"+
+    "\1\50\1\0\1\15\64\0\1\51\51\0\1\52\5\0"+
+    "\1\53\66\0\1\24\6\0\17\24\1\54\7\24\26\0"+
+    "\1\24\6\0\27\24\26\0\1\24\6\0\7\24\1\55"+
+    "\5\24\1\56\11\24\26\0\1\24\6\0\10\24\1\57"+
+    "\4\24\1\60\11\24\4\0\1\61\21\0\1\24\6\0"+
+    "\11\24\1\62\2\24\1\63\7\24\1\64\2\24\26\0"+
+    "\1\24\6\0\17\24\1\65\7\24\26\0\1\24\6\0"+
+    "\10\24\1\66\16\24\4\0\1\67\21\0\1\24\6\0"+
+    "\1\70\26\24\26\0\1\24\6\0\1\71\3\24\1\72"+
+    "\3\24\1\73\4\24\1\74\4\24\1\75\4\24\4\0"+
+    "\1\76\21\0\1\24\6\0\17\24\1\77\7\24\26\0"+
+    "\1\24\6\0\4\24\1\100\22\24\26\0\1\24\6\0"+
+    "\22\24\1\101\4\24\26\0\1\24\6\0\10\24\1\102"+
+    "\16\24\4\0\1\103\21\0\1\24\6\0\1\104\26\24"+
+    "\57\0\1\105\20\0\1\106\11\0\1\107\6\0\27\106"+
+    "\7\0\1\110\16\0\1\111\45\0\5\112\1\113\56\112"+
+    "\16\0\1\24\6\0\17\24\1\114\7\24\26\0\1\24"+
+    "\6\0\1\115\26\24\26\0\1\24\6\0\12\24\1\116"+
+    "\1\24\1\117\12\24\26\0\1\24\6\0\23\24\1\120"+
+    "\3\24\26\0\1\24\6\0\22\24\1\121\4\24\60\0"+
+    "\1\122\31\0\1\24\6\0\4\24\1\123\22\24\26\0"+
+    "\1\24\6\0\3\24\1\124\23\24\26\0\1\24\6\0"+
+    "\4\24\1\125\22\24\26\0\1\24\6\0\1\126\26\24"+
+    "\26\0\1\24\6\0\20\24\1\127\6\24\5\0\1\130"+
+    "\47\0\1\130\13\0\1\130\20\0\1\24\6\0\1\24"+
+    "\1\131\25\24\26\0\1\24\6\0\24\24\1\132\2\24"+
+    "\26\0\1\24\6\0\3\24\1\133\23\24\26\0\1\24"+
+    "\6\0\14\24\1\134\12\24\26\0\1\24\6\0\3\24"+
+    "\1\135\23\24\26\0\1\24\6\0\12\24\1\136\14\24"+
+    "\51\0\1\137\40\0\1\24\6\0\10\24\1\140\4\24"+
+    "\1\141\11\24\4\0\1\142\21\0\1\24\6\0\20\24"+
+    "\1\143\6\24\5\0\1\144\20\0\1\24\6\0\13\24"+
+    "\1\145\13\24\26\0\1\24\6\0\21\24\1\146\5\24"+
+    "\56\0\1\147\33\0\1\24\6\0\12\24\1\150\4\24"+
+    "\1\151\7\24\50\0\1\152\27\0\1\106\7\0\1\153"+
+    "\1\0\1\107\6\0\27\106\7\0\1\110\5\112\1\154"+
+    "\101\112\1\155\40\112\16\0\1\24\6\0\17\24\1\156"+
+    "\7\24\26\0\1\24\6\0\22\24\1\157\4\24\26\0"+
+    "\1\24\6\0\20\24\1\160\6\24\5\0\1\161\20\0"+
+    "\1\24\6\0\1\24\1\162\25\24\26\0\1\24\6\0"+
+    "\24\24\1\163\1\164\1\24\26\0\1\24\6\0\2\24"+
+    "\1\165\24\24\26\0\1\24\6\0\16\24\1\166\10\24"+
+    "\26\0\1\24\6\0\21\24\1\167\5\24\56\0\1\170"+
+    "\33\0\1\24\6\0\4\24\1\171\22\24\26\0\1\24"+
+    "\6\0\10\24\1\172\16\24\4\0\1\173\21\0\1\24"+
+    "\6\0\1\174\26\24\26\0\1\24\6\0\14\24\1\175"+
+    "\12\24\26\0\1\24\6\0\6\24\1\176\20\24\51\0"+
+    "\1\177\40\0\1\24\6\0\22\24\1\200\4\24\57\0"+
+    "\1\201\32\0\1\24\6\0\22\24\1\202\4\24\26\0"+
+    "\1\24\6\0\10\24\1\203\16\24\4\0\1\204\21\0"+
+    "\1\106\45\0\5\112\1\154\15\112\1\155\40\112\16\0"+
+    "\1\24\6\0\27\24\1\205\25\0\1\24\6\0\13\24"+
+    "\1\206\13\24\26\0\1\24\6\0\15\24\1\207\11\24"+
+    "\52\0\1\210\37\0\1\24\6\0\12\24\1\211\14\24"+
+    "\26\0\1\24\6\0\1\24\1\212\5\24\1\213\2\24"+
+    "\1\214\3\24\1\215\10\24\26\0\1\24\6\0\15\24"+
+    "\1\216\11\24\52\0\1\217\37\0\1\24\6\0\12\24"+
+    "\1\220\14\24\26\0\1\24\6\0\1\221\26\24\35\0"+
+    "\1\222\54\0\1\24\6\0\21\24\1\223\5\24\26\0"+
+    "\1\24\6\0\17\24\1\224\7\24\56\0\1\225\33\0"+
+    "\1\24\6\0\12\24\1\226\14\24\47\0\1\227\42\0"+
+    "\1\24\6\0\4\24\1\230\22\24\26\0\1\24\6\0"+
+    "\1\231\26\24\35\0\1\232\113\0\1\233\24\0\1\24"+
+    "\6\0\14\24\1\234\12\24\26\0\1\24\6\0\12\24"+
+    "\1\235\14\24\47\0\1\236\42\0\1\24\6\0\4\24"+
+    "\1\237\22\24\26\0\1\24\6\0\1\240\26\24\26\0"+
+    "\1\24\6\0\1\24\1\241\10\24\1\242\3\24\1\243"+
+    "\10\24\26\0\1\24\6\0\10\24\1\244\16\24\4\0"+
+    "\1\245\21\0\1\24\6\0\10\24\1\246\16\24\4\0"+
+    "\1\247\21\0\1\24\6\0\6\24\1\250\20\24\43\0"+
+    "\1\251\46\0\1\24\6\0\14\24\1\252\12\24\51\0"+
+    "\1\253\40\0\1\24\6\0\1\254\26\24\26\0\1\24"+
+    "\6\0\15\24\1\255\11\24\52\0\1\256\37\0\1\24"+
+    "\6\0\20\24\1\257\6\24\5\0\1\260\20\0\1\24"+
+    "\6\0\14\24\1\261\12\24\51\0\1\262\40\0\1\24"+
+    "\6\0\4\24\1\263\22\24\41\0\1\264\50\0\1\24"+
+    "\6\0\17\24\1\265\7\24\26\0\1\24\6\0\1\266"+
+    "\26\24\26\0\1\24\6\0\10\24\1\267\16\24\4\0"+
+    "\1\270\21\0\1\24\6\0\10\24\1\271\16\24\4\0"+
+    "\1\272\21\0\1\24\6\0\14\24\1\273\12\24\51\0"+
+    "\1\274\40\0\1\24\6\0\4\24\1\275\22\24\41\0"+
+    "\1\276\50\0\1\24\6\0\17\24\1\277\7\24\54\0"+
+    "\1\300\35\0\1\24\6\0\1\301\26\24\35\0\1\302"+
+    "\54\0\1\24\6\0\13\24\1\303\13\24\26\0\1\24"+
+    "\6\0\24\24\1\304\1\305\1\24\61\0\1\306\1\307"+
+    "\27\0\1\24\6\0\26\24\1\310\63\0\1\311\26\0"+
+    "\1\24\6\0\17\24\1\312\7\24\26\0\1\24\6\0"+
+    "\14\24\1\313\12\24\51\0\1\314\40\0\1\24\6\0"+
+    "\4\24\1\315\22\24\41\0\1\316\50\0\1\24\6\0"+
+    "\4\24\1\317\22\24\41\0\1\320\50\0\1\24\6\0"+
+    "\1\321\26\24\35\0\1\322\54\0\1\24\6\0\1\323"+
+    "\26\24\35\0\1\324\54\0\1\24\6\0\4\24\1\325"+
+    "\22\24\41\0\1\326\50\0\1\24\6\0\13\24\1\327"+
+    "\13\24\50\0\1\330\23\0";
 
   private static int [] zzUnpacktrans() {
-    int [] result = new int[7344];
+    int [] result = new int[7644];
     int offset = 0;
     offset = zzUnpacktrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -352,22 +355,23 @@ public class LexerCup implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\1\0\1\11\2\1\10\11\2\1\1\11\1\1\2\11"+
-    "\16\1\4\11\1\1\2\11\1\0\1\11\1\0\1\11"+
+    "\16\1\4\11\2\1\1\11\1\0\1\11\1\0\1\11"+
     "\5\1\1\0\5\1\1\0\6\1\1\0\4\1\1\0"+
-    "\1\1\1\0\1\1\2\0\6\1\1\11\5\1\1\0"+
-    "\6\1\1\11\2\1\1\0\1\1\1\11\2\1\1\0"+
-    "\2\1\1\11\1\0\4\1\1\0\6\1\1\0\2\1"+
-    "\1\0\3\1\1\0\1\1\1\0\2\1\2\0\2\1"+
-    "\1\0\6\1\1\0\5\1\1\11\1\1\1\0\2\1"+
-    "\1\0\1\11\2\1\1\0\6\1\1\0\1\1\1\0"+
-    "\1\1\1\0\1\1\1\0\4\1\1\11\1\1\1\0"+
-    "\1\1\1\11\3\1\1\0\1\1\1\0\1\1\1\0"+
-    "\1\1\1\11\1\1\1\0\1\1\1\11\3\1\2\11"+
-    "\1\1\1\0\2\1\1\0\1\1\1\11\1\1\1\11"+
-    "\1\1\1\0\1\1\1\11\1\1\1\11\1\1\1\11";
+    "\1\1\3\0\1\11\1\1\2\0\6\1\1\11\5\1"+
+    "\1\0\6\1\1\11\2\1\1\0\1\1\1\11\2\1"+
+    "\1\0\2\1\1\11\2\0\4\1\1\0\6\1\1\0"+
+    "\2\1\1\0\3\1\1\0\1\1\1\0\2\1\2\0"+
+    "\2\1\1\0\6\1\1\0\5\1\1\11\1\1\1\0"+
+    "\2\1\1\0\1\11\2\1\1\0\6\1\1\0\1\1"+
+    "\1\0\1\1\1\0\1\1\1\0\4\1\1\11\1\1"+
+    "\1\0\1\1\1\11\3\1\1\0\1\1\1\0\1\1"+
+    "\1\0\1\1\1\11\1\1\1\0\1\1\1\11\3\1"+
+    "\2\11\1\1\1\0\2\1\1\0\1\1\1\11\1\1"+
+    "\1\11\1\1\1\0\1\1\1\11\1\1\1\11\1\1"+
+    "\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[212];
+    int [] result = new int[216];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -882,12 +886,12 @@ public class LexerCup implements java_cup.runtime.Scanner {
     ", en la linea: "+yyline+", en la columna: "+yychar); return new Symbol(sym.ERROR, yyline, yycolumn, yytext());
             }
           // fall through
-          case 59: break;
+          case 60: break;
           case 2:
             { /*Ignore*/
             }
           // fall through
-          case 60: break;
+          case 61: break;
           case 3:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "ParentA",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -895,7 +899,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Parentesis_a, yyline, yycolumn, yytext());
             }
           // fall through
-          case 61: break;
+          case 62: break;
           case 4:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "ParentC",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -903,7 +907,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Parentesis_c, yyline, yycolumn, yytext());
             }
           // fall through
-          case 62: break;
+          case 63: break;
           case 5:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "multi",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -911,7 +915,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Multiplicacion, yyline, yycolumn, yytext());
             }
           // fall through
-          case 63: break;
+          case 64: break;
           case 6:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "mas",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -919,7 +923,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Suma, yyline, yycolumn, yytext());
             }
           // fall through
-          case 64: break;
+          case 65: break;
           case 7:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "coma",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -927,7 +931,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Coma, yyline, yycolumn, yytext());
             }
           // fall through
-          case 65: break;
+          case 66: break;
           case 8:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "menos",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -935,7 +939,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Resta, yyline, yycolumn, yytext());
             }
           // fall through
-          case 66: break;
+          case 67: break;
           case 9:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Punto",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -943,7 +947,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Punto, yyline, yycolumn, yytext());
             }
           // fall through
-          case 67: break;
+          case 68: break;
           case 10:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "div",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -951,7 +955,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Division, yyline, yycolumn, yytext());
             }
           // fall through
-          case 68: break;
+          case 69: break;
           case 11:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Numero",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -959,7 +963,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Numero, yyline, yycolumn, yytext());
             }
           // fall through
-          case 69: break;
+          case 70: break;
           case 12:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "dos_puntos",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -967,7 +971,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Dos_puntos, yyline, yycolumn, yytext());
             }
           // fall through
-          case 70: break;
+          case 71: break;
           case 13:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Punto_com",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -975,7 +979,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.P_coma, yyline, yycolumn, yytext());
             }
           // fall through
-          case 71: break;
+          case 72: break;
           case 14:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "igual",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -983,7 +987,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Igual, yyline, yycolumn, yytext());
             }
           // fall through
-          case 72: break;
+          case 73: break;
           case 15:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Arroba",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -991,7 +995,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Arroba, yyline, yycolumn, yytext());
             }
           // fall through
-          case 73: break;
+          case 74: break;
           case 16:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "String",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -999,7 +1003,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Identificador, yyline, yycolumn, yytext());
             }
           // fall through
-          case 74: break;
+          case 75: break;
           case 17:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "ParentA",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1007,7 +1011,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Parent_a, yyline, yycolumn, yytext());
             }
           // fall through
-          case 75: break;
+          case 76: break;
           case 18:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "ParentC",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1015,7 +1019,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Parent_c, yyline, yycolumn, yytext());
             }
           // fall through
-          case 76: break;
+          case 77: break;
           case 19:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "llaveA",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1023,7 +1027,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Llave_a, yyline, yycolumn, yytext());
             }
           // fall through
-          case 77: break;
+          case 78: break;
           case 20:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "llaveC",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1031,7 +1035,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Llave_c, yyline, yycolumn, yytext());
             }
           // fall through
-          case 78: break;
+          case 79: break;
           case 21:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "CDobles",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1039,7 +1043,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.C_dobles_a, yyline, yycolumn, yytext());
             }
           // fall through
-          case 79: break;
+          case 80: break;
           case 22:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "CDobles",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1047,7 +1051,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.C_dobles_c, yyline, yycolumn, yytext());
             }
           // fall through
-          case 80: break;
+          case 81: break;
           case 23:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Doble_puntos",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1055,7 +1059,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Doble_puntos, yyline, yycolumn, yytext());
             }
           // fall through
-          case 81: break;
+          case 82: break;
           case 24:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reserv",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1063,208 +1067,216 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Reserve, yyline, yycolumn, yytext());
             }
           // fall through
-          case 82: break;
+          case 83: break;
           case 25:
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "cadena",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.Cadena, yyline, yycolumn, yytext());
+            }
+          // fall through
+          case 84: break;
+          case 26:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Arreglo",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Arr, yyline, yycolumn, yytext());
             }
           // fall through
-          case 83: break;
-          case 26:
+          case 85: break;
+          case 27:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_D",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_div, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());
             }
           // fall through
-          case 84: break;
-          case 27:
+          case 86: break;
+          case 28:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reservada",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.End, yyline, yycolumn, yytext());
             }
           // fall through
-          case 85: break;
-          case 28:
+          case 87: break;
+          case 29:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_max",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_max, yyline, yycolumn, yytext());
-            }
-          // fall through
-          case 86: break;
-          case 29:
-            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_min",yyline,yycolumn);
-                            lista_T.add(tokens_L);
-                            conteo_tokens++;
-        return new Symbol(sym.E_min, yyline, yycolumn, yytext());
-            }
-          // fall through
-          case 87: break;
-          case 30:
-            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_mod",yyline,yycolumn);
-                            lista_T.add(tokens_L);
-                            conteo_tokens++;
-        return new Symbol(sym.A_mod, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());
             }
           // fall through
           case 88: break;
-          case 31:
-            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_M",yyline,yycolumn);
+          case 30:
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_min",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_mul, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());
             }
           // fall through
           case 89: break;
-          case 32:
-            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_R",yyline,yycolumn);
+          case 31:
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_mod",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_res, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());
             }
           // fall through
           case 90: break;
-          case 33:
-            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_S",yyline,yycolumn);
+          case 32:
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_M",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.A_sum, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());
             }
           // fall through
           case 91: break;
+          case 33:
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_R",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());
+            }
+          // fall through
+          case 92: break;
           case 34:
+            { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_S",yyline,yycolumn);
+                            lista_T.add(tokens_L);
+                            conteo_tokens++;
+        return new Symbol(sym.OPA, yyline, yycolumn, yytext());
+            }
+          // fall through
+          case 93: break;
+          case 35:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reservada",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Var, yyline, yycolumn, yytext());
             }
           // fall through
-          case 92: break;
-          case 35:
+          case 94: break;
+          case 36:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gejex",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_ejex, yyline, yycolumn, yytext());
             }
           // fall through
-          case 93: break;
-          case 36:
+          case 95: break;
+          case 37:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gejey",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_ejey, yyline, yycolumn, yytext());
             }
           // fall through
-          case 94: break;
-          case 37:
+          case 96: break;
+          case 38:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gexec",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_exec, yyline, yycolumn, yytext());
             }
           // fall through
-          case 95: break;
-          case 38:
+          case 97: break;
+          case 39:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_moda",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_moda, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());
             }
           // fall through
-          case 96: break;
-          case 39:
+          case 98: break;
+          case 40:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "label",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_label, yyline, yycolumn, yytext());
             }
           // fall through
-          case 97: break;
-          case 40:
+          case 99: break;
+          case 41:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_media",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_media, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());
             }
           // fall through
-          case 98: break;
-          case 41:
+          case 100: break;
+          case 42:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "imprimir",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Print, yyline, yycolumn, yytext());
             }
           // fall through
-          case 99: break;
-          case 42:
+          case 101: break;
+          case 43:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Tipos",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Tipo, yyline, yycolumn, yytext());
             }
           // fall through
-          case 100: break;
-          case 43:
+          case 102: break;
+          case 44:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "column",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Column, yyline, yycolumn, yytext());
             }
           // fall through
-          case 101: break;
-          case 44:
+          case 103: break;
+          case 45:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "titulo",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_titulo, yyline, yycolumn, yytext());
             }
           // fall through
-          case 102: break;
-          case 45:
+          case 104: break;
+          case 46:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gvalues",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_values, yyline, yycolumn, yytext());
             }
           // fall through
-          case 103: break;
-          case 46:
+          case 105: break;
+          case 47:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Imprimir",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Console, yyline, yycolumn, yytext());
             }
           // fall through
-          case 104: break;
-          case 47:
+          case 106: break;
+          case 48:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gbar",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_grapbar, yyline, yycolumn, yytext());
             }
           // fall through
-          case 105: break;
-          case 48:
+          case 107: break;
+          case 49:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "grafica",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_grapPie, yyline, yycolumn, yytext());
             }
           // fall through
-          case 106: break;
-          case 49:
+          case 108: break;
+          case 50:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_mediana",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_mediana, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());
             }
           // fall through
-          case 107: break;
-          case 50:
+          case 109: break;
+          case 51:
             { System.out.println("Inicio: "+ yytext() +
     ", en la linea: "+yyline+", en la columna: "+yycolumn); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Reservada",yyline,yycolumn);
                             lista_T.add(tokens_L);
@@ -1272,71 +1284,71 @@ public class LexerCup implements java_cup.runtime.Scanner {
         return new Symbol(sym.Program, yyline, yycolumn, yytext());
             }
           // fall through
-          case 108: break;
-          case 51:
+          case 110: break;
+          case 52:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gtitulox",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_titulox, yyline, yycolumn, yytext());
             }
           // fall through
-          case 109: break;
-          case 52:
+          case 111: break;
+          case 53:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gtituiloy",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_tituloy, yyline, yycolumn, yytext());
             }
           // fall through
-          case 110: break;
-          case 53:
+          case 112: break;
+          case 54:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "graBar",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_graphbar, yyline, yycolumn, yytext());
             }
           // fall through
-          case 111: break;
-          case 54:
+          case 113: break;
+          case 55:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_g",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_graphpie, yyline, yycolumn, yytext());
             }
           // fall through
-          case 112: break;
-          case 55:
+          case 114: break;
+          case 56:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gline",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_grapline, yyline, yycolumn, yytext());
             }
           // fall through
-          case 113: break;
-          case 56:
+          case 115: break;
+          case 57:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_varianza",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.E_varianza, yyline, yycolumn, yytext());
+        return new Symbol(sym.OPE, yyline, yycolumn, yytext());
             }
           // fall through
-          case 114: break;
-          case 57:
+          case 116: break;
+          case 58:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gline",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_graphline, yyline, yycolumn, yytext());
             }
           // fall through
-          case 115: break;
-          case 58:
+          case 117: break;
+          case 59:
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Ghisto",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_histogram, yyline, yycolumn, yytext());
             }
           // fall through
-          case 116: break;
+          case 118: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
