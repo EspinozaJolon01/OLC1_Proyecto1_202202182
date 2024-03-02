@@ -23,7 +23,7 @@ Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
 non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR,COMENT,EXP,CONT,FUNES,DATO,
-COMENTARIO,CADENA;
+COMENTARIO,CADENA,ARREGLOSTIP;
 
 start with INICIO;
 
@@ -62,8 +62,6 @@ LISTA_VALORES ::= LISTA_VALORES Coma TIPCONTENIDO
 
 
 
-
-
 //----------------DECLARACION DE ESTADISTICAS --------------------------------------------------------------------------
 
 
@@ -80,7 +78,11 @@ DATO ::= DATO Coma TIPCONTENIDO
 COMENT ::= Console Doble_puntos COMENTARIO ;
 
 COMENTARIO ::= Print Igual EXP End P_coma
-        | Column Igual CADENA Reservemenor TIPCONTENIDO End P_coma;
+        | Column Igual CADENA Reservemenor ARREGLOSTIP End P_coma;
+
+ARREGLOSTIP ::= LISTA_VALORES 
+            | Parent_a LISTA_VALORES Parent_c ;
+       
 
 CADENA ::= Cadena | Identificador ;
 
