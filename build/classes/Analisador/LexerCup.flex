@@ -133,10 +133,7 @@ label  {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(con
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_label, yyline, yycolumn, yytext());}
-grapPie    {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "grafica",yyline,yycolumn);
-                            lista_T.add(tokens_L);
-                            conteo_tokens++;
-        return new Symbol(sym.G_grapPie, yyline, yycolumn, yytext());}
+
 graphbar {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "graBar",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
@@ -157,18 +154,12 @@ tituloy {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(co
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_tituloy, yyline, yycolumn, yytext());}
-grapbar {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gbar",yyline,yycolumn);
-                            lista_T.add(tokens_L);
-                            conteo_tokens++;
-        return new Symbol(sym.G_grapbar, yyline, yycolumn, yytext());}
+
 graphline   {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gline",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.G_graphline, yyline, yycolumn, yytext());}
-grapline  {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gline",yyline,yycolumn);
-                            lista_T.add(tokens_L);
-                            conteo_tokens++;
-        return new Symbol(sym.G_grapline, yyline, yycolumn, yytext());}
+
 histogram {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Ghisto",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;

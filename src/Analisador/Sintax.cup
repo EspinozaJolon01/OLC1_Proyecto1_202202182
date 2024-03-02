@@ -18,7 +18,7 @@ parser code
 terminal Program,End,Var,Arr,Console,Print,Column,Tipo,Cadena,Reservemenor,
 OPA,A_mod,
 OPE,
-G_graphpie,G_titulo,G_label,G_grapPie,G_graphbar,G_ejex,G_ejey,G_titulox,G_tituloy,G_grapbar,G_graphline,G_grapline,G_histogram,G_values,G_exec,
+G_graphpie,G_titulo,G_label,G_graphbar,G_ejex,G_ejey,G_titulox,G_tituloy,G_graphline,G_histogram,G_values,G_exec,
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
