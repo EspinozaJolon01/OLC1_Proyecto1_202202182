@@ -19,6 +19,8 @@ import java.util.List;
 %cup
 %unicode 
 %ignorecase 
+
+
 L=[a-zA-Z_]+
 D=[0-9]+
 espacio=[ \t\r\n]+
@@ -124,7 +126,7 @@ varianza {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(c
 graphpie {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_g",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_graphpie, yyline, yycolumn, yytext());}
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());}
 titulo   {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "titulo",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
@@ -137,7 +139,7 @@ label  {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(con
 graphbar {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "graBar",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_graphbar, yyline, yycolumn, yytext());}
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());}
 ejex    {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gejex",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
@@ -158,12 +160,12 @@ tituloy {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(co
 graphline   {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gline",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_graphline, yyline, yycolumn, yytext());}
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());}
 
 histogram {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Ghisto",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_histogram, yyline, yycolumn, yytext());}
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());}
 values {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gvalues",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;

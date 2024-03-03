@@ -1287,7 +1287,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "graBar",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_graphbar, yyline, yycolumn, yytext());
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());
             }
           // fall through
           case 110: break;
@@ -1295,7 +1295,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Estadistico_g",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_graphpie, yyline, yycolumn, yytext());
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());
             }
           // fall through
           case 111: break;
@@ -1311,7 +1311,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Gline",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_graphline, yyline, yycolumn, yytext());
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());
             }
           // fall through
           case 113: break;
@@ -1319,7 +1319,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Ghisto",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_histogram, yyline, yycolumn, yytext());
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());
             }
           // fall through
           case 114: break;

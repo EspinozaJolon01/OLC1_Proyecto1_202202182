@@ -13,51 +13,48 @@ public class sym {
   public static final int OPE = 14;
   public static final int OPA = 12;
   public static final int End = 3;
-  public static final int Coma = 29;
-  public static final int Llave_c = 36;
+  public static final int Coma = 26;
+  public static final int Llave_c = 33;
   public static final int Arr = 5;
-  public static final int Llave_a = 35;
-  public static final int G_exec = 26;
+  public static final int Llave_a = 32;
+  public static final int G_exec = 23;
   public static final int Var = 4;
   public static final int Column = 8;
-  public static final int Arroba = 45;
-  public static final int G_histogram = 24;
+  public static final int Arroba = 42;
   public static final int A_mod = 13;
-  public static final int G_graphline = 23;
-  public static final int G_graphpie = 15;
-  public static final int Punto = 42;
-  public static final int Parent_c = 41;
-  public static final int Parent_a = 40;
+  public static final int Punto = 39;
+  public static final int Parent_c = 38;
+  public static final int Parent_a = 37;
   public static final int Console = 6;
-  public static final int Division = 32;
-  public static final int G_tituloy = 22;
+  public static final int Division = 29;
+  public static final int G_tituloy = 21;
   public static final int Cadena = 10;
-  public static final int G_titulox = 21;
-  public static final int Parentesis_c = 34;
-  public static final int G_graphbar = 18;
-  public static final int Parentesis_a = 33;
-  public static final int P_coma = 39;
+  public static final int G_titulox = 20;
+  public static final int Parentesis_c = 31;
+  public static final int Parentesis_a = 30;
+  public static final int P_coma = 36;
   public static final int EOF = 0;
   public static final int error = 1;
-  public static final int Reserve = 38;
-  public static final int G_ejey = 20;
+  public static final int Reserve = 35;
+  public static final int G_ejey = 19;
   public static final int G_titulo = 16;
-  public static final int G_ejex = 19;
+  public static final int G_ejex = 18;
   public static final int Tipo = 9;
-  public static final int C_dobles_c = 44;
+  public static final int C_dobles_c = 41;
+  public static final int G_tipo_grafica = 15;
   public static final int Print = 7;
-  public static final int ERROR = 49;
-  public static final int C_dobles_a = 43;
-  public static final int Doble_puntos = 46;
-  public static final int Dos_puntos = 37;
-  public static final int G_values = 25;
-  public static final int Identificador = 47;
-  public static final int Resta = 30;
-  public static final int Multiplicacion = 31;
-  public static final int Numero = 48;
+  public static final int ERROR = 46;
+  public static final int C_dobles_a = 40;
+  public static final int Doble_puntos = 43;
+  public static final int Dos_puntos = 34;
+  public static final int G_values = 22;
+  public static final int Identificador = 44;
+  public static final int Resta = 27;
+  public static final int Multiplicacion = 28;
+  public static final int Numero = 45;
   public static final int Program = 2;
-  public static final int Suma = 28;
-  public static final int Igual = 27;
+  public static final int Suma = 25;
+  public static final int Igual = 24;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -74,16 +71,13 @@ public class sym {
   "OPA",
   "A_mod",
   "OPE",
-  "G_graphpie",
+  "G_tipo_grafica",
   "G_titulo",
   "G_label",
-  "G_graphbar",
   "G_ejex",
   "G_ejey",
   "G_titulox",
   "G_tituloy",
-  "G_graphline",
-  "G_histogram",
   "G_values",
   "G_exec",
   "Igual",

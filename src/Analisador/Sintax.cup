@@ -18,12 +18,12 @@ parser code
 terminal Program,End,Var,Arr,Console,Print,Column,Tipo,Cadena,Reservemenor,
 OPA,A_mod,
 OPE,
-G_graphpie,G_titulo,G_label,G_graphbar,G_ejex,G_ejey,G_titulox,G_tituloy,G_graphline,G_histogram,G_values,G_exec,
+G_tipo_grafica,G_titulo,G_label,G_ejex,G_ejey,G_titulox,G_tituloy,G_values,G_exec,
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
 non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR,COMENT,EXP,CONT,FUNES,DATO,
-COMENTARIO,CADENA,ARREGLOSTIP;
+COMENTARIO,CADENA,ARREGLOSTIP,GRAFIC,COMSENTENCIAS,ARREGLOCADENA,ARREGLODOUBLE;
 
 start with INICIO;
 
@@ -31,7 +31,7 @@ INICIO ::= Program CODIGO End Program ;
 CODIGO ::= COMPILACION |      ;
 COMPILACION ::= SENTENCIA |  SENTENCIA COMPILACION;
 
-SENTENCIA ::=  DECLRACION |  TARRELGOS | COMENT;
+SENTENCIA ::=  DECLRACION |  TARRELGOS | COMENT | GRAFIC;
 
 
 //----------------DECLARACION DE VARIABLEN--------------------------------------------------------------------------
@@ -95,7 +95,19 @@ CONT ::= TIPCONTENIDO;
 //----------------DECLARACION DE  FUNCIONES DE GRAFICACION --------------------------------------------------------------------------
 
 
+GRAFIC ::= G_tipo_grafica Parentesis_a COMSENTENCIAS G_exec G_tipo_grafica End P_coma Parentesis_c End P_coma; 
 
+
+COMSENTENCIAS ::= G_titulo Doble_puntos Tipo Igual Cadena End P_coma
+                  G_ejex Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma
+                  G_ejey Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma
+                  G_titulox Doble_puntos Tipo Igual Cadena End P_coma
+                  G_tituloy Doble_puntos Tipo Igual Cadena End P_coma
+                  | G_label Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma
+                    G_values Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma
+                    G_titulo Doble_puntos Tipo Igual Cadena End P_coma 
+                  |G_titulo Doble_puntos Tipo Igual Cadena End P_coma
+                   G_values Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma;
 
 
 
