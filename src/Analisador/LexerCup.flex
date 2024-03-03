@@ -21,7 +21,7 @@ import java.util.List;
 %ignorecase 
 
 
-L=[a-zA-Z_]+
+L=[a-zA-Z_À-ÿ\u00f1\u00d1]+
 D=[0-9]+
 espacio=[ \t\r\n]+
 ESPACIO=[ ]

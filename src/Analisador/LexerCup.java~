@@ -82,8 +82,8 @@ public class LexerCup implements java_cup.runtime.Scanner {
     "\1\34\1\35\1\36\1\32\1\37\1\40\1\41\1\42"+
     "\1\43\1\32\1\44\1\45\1\46\1\47\1\50\1\32"+
     "\1\51\1\52\1\53\1\56\1\0\1\57\7\0\1\3"+
-    "\252\0\2\60\115\0\1\61\u019c\0\1\62\1\63\12\0"+
-    "\2\3\326\0\u0100\3";
+    "\72\0\100\32\60\0\2\60\115\0\1\61\u019c\0\1\62"+
+    "\1\63\12\0\2\3\326\0\u0100\3";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[1280];
@@ -1319,7 +1319,7 @@ public class LexerCup implements java_cup.runtime.Scanner {
             { System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "Ghisto",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
-        return new Symbol(sym.G_histogram, yyline, yycolumn, yytext());
+        return new Symbol(sym.G_tipo_grafica, yyline, yycolumn, yytext());
             }
           // fall through
           case 114: break;

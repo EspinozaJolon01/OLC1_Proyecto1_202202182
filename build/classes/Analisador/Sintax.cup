@@ -3,9 +3,12 @@
 package Analisador;
 
 import java_cup.runtime.Symbol;
+import Clases.arbol;
 
 parser code
 {:
+    
+
      public void syntax_error(Symbol s){
         System.out.println("Error sintactico: "+s.value+" linea: "+s.left+" columna: "+s.right);
     }
@@ -16,20 +19,20 @@ parser code
 :}
 
 terminal Program,End,Var,Arr,Console,Print,Column,Tipo,Cadena,Reservemenor,
-OPA,A_mod,
+OPA,
 OPE,
 G_tipo_grafica,G_titulo,G_label,G_ejex,G_ejey,G_titulox,G_tituloy,G_values,G_exec,
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
-non terminal INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR,COMENT,EXP,CONT,FUNES,DATO,
-COMENTARIO,CADENA,ARREGLOSTIP,GRAFIC,COMSENTENCIAS,ARREGLOCADENA,ARREGLODOUBLE;
+non terminal arbol INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,VALOR,COMENT,EXP,CONT,FUNES,DATO,
+COMENTARIO,CADENA,ARREGLOSTIP,GRAFIC,COMSENTENCIAS;
 
 start with INICIO;
 
 INICIO ::= Program CODIGO End Program ;
 CODIGO ::= COMPILACION |      ;
-COMPILACION ::= SENTENCIA |  SENTENCIA COMPILACION;
+COMPILACION ::= SENTENCIA |  COMPILACION SENTENCIA ;
 
 SENTENCIA ::=  DECLRACION |  TARRELGOS | COMENT | GRAFIC;
 
@@ -97,17 +100,41 @@ CONT ::= TIPCONTENIDO;
 
 GRAFIC ::= G_tipo_grafica Parentesis_a COMSENTENCIAS G_exec G_tipo_grafica End P_coma Parentesis_c End P_coma; 
 
+//graphbar or graphLine
+COMSENTENCIAS ::= G_titulo Doble_puntos Tipo Igual Cadena:titu End P_coma
+                  G_ejex Doble_puntos Tipo Igual Parent_a LISTA_VALORES:ejx Parent_c End P_coma
+                  G_ejey Doble_puntos Tipo Igual Parent_a LISTA_VALORES:ejy Parent_c End P_coma
+                  G_titulox Doble_puntos Tipo Igual Cadena:titux End P_coma
+                  G_tituloy Doble_puntos Tipo Igual Cadena:tituy End P_coma
+                  {:
+                  arbol l = new arbol("COMSENTENCIAS");
+                  l.addHijo(new arbol(titu.toString())); 
+                  l.addHijo(ejx);
+                  l.addHijo(ejy);
+                  l.addHijo(new arbol(titu.toString())); 
+                  l.addHijo(new arbol(titu.toString())); 
+                    :}
+//graphpie
+                  | G_label Doble_puntos Tipo Igual Parent_a LISTA_VALORES:PILC Parent_c End P_coma
+                    G_values Doble_puntos Tipo Igual Parent_a LISTA_VALORES:PILD Parent_c End P_coma
+                    G_titulo Doble_puntos Tipo Igual Cadena:c End P_coma 
+                    {:
+                    arbol l = new arbol("COMSENTENCIAS");
+                    l.addHijo(PILC);
+                    l.addHijo(PILD);
+                    l.addHijo(new arbol(c.toString()));
+                    RESULT = l;
+                    :}
+//histrogram
+                  |G_titulo Doble_puntos Tipo Igual Cadena:c End P_coma
+                   G_values Doble_puntos Tipo Igual Parent_a LISTA_VALORES:A Parent_c End P_coma
 
-COMSENTENCIAS ::= G_titulo Doble_puntos Tipo Igual Cadena End P_coma
-                  G_ejex Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma
-                  G_ejey Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma
-                  G_titulox Doble_puntos Tipo Igual Cadena End P_coma
-                  G_tituloy Doble_puntos Tipo Igual Cadena End P_coma
-                  | G_label Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma
-                    G_values Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma
-                    G_titulo Doble_puntos Tipo Igual Cadena End P_coma 
-                  |G_titulo Doble_puntos Tipo Igual Cadena End P_coma
-                   G_values Doble_puntos Tipo Igual Parent_a LISTA_VALORES Parent_c End P_coma;
+                    {:
+                        arbol l = new arbol("COMSENTENCIAS");
+                        l.addHijo(A);
+                        l.addHijo(new arbol(c.toString()));
+                        RESULT = l;
+                    :};
 
 
 
