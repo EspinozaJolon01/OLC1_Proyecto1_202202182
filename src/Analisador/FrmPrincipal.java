@@ -7,6 +7,7 @@ package Analisador;
 
 import Clases.Errores;
 import Clases.Tokens_L;
+import Clases.arbol;
 
 import Lista.Lista_errores;
 import Lista.Lista_tokens;
@@ -374,7 +375,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
             String texto = obtenerTextArea();
             LexerCup scan = new LexerCup(new StringReader(texto));
             Parser parser = new Parser(scan);
-            parser.parse();
+            arbol raiz = (arbol)parser.parse().value;
+            raiz.printArbol(raiz);
+            //parser.parse();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

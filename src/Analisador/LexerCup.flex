@@ -26,6 +26,7 @@ D=[0-9]+
 espacio=[ \t\r\n]+
 ESPACIO=[ ]
 NUMERO = {D}+("."{D}+)?
+COMMULTI = "<!"~"!>"
 
 %{
     public static List<Errores> lista_E =  new ArrayList<>();
@@ -267,7 +268,7 @@ exec {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conte
                             conteo_tokens++;
         return new Symbol(sym.Numero, yyline, yycolumn, yytext());}
 
-"\“"({L}|{D}|{ESPACIO}|{NUMERO})*"\”"  {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "cadena",yyline,yycolumn);
+"\""({L}|{D}|{ESPACIO}|{NUMERO}|[-]|[:])*"\""  {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "cadena",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Cadena, yyline, yycolumn, yytext());}
@@ -278,7 +279,7 @@ exec {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conte
 ( "!"(.)* ) {/*Ignore*/}
 
 /* multi comentario */
-"<!"([^!]|\n|!([^>]|[^>!]))*"!>" {/*Ignore*/}
+{COMMULTI} {/*Ignore*/}
 
 . {System.out.println("Este es un error lexico: "+ yytext() +
     ", en la linea: "+yyline+", en la columna: "+yychar); return new Symbol(sym.ERROR, yyline, yycolumn, yytext());}
