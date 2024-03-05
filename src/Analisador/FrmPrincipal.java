@@ -376,7 +376,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
             LexerCup scan = new LexerCup(new StringReader(texto));
             Parser parser = new Parser(scan);
             arbol raiz = (arbol)parser.parse().value;
-            raiz.printArbol(raiz);
+            //raiz.printArbol(raiz);
+            raiz.run(raiz);
             //parser.parse();
         } catch (Exception ex) {
             ex.printStackTrace();

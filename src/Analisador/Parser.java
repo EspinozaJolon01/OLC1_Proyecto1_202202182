@@ -332,12 +332,12 @@ class CUP$Parser$actions {
 		int p1right = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		Object p1 = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-            arbol l = new arbol("INICIO");
-                    l.addHijo(new arbol(p.toString())); 
-                    l.addHijo(c);
-                    l.addHijo(new arbol(e.toString())); 
-                    l.addHijo(new arbol(p1.toString())); 
-                    RESULT = l;
+            arbol ini = new arbol("INICIO");
+                    ini.addHijo(new arbol(p.toString())); 
+                    ini.addHijo(c);
+                    ini.addHijo(new arbol(e.toString())); 
+                    ini.addHijo(new arbol(p1.toString())); 
+                    RESULT = ini;
             
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -351,9 +351,9 @@ class CUP$Parser$actions {
 		int cright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol c = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-        arbol l = new arbol("CODIGO");
-                    l.addHijo(c);
-                    RESULT = l;
+        arbol cod = new arbol("CODIGO");
+                    cod.addHijo(c);
+                    RESULT = cod;
         
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("CODIGO",1, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -376,9 +376,9 @@ class CUP$Parser$actions {
 		int sright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol s = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-            arbol l = new arbol("COMPILACION");
-                    l.addHijo(s);
-                    RESULT = l;
+            arbol com = new arbol("COMPILACION");
+                    com.addHijo(s);
+                    RESULT = com;
             
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("COMPILACION",2, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -395,10 +395,10 @@ class CUP$Parser$actions {
 		int sright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol s = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-              arbol l = new arbol("COMPILACION");
-                    l.addHijo(c);
-                    l.addHijo(s);
-                    RESULT = l;
+              arbol com = new arbol("COMPILACION");
+                    com.addHijo(c);
+                    com.addHijo(s);
+                    RESULT = com;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("COMPILACION",2, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -411,9 +411,9 @@ class CUP$Parser$actions {
 		int dleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
 		int dright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol d = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
-		arbol l = new arbol("SENTENCIA");
-                    l.addHijo(d);
-                    RESULT = l;
+		arbol sen = new arbol("SENTENCIA");
+                    sen.addHijo(d);
+                    RESULT = sen;
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("SENTENCIA",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -425,9 +425,9 @@ class CUP$Parser$actions {
 		int tleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
 		int tright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol t = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
-		arbol l = new arbol("SENTENCIA");
-                    l.addHijo(t);
-                    RESULT = l;
+		arbol sen = new arbol("SENTENCIA");
+                    sen.addHijo(t);
+                    RESULT = sen;
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("SENTENCIA",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -439,9 +439,9 @@ class CUP$Parser$actions {
 		int cleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
 		int cright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol c = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
-		arbol l = new arbol("SENTENCIA");
-                    l.addHijo(c);
-                    RESULT = l;
+		arbol sen = new arbol("SENTENCIA");
+                    sen.addHijo(c);
+                    RESULT = sen;
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("SENTENCIA",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -453,9 +453,9 @@ class CUP$Parser$actions {
 		int gleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
 		int gright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol g = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
-		arbol l = new arbol("SENTENCIA");
-                    l.addHijo(g);
-                    RESULT = l;
+		arbol sen = new arbol("SENTENCIA");
+                    sen.addHijo(g);
+                    RESULT = sen;
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("SENTENCIA",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -476,12 +476,12 @@ class CUP$Parser$actions {
 		int Nleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;
 		int Nright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
 		arbol N = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
-		  arbol l = new arbol("DECLRACION");
-                    l.addHijo(new arbol(v.toString())); 
-                    l.addHijo(new arbol(t.toString())); 
-                    l.addHijo(new arbol(i.toString())); 
-                    l.addHijo(N);
-                    RESULT = l; 
+		  arbol Deca = new arbol("DECLRACION");
+                    Deca.addHijo(new arbol(v.toString())); 
+                    Deca.addHijo(new arbol(t.toString())); 
+                    Deca.addHijo(new arbol(i.toString())); 
+                    Deca.addHijo(N);
+                    RESULT = Deca; 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("DECLRACION",4, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -494,9 +494,9 @@ class CUP$Parser$actions {
 		int tipright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol tip = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-                arbol l = new arbol("CONTENIDO");
-                    l.addHijo(tip);
-                    RESULT = l;
+                arbol lcon = new arbol("CONTENIDO");
+                    lcon.addHijo(tip);
+                    RESULT = lcon;
             
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("CONTENIDO",6, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
