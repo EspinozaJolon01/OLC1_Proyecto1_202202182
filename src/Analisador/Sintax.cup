@@ -124,11 +124,13 @@ TIPCONTENIDO ::= Identificador:i
                     l.addHijo(c1);
                     RESULT = l;
             :}
-            | OPE:op1 Parentesis_a FUNES:f Parentesis_c
+            | OPE:op1 Parentesis_a:pac FUNES:f Parentesis_c:pac1
             {:
             arbol l = new arbol("TIPCONTENIDO");
                     l.addHijo(new arbol(op1.toString())); 
+                    l.addHijo(new arbol(pac.toString())); 
                     l.addHijo(f);
+                    l.addHijo(new arbol(pac1.toString())); 
                     RESULT = l;
             :}
              ; 
@@ -175,30 +177,20 @@ LISTA_VALORES ::= LISTA_VALORES:li Coma:com TIPCONTENIDO:tip
 
 
 
-FUNES ::= Parent_a  DATO:d  Parent_c 
-        {:arbol l = new arbol("FUNES");
-                l.addHijo(d);
-                RESULT = l;:}
-        | DATO:d 
+FUNES ::= Parent_a:pa  LISTA_VALORES:d  Parent_c:pc 
+        {:arbol lfun = new arbol("FUNES");
+                lfun.addHijo(new arbol(pa.toString()));
+                lfun.addHijo(d);
+                lfun.addHijo(new arbol(pc.toString()));
+                RESULT = lfun;:}
+        | LISTA_VALORES:d1 
         {:
-    arbol l = new arbol("FUNES");
-                    l.addHijo(d);
-                    RESULT = l;
+    arbol lfun = new arbol("FUNES");
+                    lfun.addHijo(d1);
+                    RESULT = lfun;
         :};
 
-DATO ::= DATO:d Coma TIPCONTENIDO:tip
-        {:
-                arbol l = new arbol("DATO");
-                l.addHijo(d);
-                l.addHijo(tip);
-                RESULT = l;
-        :}
-        | TIPCONTENIDO:t 
-        {:
-        arbol l = new arbol("DATO");
-                l.addHijo(t);
-                RESULT = l;
-        :}; 
+
 
 
 //----------------DECLARACION DE IMPRESION EN CONSOLA --------------------------------------------------------------------------
