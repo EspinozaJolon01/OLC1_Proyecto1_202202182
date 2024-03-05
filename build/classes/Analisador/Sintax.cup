@@ -79,7 +79,7 @@ SENTENCIA ::=  DECLRACION:d
 
 //----------------DECLARACION DE VARIABLEN--------------------------------------------------------------------------
 
-DECLRACION ::= Var:v Dos_puntos Tipo:t Doble_puntos Identificador:i Reserve CONTENIDO:N End P_coma  
+DECLRACION ::= Var:v Dos_puntos Tipo:t Doble_puntos Identificador:i Reserve TIPCONTENIDO:N End P_coma  
                 {:  arbol Deca = new arbol("DECLRACION");
                     Deca.addHijo(new arbol(v.toString())); 
                     Deca.addHijo(new arbol(t.toString())); 
@@ -88,12 +88,7 @@ DECLRACION ::= Var:v Dos_puntos Tipo:t Doble_puntos Identificador:i Reserve CONT
                     RESULT = Deca; :};
 
 
-CONTENIDO ::= TIPCONTENIDO:tip 
-            {:
-                arbol lcon = new arbol("CONTENIDO");
-                    lcon.addHijo(tip);
-                    RESULT = lcon;
-            :};
+
             
 
 TIPCONTENIDO ::= Identificador:i 
@@ -121,7 +116,7 @@ TIPCONTENIDO ::= Identificador:i
                     l.addHijo(new arbol(i.toString())); 
                     RESULT = l;
             :}
-            | OPA:op2 Parentesis_a CONTENIDO:c Coma CONTENIDO:c1 Parentesis_c
+            | OPA:op2 Parentesis_a TIPCONTENIDO:c Coma TIPCONTENIDO:c1 Parentesis_c
             {:
             arbol l = new arbol("TIPCONTENIDO");
                     l.addHijo(new arbol(op2.toString())); 

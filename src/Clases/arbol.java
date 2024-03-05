@@ -33,6 +33,15 @@ public class arbol {
         System.out.println(raiz.lex);
     }
     
+    public String getValor(ArrayList<nodoArbol>Ts,String nombre){
+        for(nodoArbol elemento : Ts){
+            if(elemento.nombre.equals(nombre)){
+                return elemento.valor;
+            }
+        }
+        return "Error semantcio";
+    }
+    
     public void run(arbol raiz, ArrayList<nodoArbol> Ts){
         for(arbol hijo : raiz.hijos){
             run(hijo,Ts);
@@ -40,7 +49,23 @@ public class arbol {
          
         //produccion de numero,cadenas e identificadores
         if(raiz.lex == "TIPCONTENIDO" && raiz.hijos.size()==1){ 
-            raiz.result = raiz.hijos.get(0).lex;
+            if(raiz.hijos.get(0).lex.substring(0,1).equals("\"")){ //obtengo la primera indice
+                raiz.result = raiz.hijos.get(0).lex;
+            }else{
+                try {
+                double variable = Double.parseDouble(raiz.hijos.get(0).lex);
+                raiz.result = raiz.hijos.get(0).lex;
+            } catch (Exception e) {
+                String val =  this.getValor(Ts, raiz.hijos.get(0).lex);
+                if(val.equals("Error semantcio")){
+                    System.out.println("Error semantcio, variable no encontrada");
+                }else{
+                    raiz.result = val;
+                }
+            }
+                
+            }
+            
         }else if(raiz.lex == "TIPCONTENIDO" && raiz.hijos.size()==2){ //produccion del arroba 
             raiz.result = raiz.hijos.get(0).lex;
             raiz.result = raiz.hijos.get(1).lex;
@@ -56,8 +81,6 @@ public class arbol {
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("mod")){
                 raiz.result = String.valueOf(Double.parseDouble(raiz.hijos.get(1).result) % Double.parseDouble(raiz.hijos.get(2).result));
             }
-        }else if(raiz.lex == "CONTENIDO" && raiz.hijos.size()==1){
-            raiz.result = raiz.hijos.get(0).result;
         }else if(raiz.lex == "DECLRACION" && raiz.hijos.size()==4){ //Var:v  Tipo:t  Identificador:i  CONTENIDO:N  
             nodoArbol nA= new nodoArbol(raiz.hijos.get(2).lex, "variable", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(3).result);
             Ts.add(nA);
