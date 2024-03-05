@@ -635,12 +635,16 @@ class CUP$Parser$actions {
 		int lileft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;
 		int liright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
 		arbol li = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
+		int comleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).left;
+		int comright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).right;
+		Object com = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-1)).value;
 		int tipleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
 		int tipright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol tip = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
                     arbol lv = new arbol("LISTA_VALORES");
-                    lv.addHijo(li);
+                    lv.addHijo(li); 
+                    lv.addHijo(new arbol(com.toString()));
                     lv.addHijo(tip);
                     RESULT = lv;
                 

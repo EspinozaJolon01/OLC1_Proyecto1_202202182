@@ -49,8 +49,8 @@ public class arbol {
         
         if(raiz.lex == "LISTA_VALORES" && raiz.hijos.size()==1){ //obtener los arreglos 
             raiz.result = raiz.hijos.get(0).result;    
-        }else if(raiz.lex == "LISTA_VALORES" && raiz.hijos.size()==2){
-            raiz.result = raiz.hijos.get(0).result + raiz.hijos.get(1).result;
+        }else if(raiz.lex == "LISTA_VALORES" && raiz.hijos.size()==3){
+            raiz.result = raiz.hijos.get(0).result + raiz.hijos.get(1).lex + raiz.hijos.get(2).result;
         }else if(raiz.lex == "TARRELGOS" && raiz.hijos.size()==5){ //Arr:a Tipo:t  Arroba:ar Identificador:i  LISTA_VALORES:li  
             nodoArbol nA= new nodoArbol(raiz.hijos.get(2).lex + raiz.hijos.get(3).lex, "arreglo", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(4).result);
             Ts.add(nA);

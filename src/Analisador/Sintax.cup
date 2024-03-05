@@ -149,10 +149,11 @@ TARRELGOS ::= Arr:a Dos_puntos Tipo:t Doble_puntos Arroba:ar Identificador:i Res
 
             :};
 
-LISTA_VALORES ::= LISTA_VALORES:li Coma TIPCONTENIDO:tip
+LISTA_VALORES ::= LISTA_VALORES:li Coma:com TIPCONTENIDO:tip
                 {:
                     arbol lv = new arbol("LISTA_VALORES");
-                    lv.addHijo(li);
+                    lv.addHijo(li); 
+                    lv.addHijo(new arbol(com.toString()));
                     lv.addHijo(tip);
                     RESULT = lv;
                 :}
