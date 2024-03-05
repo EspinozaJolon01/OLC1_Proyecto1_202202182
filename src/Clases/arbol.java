@@ -33,9 +33,9 @@ public class arbol {
         System.out.println(raiz.lex);
     }
     
-    public void run(arbol raiz){
+    public void run(arbol raiz, ArrayList<nodoArbol> Ts){
         for(arbol hijo : raiz.hijos){
-            run(hijo);
+            run(hijo,Ts);
         }
          
         //produccion de numero,cadenas e identificadores
@@ -59,11 +59,8 @@ public class arbol {
         }else if(raiz.lex == "CONTENIDO" && raiz.hijos.size()==1){
             raiz.result = raiz.hijos.get(0).result;
         }else if(raiz.lex == "DECLRACION" && raiz.hijos.size()==4){ //Var:v  Tipo:t  Identificador:i  CONTENIDO:N  
-            System.out.println("tipo de vari: " +
-                    raiz.hijos.get(0).lex + 
-                    "tipo: " + raiz.hijos.get(1).lex +
-                    "identificador: " + raiz.hijos.get(2).lex +
-                    "contenido: " + raiz.hijos.get(3).result);
+            nodoArbol nA= new nodoArbol(raiz.hijos.get(2).lex, "variable", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(3).result);
+            Ts.add(nA);
         }
     }
     

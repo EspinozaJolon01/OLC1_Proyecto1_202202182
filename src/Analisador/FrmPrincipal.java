@@ -8,6 +8,7 @@ package Analisador;
 import Clases.Errores;
 import Clases.Tokens_L;
 import Clases.arbol;
+import Clases.nodoArbol;
 
 import Lista.Lista_errores;
 import Lista.Lista_tokens;
@@ -30,6 +31,7 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java_cup.Lexer;
@@ -370,14 +372,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lista_errores.limpiar();
         
         try {
-            
+            //tabla de simbolos
+            ArrayList<nodoArbol> Ts = new ArrayList<>();
             
             String texto = obtenerTextArea();
             LexerCup scan = new LexerCup(new StringReader(texto));
             Parser parser = new Parser(scan);
             arbol raiz = (arbol)parser.parse().value;
             //raiz.printArbol(raiz);
-            raiz.run(raiz);
+            raiz.run(raiz,Ts);
+            
+            for(nodoArbol elemento: Ts){
+                System.out.println(elemento.nombre+"\t"+elemento.rol+"\t"+elemento.tipo+"\t"+elemento.valor);
+            }
             //parser.parse();
         } catch (Exception ex) {
             ex.printStackTrace();
