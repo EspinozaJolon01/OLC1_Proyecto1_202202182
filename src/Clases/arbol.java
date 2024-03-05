@@ -46,9 +46,16 @@ public class arbol {
         for(arbol hijo : raiz.hijos){
             run(hijo,Ts);
         }
-         
-        //produccion de numero,cadenas e identificadores
-        if(raiz.lex == "TIPCONTENIDO" && raiz.hijos.size()==1){ 
+        
+        if(raiz.lex == "LISTA_VALORES" && raiz.hijos.size()==1){ //obtener los arreglos 
+            raiz.result = raiz.hijos.get(0).result;    
+        }else if(raiz.lex == "LISTA_VALORES" && raiz.hijos.size()==2){
+            raiz.result = raiz.hijos.get(0).result + raiz.hijos.get(1).result;
+        }else if(raiz.lex == "TARRELGOS" && raiz.hijos.size()==5){ //Arr:a Tipo:t  Arroba:ar Identificador:i  LISTA_VALORES:li  
+            nodoArbol nA= new nodoArbol(raiz.hijos.get(2).lex + raiz.hijos.get(3).lex, "arreglo", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(4).result);
+            Ts.add(nA);
+        }
+        else if(raiz.lex == "TIPCONTENIDO" && raiz.hijos.size()==1){ //produccion de numero,cadenas e identificadores
             if(raiz.hijos.get(0).lex.substring(0,1).equals("\"")){ //obtengo la primera indice
                 raiz.result = raiz.hijos.get(0).lex;
             }else{

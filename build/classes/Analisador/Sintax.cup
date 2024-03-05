@@ -139,29 +139,29 @@ TIPCONTENIDO ::= Identificador:i
 
 TARRELGOS ::= Arr:a Dos_puntos Tipo:t Doble_puntos Arroba:ar Identificador:i Reserve Parent_a LISTA_VALORES:li Parent_c End P_coma 
             {:
-            arbol l = new arbol("TARRELGOS");
-                    l.addHijo(new arbol(a.toString())); 
-                    l.addHijo(new arbol(t.toString())); 
-                    l.addHijo(new arbol(ar.toString())); 
-                    l.addHijo(new arbol(i.toString())); 
-                    l.addHijo(li);
-                    RESULT = l;
+            arbol larreglo = new arbol("TARRELGOS");
+                    larreglo.addHijo(new arbol(a.toString())); 
+                    larreglo.addHijo(new arbol(t.toString())); 
+                    larreglo.addHijo(new arbol(ar.toString())); 
+                    larreglo.addHijo(new arbol(i.toString())); 
+                    larreglo.addHijo(li);
+                    RESULT = larreglo;
 
             :};
 
 LISTA_VALORES ::= LISTA_VALORES:li Coma TIPCONTENIDO:tip
                 {:
-                    arbol l = new arbol("LISTA_VALORES");
-                    l.addHijo(li);
-                    l.addHijo(tip);
-                    RESULT = l;
+                    arbol lv = new arbol("LISTA_VALORES");
+                    lv.addHijo(li);
+                    lv.addHijo(tip);
+                    RESULT = lv;
                 :}
                 
                  | TIPCONTENIDO:tip   
                 {:
-    arbol l = new arbol("LISTA_VALORES");
-                    l.addHijo(tip);
-                    RESULT = l;
+    arbol lv = new arbol("LISTA_VALORES");
+                    lv.addHijo(tip);
+                    RESULT = lv;
                     
                 :}
 

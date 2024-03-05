@@ -615,13 +615,13 @@ class CUP$Parser$actions {
 		int liright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
 		arbol li = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
 		
-            arbol l = new arbol("TARRELGOS");
-                    l.addHijo(new arbol(a.toString())); 
-                    l.addHijo(new arbol(t.toString())); 
-                    l.addHijo(new arbol(ar.toString())); 
-                    l.addHijo(new arbol(i.toString())); 
-                    l.addHijo(li);
-                    RESULT = l;
+            arbol larreglo = new arbol("TARRELGOS");
+                    larreglo.addHijo(new arbol(a.toString())); 
+                    larreglo.addHijo(new arbol(t.toString())); 
+                    larreglo.addHijo(new arbol(ar.toString())); 
+                    larreglo.addHijo(new arbol(i.toString())); 
+                    larreglo.addHijo(li);
+                    RESULT = larreglo;
 
             
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("TARRELGOS",5, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-11)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
@@ -639,10 +639,10 @@ class CUP$Parser$actions {
 		int tipright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol tip = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-                    arbol l = new arbol("LISTA_VALORES");
-                    l.addHijo(li);
-                    l.addHijo(tip);
-                    RESULT = l;
+                    arbol lv = new arbol("LISTA_VALORES");
+                    lv.addHijo(li);
+                    lv.addHijo(tip);
+                    RESULT = lv;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("LISTA_VALORES",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -656,9 +656,9 @@ class CUP$Parser$actions {
 		int tipright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		arbol tip = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-    arbol l = new arbol("LISTA_VALORES");
-                    l.addHijo(tip);
-                    RESULT = l;
+    arbol lv = new arbol("LISTA_VALORES");
+                    lv.addHijo(tip);
+                    RESULT = lv;
                     
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("LISTA_VALORES",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
