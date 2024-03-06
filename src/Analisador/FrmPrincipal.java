@@ -9,7 +9,7 @@ import Clases.Errores;
 import Clases.Tokens_L;
 import Clases.arbol;
 import Clases.nodoArbol;
-
+import java.util.LinkedList;
 import Lista.Lista_errores;
 import Lista.Lista_tokens;
 import java.awt.Color;
@@ -66,6 +66,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     int contador = 2;
     int conteo_errores = 1;
     int conteo_tokens = 1;
+    
     
     
     
@@ -379,8 +380,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
             LexerCup scan = new LexerCup(new StringReader(texto));
             Parser parser = new Parser(scan);
             arbol raiz = (arbol)parser.parse().value;
+            //txtConsola.setText(arbol.recorrerLista());
+            
 //            raiz.printArbol(raiz);
-            raiz.run(raiz,Ts);
+            raiz.run(raiz,Ts, txtConsola);
+            
             
             for(nodoArbol elemento: Ts){
                 System.out.println(elemento.nombre+"\t"+elemento.rol+"\t"+elemento.tipo+"\t"+elemento.valor);

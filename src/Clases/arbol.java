@@ -7,7 +7,9 @@ package Clases;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -55,6 +57,9 @@ public class arbol {
         }
         return "Error semantcio";
     }
+    
+    
+
     
     public static double FuncionEstaditicos(String tipo, String arreglo) {
         String[] arregloN = arreglo.split(",");
@@ -127,19 +132,23 @@ public class arbol {
 
 
     
-    public void run(arbol raiz, ArrayList<nodoArbol> Ts){
+    public void run(arbol raiz, ArrayList<nodoArbol> Ts, JTextArea txtconsola){
         for(arbol hijo : raiz.hijos){
-            run(hijo,Ts);
+            run(hijo,Ts, txtconsola);
         }
         
         if(raiz.lex == "COMENT" && raiz.hijos.size()==2){
-            
-            System.out.println("que traer: " + raiz.hijos.get(1).result);
+            //agregarElemento(raiz.hijos.get(1).result);
+            txtconsola.append(raiz.hijos.get(1).result);
+            //System.out.println("que traer: " + raiz.hijos.get(1).result);
         }else if(raiz.lex == "COMENTARIO" && raiz.hijos.size()==3){
             raiz.result = raiz.hijos.get(0).lex;
+            //System.out.println("--" +raiz.hijos.get(0).lex);
             raiz.result = raiz.hijos.get(1).result;
             raiz.result = raiz.hijos.get(2).result;
         }else if(raiz.lex == "COMENTARIO" && raiz.hijos.size()==2){
+            //System.out.println("**" + raiz.hijos.get(0).lex);
+            //System.out.println("" +raiz.hijos.get(1).result);
             raiz.result = raiz.hijos.get(0).lex;
             raiz.result = raiz.hijos.get(1).result;
         }else if(raiz.lex == "ARREGLOSTIP" && raiz.hijos.size()==1){
@@ -208,7 +217,7 @@ public class arbol {
       
             
         }else if(raiz.lex == "DECLRACION" && raiz.hijos.size()==4){ //Var:v  Tipo:t  Identificador:i  CONTENIDO:N  
-            System.out.println("Var: " + raiz.hijos.get(2));
+            //System.out.println("Var: " + raiz.hijos.get(2));
             nodoArbol nA= new nodoArbol(raiz.hijos.get(2).lex, "variable", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(3).result);
             Ts.add(nA);
         }
