@@ -371,6 +371,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         lista_token.limpiar();
         lista_errores.limpiar();
+        String datos_en_la_consola = "";
+
+        txtConsola.setText(datos_en_la_consola);
         
         try {
             //tabla de simbolos

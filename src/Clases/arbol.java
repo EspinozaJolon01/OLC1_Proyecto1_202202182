@@ -58,6 +58,20 @@ public class arbol {
         return "Error semantcio";
     }
     
+    public String imprimir(String titulo, String contenido) {
+        StringBuilder result = new StringBuilder();
+        result.append("------------\n");
+        result.append(titulo).append("\n");
+        result.append("------------\n");
+        String[] arregloN = contenido.split(",");
+        for (String elemento : arregloN) {
+            result.append(elemento).append("\n");
+        }
+
+        return result.toString();
+}
+
+    
     
 
     
@@ -139,20 +153,32 @@ public class arbol {
         
         if(raiz.lex == "COMENT" && raiz.hijos.size()==2){
             //agregarElemento(raiz.hijos.get(1).result);
-            txtconsola.append(raiz.hijos.get(1).result);
+            
             //System.out.println("que traer: " + raiz.hijos.get(1).result);
         }else if(raiz.lex == "COMENTARIO" && raiz.hijos.size()==3){
+            System.out.println("--" +raiz.hijos.get(0).lex);
+            System.out.println("--" +raiz.hijos.get(1).result);
+            System.out.println("--" +raiz.hijos.get(2).result);
+            String resultado = imprimir(raiz.hijos.get(1).result, raiz.hijos.get(2).result); // Llamar a la función imprimir
+    
+            txtconsola.append(resultado);
             raiz.result = raiz.hijos.get(0).lex;
-            //System.out.println("--" +raiz.hijos.get(0).lex);
             raiz.result = raiz.hijos.get(1).result;
             raiz.result = raiz.hijos.get(2).result;
         }else if(raiz.lex == "COMENTARIO" && raiz.hijos.size()==2){
-            //System.out.println("**" + raiz.hijos.get(0).lex);
-            //System.out.println("" +raiz.hijos.get(1).result);
+            
             raiz.result = raiz.hijos.get(0).lex;
-            raiz.result = raiz.hijos.get(1).result;
+            txtconsola.append(raiz.hijos.get(1).result);
+            //raiz.result = raiz.hijos.get(1).result;
         }else if(raiz.lex == "ARREGLOSTIP" && raiz.hijos.size()==1){
-            raiz.result = raiz.hijos.get(0).result;    
+            String val =  this.getArreglo(Ts, raiz.hijos.get(0).result);
+                
+                if(val.equals("Error semantcio")){
+                    System.out.println("Error semantcio, variable no encontrada");
+                }else{
+                    raiz.result = val;
+                    System.out.println("-" +val);
+                }
         }else if(raiz.lex == "ARREGLOSTIP" && raiz.hijos.size()==3){
             raiz.result = raiz.hijos.get(1).result;
         }else if(raiz.lex == "FUNES" && raiz.hijos.size()==1){
