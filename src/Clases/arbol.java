@@ -45,6 +45,17 @@ public class arbol {
         return "Error semantcio";
     }
     
+    public String getArreglo(ArrayList<nodoArbol>Ts,String nombre){
+        
+        for(nodoArbol elemento : Ts){
+            if(elemento.nombre.equals(nombre)){
+                System.out.println(elemento.nombre + "=" + nombre);
+                return elemento.valor;
+            }
+        }
+        return "Error semantcio";
+    }
+    
     public static double FuncionEstaditicos(String tipo, String arreglo) {
         String[] arregloN = arreglo.split(",");
         double[] valores = new double[arregloN.length];
@@ -120,8 +131,33 @@ public class arbol {
         for(arbol hijo : raiz.hijos){
             run(hijo,Ts);
         }
-        if(raiz.lex == "FUNES" && raiz.hijos.size()==1){
-            raiz.result = raiz.hijos.get(0).result;
+        
+        if(raiz.lex == "COMENT" && raiz.hijos.size()==2){
+            
+            System.out.println("que traer: " + raiz.hijos.get(1).result);
+        }else if(raiz.lex == "COMENTARIO" && raiz.hijos.size()==3){
+            raiz.result = raiz.hijos.get(0).lex;
+            raiz.result = raiz.hijos.get(1).result;
+            raiz.result = raiz.hijos.get(2).result;
+        }else if(raiz.lex == "COMENTARIO" && raiz.hijos.size()==2){
+            raiz.result = raiz.hijos.get(0).lex;
+            raiz.result = raiz.hijos.get(1).result;
+        }else if(raiz.lex == "ARREGLOSTIP" && raiz.hijos.size()==1){
+            raiz.result = raiz.hijos.get(0).result;    
+        }else if(raiz.lex == "ARREGLOSTIP" && raiz.hijos.size()==3){
+            raiz.result = raiz.hijos.get(1).result;
+        }else if(raiz.lex == "FUNES" && raiz.hijos.size()==1){
+            System.out.println("estoy aqui");
+            
+                String val =  this.getArreglo(Ts, raiz.hijos.get(0).result);
+                
+                if(val.equals("Error semantcio")){
+                    System.out.println("Error semantcio, variable no encontrada");
+                }else{
+                    raiz.result = val;
+                    System.out.println("-" +val);
+                }
+            
             
         }else if(raiz.lex == "FUNES" && raiz.hijos.size()==3){
             raiz.result = raiz.hijos.get(1).result;
@@ -139,7 +175,7 @@ public class arbol {
                 raiz.result = raiz.hijos.get(0).lex;
             }else{
                 try {
-                double variable = Double.parseDouble(raiz.hijos.get(0).lex);
+                double variable = Double.parseDouble(raiz.hijos.get(0).lex);  //sum(hola,3)
                 raiz.result = raiz.hijos.get(0).lex;
             } catch (Exception e) {
                 String val =  this.getValor(Ts, raiz.hijos.get(0).lex);
@@ -153,8 +189,7 @@ public class arbol {
             }
             
         }else if(raiz.lex == "TIPCONTENIDO" && raiz.hijos.size()==2){ //produccion del arroba 
-            raiz.result = raiz.hijos.get(0).lex;
-            raiz.result = raiz.hijos.get(1).lex;
+            raiz.result = raiz.hijos.get(0).lex + raiz.hijos.get(1).lex;
         }else if(raiz.lex == "TIPCONTENIDO" && raiz.hijos.size()==3){
             if(raiz.hijos.get(0).lex.equalsIgnoreCase("sum")){
                 raiz.result = String.valueOf(Double.parseDouble(raiz.hijos.get(1).result) + Double.parseDouble(raiz.hijos.get(2).result));
@@ -173,6 +208,7 @@ public class arbol {
       
             
         }else if(raiz.lex == "DECLRACION" && raiz.hijos.size()==4){ //Var:v  Tipo:t  Identificador:i  CONTENIDO:N  
+            System.out.println("Var: " + raiz.hijos.get(2));
             nodoArbol nA= new nodoArbol(raiz.hijos.get(2).lex, "variable", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(3).result);
             Ts.add(nA);
         }

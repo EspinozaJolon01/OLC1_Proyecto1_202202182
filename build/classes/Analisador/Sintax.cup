@@ -9,7 +9,7 @@ parser code
 {:
     
 
-     public void syntax_error(Symbol s){
+    public void syntax_error(Symbol s){
         System.out.println("Error sintactico: "+s.value+" linea: "+s.left+" columna: "+s.right);
     }
     public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
@@ -176,7 +176,7 @@ LISTA_VALORES ::= LISTA_VALORES:li Coma:com TIPCONTENIDO:tip
 //----------------DECLARACION DE ESTADISTICAS --------------------------------------------------------------------------
 
 
-
+    //[]
 FUNES ::= Parent_a:pa  LISTA_VALORES:d  Parent_c:pc 
         {:arbol lfun = new arbol("FUNES");
                 lfun.addHijo(new arbol(pa.toString()));
@@ -197,70 +197,46 @@ FUNES ::= Parent_a:pa  LISTA_VALORES:d  Parent_c:pc
 
 COMENT ::= Console:c Doble_puntos COMENTARIO:com 
             {:
-            arbol l = new arbol("COMENT");
-                l.addHijo(new arbol(c.toString())); 
-                l.addHijo(com);
-                RESULT = l;
+            arbol lcoment = new arbol("COMENT");
+                lcoment.addHijo(new arbol(c.toString())); 
+                lcoment.addHijo(com);
+                RESULT = lcoment;
             :};
 
-COMENTARIO ::= Print:p Igual EXP:e End P_coma 
+COMENTARIO ::= Print:p Igual LISTA_VALORES:e End P_coma 
             {:
-            arbol l = new arbol("COMENTARIO");
-                l.addHijo(new arbol(p.toString())); 
-                l.addHijo(e);
-                RESULT = l;
+            arbol lcomentario = new arbol("COMENTARIO");
+                lcomentario.addHijo(new arbol(p.toString())); 
+                lcomentario.addHijo(e);
+                RESULT = lcomentario;
             :}
-        | Column:cl Igual CADENA:c Reservemenor ARREGLOSTIP:a End P_coma
+        | Column:cl Igual LISTA_VALORES:c Reservemenor ARREGLOSTIP:a End P_coma
             {:
-            arbol l = new arbol("COMENTARIO");
-                l.addHijo(new arbol(cl.toString())); 
-                l.addHijo(c);
-                l.addHijo(a);
-                RESULT = l;
+            arbol lcomentario = new arbol("COMENTARIO");
+                lcomentario.addHijo(new arbol(cl.toString())); 
+                lcomentario.addHijo(c);
+                lcomentario.addHijo(a);
+                RESULT = lcomentario;
             :};
 
 ARREGLOSTIP ::= LISTA_VALORES:lv 
             {:
-            arbol l = new arbol("ARREGLOSTIP");
-                l.addHijo(lv);
-                RESULT = l;
+            arbol larreglo = new arbol("ARREGLOSTIP");
+                larreglo.addHijo(lv);
+                RESULT = larreglo;
             :}
-            | Parent_a LISTA_VALORES:lv Parent_c 
+            | Parent_a:pca1 LISTA_VALORES:lv Parent_c:pca2 
             {:
-            arbol l = new arbol("ARREGLOSTIP");
-                l.addHijo(lv);
-                RESULT = l;
+            arbol larreglo = new arbol("ARREGLOSTIP");
+                larreglo.addHijo(new arbol(pca1.toString())); 
+                larreglo.addHijo(lv);
+                larreglo.addHijo(new arbol(pca2.toString())); 
+                RESULT = larreglo;
             :};
        
 
-CADENA ::= Cadena:c
-        {:arbol l = new arbol("CADENA");
-                l.addHijo(new arbol(c.toString())); 
-                RESULT = l;:}
-        | Identificador:i {:
-        arbol l = new arbol("CADENA");
-                l.addHijo(new arbol(i.toString())); 
-                RESULT = l;
-        :};
 
-EXP ::= EXP Coma CONT:co {:
-            arbol l = new arbol("EXP");
-                l.addHijo(co);
-                RESULT = l;
-            :}
-        | CONT:co
-        {:
-        arbol l = new arbol("EXP");
-                l.addHijo(co);
-                RESULT = l;
-        :};
 
-CONT ::= TIPCONTENIDO:TIp
-       {:
-        arbol l = new arbol("CONT");
-                l.addHijo(TIp);
-                RESULT = l;
-        :};
 
 
 //----------------DECLARACION DE  FUNCIONES DE GRAFICACION --------------------------------------------------------------------------
