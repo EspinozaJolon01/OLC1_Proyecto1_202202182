@@ -11,10 +11,12 @@ import Clases.arbol;
 import Clases.nodoArbol;
 import java.util.LinkedList;
 import Lista.Lista_errores;
+import Lista.Lista_tablaSimbolo;
 import Lista.Lista_tokens;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.List;
 import java.awt.Panel;
@@ -59,8 +61,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form FrmPrincipal
      */
+    ArrayList<nodoArbol> Ts = new ArrayList<>();
     Lista_errores lista_errores = new Lista_errores();
     Lista_tokens lista_token =  new Lista_tokens();
+    Lista_tablaSimbolo lista_tabla =  new Lista_tablaSimbolo();
     Tokens_L tokens_L;
     Errores error;
     int contador = 2;
@@ -377,7 +381,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         try {
             //tabla de simbolos
-            ArrayList<nodoArbol> Ts = new ArrayList<>();
+            
             
             String texto = obtenerTextArea();
             LexerCup scan = new LexerCup(new StringReader(texto));
@@ -407,6 +411,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Se creo los Reportes correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         lista_errores.reportesErrores();
         lista_token.reporte();
+        lista_tabla.reporte(Ts);
+        
+        
+        
+        
         
         
     }//GEN-LAST:event_btnReportesActionPerformed
@@ -417,7 +426,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jTabbedPane1MouseExited
-
+    
+    
     
     public String obtenerTextArea(){
         int index = jTabbedPane1.getSelectedIndex();

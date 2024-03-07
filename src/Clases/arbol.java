@@ -4,6 +4,10 @@
  */
 package Clases;
 
+import Analisador.LexerCup;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -20,6 +24,7 @@ public class arbol {
     public String lex;
     public ArrayList<arbol>hijos;
     private String result;
+    public int conteo = 1;
     
     public arbol(String lex){
         this.lex = lex;
@@ -147,11 +152,40 @@ public class arbol {
 
     
     public void run(arbol raiz, ArrayList<nodoArbol> Ts, JTextArea txtconsola){
+        
         for(arbol hijo : raiz.hijos){
             run(hijo,Ts, txtconsola);
         }
-        
-        if(raiz.lex == "COMENT" && raiz.hijos.size()==2){
+        if(raiz.lex == "COMSENTENCIAS" && raiz.hijos.size() == 2){
+            raiz.result = raiz.hijos.get(0).result + raiz.hijos.get(1);
+        }else if(raiz.lex == "COMSENTENCIAS" && raiz.hijos.size() == 1){
+            raiz.result = raiz.hijos.get(0).result;
+        }else if(raiz.lex == "ATRIBUGRAFIC" && raiz.hijos.size()==3){
+            if(raiz.hijos.get(0).lex.equalsIgnoreCase("values")){
+                raiz.result = raiz.hijos.get(1).lex;
+                raiz.result = raiz.hijos.get(2).result;
+            }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("label")){
+                raiz.result = raiz.hijos.get(1).lex;
+                raiz.result = raiz.hijos.get(2).result;
+            }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("tituloX")){
+                raiz.result = raiz.hijos.get(1).lex;
+                raiz.result = raiz.hijos.get(2).lex;
+            }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("tituloY")){
+                raiz.result = raiz.hijos.get(1).lex;
+                raiz.result = raiz.hijos.get(2).lex;
+            }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("ejeY")){
+                raiz.result = raiz.hijos.get(1).lex;
+                raiz.result = raiz.hijos.get(2).result;
+            }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("ejeX")){
+                raiz.result = raiz.hijos.get(1).lex;
+                raiz.result = raiz.hijos.get(2).result;
+            }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("titulo")){
+                raiz.result = raiz.hijos.get(1).lex;
+                raiz.result = raiz.hijos.get(2).lex;
+            }
+            
+            
+        }else if(raiz.lex == "COMENT" && raiz.hijos.size()==2){
             //agregarElemento(raiz.hijos.get(1).result);
             
             //System.out.println("que traer: " + raiz.hijos.get(1).result);
@@ -202,8 +236,9 @@ public class arbol {
         }else if(raiz.lex == "LISTA_VALORES" && raiz.hijos.size()==3){
             raiz.result = raiz.hijos.get(0).result + raiz.hijos.get(1).lex + raiz.hijos.get(2).result;
         }else if(raiz.lex == "TARRELGOS" && raiz.hijos.size()==5){ //Arr:a Tipo:t  Arroba:ar Identificador:i  LISTA_VALORES:li  
-            nodoArbol nA= new nodoArbol(raiz.hijos.get(2).lex + raiz.hijos.get(3).lex, "arreglo", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(4).result);
+            nodoArbol nA= new nodoArbol(conteo,raiz.hijos.get(2).lex + raiz.hijos.get(3).lex, "arreglo", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(4).result);
             Ts.add(nA);
+            conteo++;
         }
         else if(raiz.lex == "TIPCONTENIDO" && raiz.hijos.size()==1){ //produccion de numero,cadenas e identificadores
             if(raiz.hijos.get(0).lex.substring(0,1).equals("\"")){ //obtengo la primera indice
@@ -244,9 +279,13 @@ public class arbol {
             
         }else if(raiz.lex == "DECLRACION" && raiz.hijos.size()==4){ //Var:v  Tipo:t  Identificador:i  CONTENIDO:N  
             //System.out.println("Var: " + raiz.hijos.get(2));
-            nodoArbol nA= new nodoArbol(raiz.hijos.get(2).lex, "variable", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(3).result);
+            nodoArbol nA= new nodoArbol(conteo,raiz.hijos.get(2).lex, "variable", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(3).result);
+            conteo++;
             Ts.add(nA);
+            
         }
     }
+    
+    
     
 }

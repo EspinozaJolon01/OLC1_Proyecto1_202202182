@@ -26,7 +26,7 @@ Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,
 C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
 
 non terminal arbol INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,COMENT,EXP,CONT,FUNES,DATO,
-COMENTARIO,CADENA,ARREGLOSTIP,GRAFIC,COMSENTENCIAS;
+COMENTARIO,CADENA,ARREGLOSTIP,GRAFIC,COMSENTENCIAS,ATRIBUGRAFIC;
 
 start with INICIO;
 
@@ -244,85 +244,80 @@ ARREGLOSTIP ::= LISTA_VALORES:lv
 
 GRAFIC ::= G_tipo_grafica:G Parentesis_a COMSENTENCIAS:C G_exec G_tipo_grafica End P_coma Parentesis_c End P_coma 
                 {:
-                arbol l = new arbol("GRAFIC");
-                l.addHijo(new arbol(G.toString()));
-                l.addHijo(C);
-                RESULT = l;
+                arbol lgrafic = new arbol("GRAFIC");
+                lgrafic.addHijo(new arbol(G.toString()));
+                lgrafic.addHijo(C);
+                RESULT = lgrafic;
                 :}; 
 
 //graphbar or graphLine
-COMSENTENCIAS ::= G_titulo:GT Doble_puntos Tipo:t1 Igual Cadena:titu End P_coma
-                  G_ejex:GX Doble_puntos Tipo:t2 Igual Parent_a LISTA_VALORES:ejx Parent_c End P_coma
-                  G_ejey:GY Doble_puntos Tipo:t3 Igual Parent_a LISTA_VALORES:ejy Parent_c End P_coma
-                  G_titulox:GTIX Doble_puntos Tipo:t4 Igual Cadena:titux End P_coma
-                  G_tituloy:GTIY Doble_puntos Tipo:t5 Igual Cadena:tituy End P_coma
-                  {:
-                  arbol l = new arbol("COMSENTENCIAS");
-                  l.addHijo(new arbol(GT.toString()));
-                  l.addHijo(new arbol(t1.toString())); 
-                  l.addHijo(new arbol(titu.toString()));
+COMSENTENCIAS ::= COMSENTENCIAS:com ATRIBUGRAFIC:atri1 
+                {:
+                arbol lconsentencias = new arbol("COMSENTENCIAS");
+                    lconsentencias.addHijo(com);
+                    lconsentencias.addHijo(atri1);
+                    RESULT = lconsentencias;
+                :}
+               | ATRIBUGRAFIC:atri2
+                {:
+                arbol lconsentencias = new arbol("COMSENTENCIAS");
+                    lconsentencias.addHijo(atri2);
+                    RESULT = lconsentencias;
+                :};
 
-                  l.addHijo(new arbol(GX.toString()));
-                  l.addHijo(new arbol(t2.toString()));
-                  l.addHijo(ejx);
 
-                  l.addHijo(new arbol(GY.toString()));
-                  l.addHijo(new arbol(t3.toString()));
-                  l.addHijo(ejy);
-
-                  l.addHijo(new arbol(GTIX.toString())); 
-                  l.addHijo(new arbol(t4.toString()));
-                  l.addHijo(new arbol(titux.toString())); 
-
-                  l.addHijo(new arbol(GTIY.toString()));  
-                  l.addHijo(new arbol(t5.toString()));
-                  l.addHijo(new arbol(tituy.toString()));
-                   
-                  
-                   
-                    
-                  RESULT = l;
-                    :}
-//graphpie
-                  | G_label:lab Doble_puntos Tipo:t1 Igual Parent_a LISTA_VALORES:PILC Parent_c End P_coma
-                    G_values:value Doble_puntos Tipo:t2 Igual Parent_a LISTA_VALORES:PILD Parent_c End P_coma
-                    G_titulo:titu Doble_puntos Tipo:t3 Igual Cadena:c End P_coma 
-                    {:
-                    arbol l = new arbol("COMSENTENCIAS");
-                    l.addHijo(new arbol(lab.toString()));
-                    
-                    l.addHijo(PILC);
-
-                    l.addHijo(new arbol(value.toString()));
-                    l.addHijo(new arbol(t2.toString()));
-                    l.addHijo(PILD);
-
+ATRIBUGRAFIC ::= G_titulo:GT Doble_puntos Tipo:t1 Igual Cadena:titu End P_coma
+                {:
+                arbol l = new arbol("ATRIBUGRAFIC");
+                    l.addHijo(new arbol(GT.toString()));
+                    l.addHijo(new arbol(t1.toString())); 
                     l.addHijo(new arbol(titu.toString()));
-                    l.addHijo(new arbol(t3.toString()));
-                    l.addHijo(new arbol(c.toString()));
-                    
-                    
-                    
-                    RESULT = l;
-                    :}
-//histrogram
-                  |G_titulo:titu Doble_puntos Tipo:t1 Igual Cadena:c End P_coma
-                   G_values:value Doble_puntos Tipo:t2 Igual Parent_a LISTA_VALORES:A Parent_c End P_coma
-
-                    {:
-                        arbol l = new arbol("COMSENTENCIAS");
-                        l.addHijo(new arbol(titu.toString()));
+                :}
+                |G_ejex:GX Doble_puntos Tipo:t2 Igual Parent_a LISTA_VALORES:ejx Parent_c End P_coma
+                {:
+                    arbol l = new arbol("ATRIBUGRAFIC");
+                    l.addHijo(new arbol(GX.toString()));
+                    l.addHijo(new arbol(t2.toString()));
+                    l.addHijo(ejx);
+                :}
+                |G_ejey:GY Doble_puntos Tipo:t3 Igual Parent_a LISTA_VALORES:ejy Parent_c End P_coma
+                {:
+                    arbol l = new arbol("ATRIBUGRAFIC");
+                        l.addHijo(new arbol(GY.toString()));
+                        l.addHijo(new arbol(t3.toString()));
+                        l.addHijo(ejy);
+                :}
+                |G_titulox:GTIX Doble_puntos Tipo:t4 Igual Cadena:titux End P_coma
+                {:
+                    arbol l = new arbol("ATRIBUGRAFIC");
+                      l.addHijo(new arbol(GTIX.toString())); 
+                      l.addHijo(new arbol(t4.toString()));
+                      l.addHijo(new arbol(titux.toString())); 
+                :}
+                |G_tituloy:GTIY Doble_puntos Tipo:t5 Igual Cadena:tituy End P_coma
+                {:
+                    arbol l = new arbol("ATRIBUGRAFIC");
+                        l.addHijo(new arbol(GTIY.toString()));  
+                        l.addHijo(new arbol(t5.toString()));
+                        l.addHijo(new arbol(tituy.toString()));
+                :}
+                |G_label:lab Doble_puntos Tipo:t1 Igual Parent_a LISTA_VALORES:PILC Parent_c End P_coma
+                {:
+                    arbol l = new arbol("ATRIBUGRAFIC");
+                        l.addHijo(new arbol(lab.toString()));
                         l.addHijo(new arbol(t1.toString()));
-                        l.addHijo(new arbol(c.toString()));
+                        l.addHijo(PILC);
+                :}
+                |G_values:value Doble_puntos Tipo:t2 Igual Parent_a LISTA_VALORES:PILD Parent_c End P_coma 
+                {:
+                    arbol l = new arbol("ATRIBUGRAFIC");
+                      l.addHijo(new arbol(value.toString()));
+                      l.addHijo(new arbol(t2.toString()));
+                      l.addHijo(PILD);
+                :};
 
-                        l.addHijo(new arbol(value.toString()));
-                        l.addHijo(new arbol(t2.toString()));
-                        l.addHijo(A);
-                        
-                        
-                        
-                        RESULT = l;
-                    :};
+
+                     
 
 
 
