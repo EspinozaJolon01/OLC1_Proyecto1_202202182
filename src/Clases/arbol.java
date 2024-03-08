@@ -124,9 +124,10 @@ public class arbol {
                 String fileName = "barChart_" + imageCounter++ + ".png";
 
                 // Guardar la gráfica como imagen PNG con el nombre de archivo único
-                int width = 800;
-                int height = 600;
+                int width = 674;
+                int height = 357;
                 File barChart = new File("C:/Users/Usuario/Desktop/img/" + fileName);
+                imgGraficas.addImagePath("C:/Users/Usuario/Desktop/img/" + fileName);
                 ChartUtilities.saveChartAsPNG(barChart, chart, width, height);
                         
                 
@@ -158,9 +159,10 @@ public class arbol {
                 String fileName1 = "pieChart_" + imageCounter1++ + ".png";
 
                 // Guardar la gráfica como imagen PNG con el nombre de archivo único
-                int width1 = 800;
-                int height1 = 600;
+                int width1 = 674;
+                int height1 = 357;
                 File pieChart = new File("C:/Users/Usuario/Desktop/img/" + fileName1);
+                imgGraficas.addImagePath("C:/Users/Usuario/Desktop/img/" + fileName1);
                 ChartUtilities.saveChartAsPNG(pieChart, grafica_circular, width1, height1);
 
                 
@@ -205,9 +207,10 @@ public class arbol {
                 String fileNameLinea = "lineChart_" + imageCounter2++ + ".png";
 
                 // Guardar la gráfica como imagen PNG con el nombre de archivo único
-                int widthLinea = 800;
-                int heightLinea = 600;
+                int widthLinea = 674;
+                int heightLinea = 357;
                 File lineChart = new File("C:/Users/Usuario/Desktop/img/" + fileNameLinea);
+                imgGraficas.addImagePath("C:/Users/Usuario/Desktop/img/" + fileNameLinea);
                 ChartUtilities.saveChartAsPNG(lineChart, chartLinea, widthLinea, heightLinea);
    
                 break;
@@ -292,9 +295,10 @@ public class arbol {
                 String fileNameLinea1 = "HistromChart_" + imageCounter3++ + ".png";
 
                 // Guardar la gráfica como imagen PNG con el nombre de archivo único
-                int widthLinea1 = 800;
-                int heightLinea1 = 600;
+                int widthLinea1 = 674;
+                int heightLinea1 = 357;
                 File lineChart1 = new File("C:/Users/Usuario/Desktop/img/" + fileNameLinea1);
+                imgGraficas.addImagePath("C:/Users/Usuario/Desktop/img/" + fileNameLinea1);
                 ChartUtilities.saveChartAsPNG(lineChart1, chartLinea1, widthLinea1, heightLinea1);
                 break;
             default:

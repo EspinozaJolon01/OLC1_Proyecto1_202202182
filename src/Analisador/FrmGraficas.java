@@ -4,6 +4,9 @@
  */
 package Analisador;
 
+import Clases.imgGraficas;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Usuario
@@ -29,6 +32,10 @@ public class FrmGraficas extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        btnAbrirArchivo1 = new javax.swing.JButton();
+        btnAbrirArchivo2 = new javax.swing.JButton();
+        verGraficas = new javax.swing.JLabel();
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 51));
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -45,33 +52,83 @@ public class FrmGraficas extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 51));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Graficas generadas");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1180, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(492, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(422, 422, 422))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 195, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel2)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
+
+        btnAbrirArchivo1.setBackground(new java.awt.Color(0, 102, 153));
+        btnAbrirArchivo1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        btnAbrirArchivo1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAbrirArchivo1.setText("Anterior");
+        btnAbrirArchivo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirArchivo1ActionPerformed(evt);
+            }
+        });
+
+        btnAbrirArchivo2.setBackground(new java.awt.Color(0, 102, 153));
+        btnAbrirArchivo2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        btnAbrirArchivo2.setForeground(new java.awt.Color(255, 255, 255));
+        btnAbrirArchivo2.setText("Siguiente");
+        btnAbrirArchivo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirArchivo2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAbrirArchivo1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btnAbrirArchivo2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(398, 398, 398))
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(250, 250, 250)
+                .addComponent(verGraficas, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 205, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(verGraficas, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAbrirArchivo2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAbrirArchivo1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80))
         );
 
         pack();
@@ -91,6 +148,28 @@ public class FrmGraficas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTabbedPane1MousePressed
 
+    private void btnAbrirArchivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirArchivo1ActionPerformed
+        imgGraficas.movePrevious();
+        mostrarImagenActual();
+    }//GEN-LAST:event_btnAbrirArchivo1ActionPerformed
+
+    private void btnAbrirArchivo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirArchivo2ActionPerformed
+        imgGraficas.moveNext();
+        mostrarImagenActual();
+    }//GEN-LAST:event_btnAbrirArchivo2ActionPerformed
+    
+    private void mostrarImagenActual() {
+        String imagePath = imgGraficas.getCurrentImagePath();
+        if (imagePath != null) {
+            ImageIcon icon = new ImageIcon(imagePath);
+            verGraficas.setIcon(icon);
+        } else {
+            // Manejar el caso cuando no hay imágenes para mostrar
+            verGraficas.setIcon(null); // Limpiar el JLabel si no hay imagen
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -127,7 +206,11 @@ public class FrmGraficas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbrirArchivo1;
+    private javax.swing.JButton btnAbrirArchivo2;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel verGraficas;
     // End of variables declaration//GEN-END:variables
 }
