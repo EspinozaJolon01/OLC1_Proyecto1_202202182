@@ -874,17 +874,18 @@ class CUP$Parser$actions {
 		int GTleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)).left;
 		int GTright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)).right;
 		Object GT = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-6)).value;
-		int t1left = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-4)).left;
-		int t1right = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-4)).right;
-		Object t1 = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-4)).value;
+		int t7left = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-4)).left;
+		int t7right = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-4)).right;
+		Object t7 = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-4)).value;
 		int tituleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;
 		int tituright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
 		Object titu = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
 		
-                arbol l = new arbol("ATRIBUGRAFIC");
-                    l.addHijo(new arbol(GT.toString()));
-                    l.addHijo(new arbol(t1.toString())); 
-                    l.addHijo(new arbol(titu.toString()));
+                arbol latributograf = new arbol("ATRIBUGRAFIC");
+                    latributograf.addHijo(new arbol(GT.toString()));
+                    latributograf.addHijo(new arbol(t7.toString())); 
+                    latributograf.addHijo(new arbol(titu.toString()));
+                    RESULT = latributograf;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("ATRIBUGRAFIC",19, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -897,17 +898,18 @@ class CUP$Parser$actions {
 		int GXleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)).left;
 		int GXright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)).right;
 		Object GX = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-8)).value;
-		int t2left = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)).left;
-		int t2right = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)).right;
-		Object t2 = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-6)).value;
+		int t6left = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)).left;
+		int t6right = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)).right;
+		Object t6 = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-6)).value;
 		int ejxleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).left;
 		int ejxright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
 		arbol ejx = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
 		
-                    arbol l = new arbol("ATRIBUGRAFIC");
-                    l.addHijo(new arbol(GX.toString()));
-                    l.addHijo(new arbol(t2.toString()));
-                    l.addHijo(ejx);
+                    arbol latributograf = new arbol("ATRIBUGRAFIC");
+                    latributograf.addHijo(new arbol(GX.toString()));
+                    latributograf.addHijo(new arbol(t6.toString()));
+                    latributograf.addHijo(ejx);
+                    RESULT = latributograf;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("ATRIBUGRAFIC",19, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -927,10 +929,11 @@ class CUP$Parser$actions {
 		int ejyright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
 		arbol ejy = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
 		
-                    arbol l = new arbol("ATRIBUGRAFIC");
-                        l.addHijo(new arbol(GY.toString()));
-                        l.addHijo(new arbol(t3.toString()));
-                        l.addHijo(ejy);
+                    arbol latributograf = new arbol("ATRIBUGRAFIC");
+                        latributograf.addHijo(new arbol(GY.toString()));
+                        latributograf.addHijo(new arbol(t3.toString()));
+                        latributograf.addHijo(ejy);
+                        RESULT = latributograf;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("ATRIBUGRAFIC",19, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -950,10 +953,11 @@ class CUP$Parser$actions {
 		int tituxright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
 		Object titux = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
 		
-                    arbol l = new arbol("ATRIBUGRAFIC");
-                      l.addHijo(new arbol(GTIX.toString())); 
-                      l.addHijo(new arbol(t4.toString()));
-                      l.addHijo(new arbol(titux.toString())); 
+                    arbol latributograf = new arbol("ATRIBUGRAFIC");
+                      latributograf.addHijo(new arbol(GTIX.toString())); 
+                      latributograf.addHijo(new arbol(t4.toString()));
+                      latributograf.addHijo(new arbol(titux.toString())); 
+                      RESULT = latributograf;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("ATRIBUGRAFIC",19, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -973,10 +977,11 @@ class CUP$Parser$actions {
 		int tituyright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
 		Object tituy = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
 		
-                    arbol l = new arbol("ATRIBUGRAFIC");
-                        l.addHijo(new arbol(GTIY.toString()));  
-                        l.addHijo(new arbol(t5.toString()));
-                        l.addHijo(new arbol(tituy.toString()));
+                    arbol latributograf = new arbol("ATRIBUGRAFIC");
+                        latributograf.addHijo(new arbol(GTIY.toString()));  
+                        latributograf.addHijo(new arbol(t5.toString()));
+                        latributograf.addHijo(new arbol(tituy.toString()));
+                        RESULT = latributograf;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("ATRIBUGRAFIC",19, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-6)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -996,10 +1001,11 @@ class CUP$Parser$actions {
 		int PILCright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
 		arbol PILC = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
 		
-                    arbol l = new arbol("ATRIBUGRAFIC");
-                        l.addHijo(new arbol(lab.toString()));
-                        l.addHijo(new arbol(t1.toString()));
-                        l.addHijo(PILC);
+                    arbol latributograf = new arbol("ATRIBUGRAFIC");
+                        latributograf.addHijo(new arbol(lab.toString()));
+                        latributograf.addHijo(new arbol(t1.toString()));
+                        latributograf.addHijo(PILC);
+                        RESULT = latributograf;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("ATRIBUGRAFIC",19, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -1019,10 +1025,11 @@ class CUP$Parser$actions {
 		int PILDright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
 		arbol PILD = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
 		
-                    arbol l = new arbol("ATRIBUGRAFIC");
-                      l.addHijo(new arbol(value.toString()));
-                      l.addHijo(new arbol(t2.toString()));
-                      l.addHijo(PILD);
+                    arbol latributograf = new arbol("ATRIBUGRAFIC");
+                      latributograf.addHijo(new arbol(value.toString()));
+                      latributograf.addHijo(new arbol(t2.toString()));
+                      latributograf.addHijo(PILD);
+                      RESULT = latributograf;
                 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("ATRIBUGRAFIC",19, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }

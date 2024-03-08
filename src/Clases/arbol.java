@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import javax.swing.JTextArea;
 
@@ -23,6 +24,8 @@ public class arbol {
     
     public String lex;
     public ArrayList<arbol>hijos;
+    public Map<String, String> hashMap = new HashMap<>();
+
     private String result;
     public int conteo = 1;
     
@@ -75,6 +78,61 @@ public class arbol {
 
         return result.toString();
 }
+    public static void Graficar(String tipo,Map<String, String> hashMap){
+        System.out.println(tipo);
+        switch (tipo){
+            case "graphbar":
+                System.out.println("obtengo una grafica graphbar");
+                System.out.println("----------------------------");
+                String valor = hashMap.get("titulo");
+                String valor1 = hashMap.get("ejeX");
+                String valor2 = hashMap.get("ejeY");
+                String valor3 = hashMap.get("tituloX");
+                String valor4 = hashMap.get("tituloY");
+                System.out.println("titulo: " + valor + "\n"
+                        + "ejeX: " + valor1 + "\n"
+                        + "ejeY: " + valor2 + "\n"
+                        + "tituloX: " + valor3 + "\n"
+                        + "tituloY: " + valor4 + "\n");
+                break;
+            case "graphpie":
+                System.out.println("obtengo una grafica graphpie");
+                System.out.println("----------------------------");
+                String valor11 = hashMap.get("label");
+                String valor12 = hashMap.get("values");
+                String valor13 = hashMap.get("titulo");
+                System.out.println("label: " + valor11 + "\n"
+                        + "values: " + valor12 + "\n"
+                        + "titulo: " + valor13+ "\n");
+                
+                break;
+            case "graphline":
+                System.out.println("obtengo una grafica graphline");
+                System.out.println("----------------------------");
+                String valora = hashMap.get("titulo");
+                String valorb = hashMap.get("ejeX");
+                String valorc = hashMap.get("ejeY");
+                String valord = hashMap.get("tituloX");
+                String valorf = hashMap.get("tituloY");
+                System.out.println("titulo: " + valora + "\n"
+                        + "ejeX: " + valorb + "\n"
+                        + "ejeY: " + valorc + "\n"
+                        + "tituloX: " + valord + "\n"
+                        + "tituloY: " + valorf + "\n");
+                break;
+                
+            case "histogram":
+                System.out.println("----------------------------");
+                String valora1 = hashMap.get("titulo");
+                String valorb2 = hashMap.get("values");
+                System.out.println("titulo: " + valora1 + "\n"
+                        + "values: " + valorb2 + "\n" );
+                break;
+            default:
+                System.out.println("Tipo de gráfico no reconocido");
+        }
+    }
+
 
     
     
@@ -128,7 +186,7 @@ public class arbol {
                     sumaCuadrados += Math.pow(valor - mediaVarianza, 2);
                 }
                 return sumaCuadrados / valores.length;
-            case "maximo":
+            case "max":
                 double maximo = Double.MIN_VALUE;
                 for (double valor : valores) {
                     if (valor > maximo) {
@@ -136,7 +194,7 @@ public class arbol {
                     }
                 }
                 return maximo;
-            case "minimo":
+            case "min":
                 double minimo = Double.MAX_VALUE;
                 for (double valor : valores) {
                     if (valor < minimo) {
@@ -156,35 +214,73 @@ public class arbol {
         for(arbol hijo : raiz.hijos){
             run(hijo,Ts, txtconsola);
         }
-        if(raiz.lex == "COMSENTENCIAS" && raiz.hijos.size() == 2){
+        
+        if(raiz.lex == "GRAFIC" && raiz.hijos.size() == 2){
+            Graficar(raiz.hijos.get(0).lex,hashMap);
+            //System.out.println(raiz.hijos.get(0).lex);
+            //System.out.println(raiz.hijos.get(1).result);
+            raiz.result = raiz.hijos.get(0).lex;
+            raiz.result = raiz.hijos.get(1).result;
+            
+        }else if(raiz.lex == "COMSENTENCIAS" && raiz.hijos.size() == 2){
+            //System.out.println("2");
             raiz.result = raiz.hijos.get(0).result + raiz.hijos.get(1);
+            //System.out.println(raiz.hijos.get(0).result + raiz.hijos.get(1));
         }else if(raiz.lex == "COMSENTENCIAS" && raiz.hijos.size() == 1){
+            //System.out.println("3");
             raiz.result = raiz.hijos.get(0).result;
+            //System.out.println(raiz.hijos.get(0).result);
         }else if(raiz.lex == "ATRIBUGRAFIC" && raiz.hijos.size()==3){
+            //obtengo todo los datos 
+            
+        
+        
+            
+            //System.out.println(raiz.hijos.get(0).lex);
             if(raiz.hijos.get(0).lex.equalsIgnoreCase("values")){
+                //System.out.println(raiz.hijos.get(2).result);
                 raiz.result = raiz.hijos.get(1).lex;
                 raiz.result = raiz.hijos.get(2).result;
+                hashMap.put("values", raiz.hijos.get(2).result);
+                
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("label")){
+                //System.out.println(raiz.hijos.get(2).result);
                 raiz.result = raiz.hijos.get(1).lex;
                 raiz.result = raiz.hijos.get(2).result;
+                hashMap.put("label", raiz.hijos.get(2).result);
+                
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("tituloX")){
+                //System.out.println(raiz.hijos.get(2).lex);
                 raiz.result = raiz.hijos.get(1).lex;
                 raiz.result = raiz.hijos.get(2).lex;
+                hashMap.put("tituloX", raiz.hijos.get(2).lex);
+                
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("tituloY")){
+                //System.out.println(raiz.hijos.get(2).lex);
                 raiz.result = raiz.hijos.get(1).lex;
                 raiz.result = raiz.hijos.get(2).lex;
+                hashMap.put("tituloY", raiz.hijos.get(2).lex);
+                
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("ejeY")){
+                //System.out.println(raiz.hijos.get(2).result);
                 raiz.result = raiz.hijos.get(1).lex;
                 raiz.result = raiz.hijos.get(2).result;
+                hashMap.put("ejeY", raiz.hijos.get(2).result);
+                
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("ejeX")){
+                //System.out.println(raiz.hijos.get(2).result);
                 raiz.result = raiz.hijos.get(1).lex;
                 raiz.result = raiz.hijos.get(2).result;
+                hashMap.put("ejeX", raiz.hijos.get(2).result);
+                
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("titulo")){
+                //System.out.println("--" +raiz.hijos.get(2).lex);
                 raiz.result = raiz.hijos.get(1).lex;
                 raiz.result = raiz.hijos.get(2).lex;
+                hashMap.put("titulo", raiz.hijos.get(2).lex);
             }
-            
-            
+     
+         
         }else if(raiz.lex == "COMENT" && raiz.hijos.size()==2){
             //agregarElemento(raiz.hijos.get(1).result);
             
