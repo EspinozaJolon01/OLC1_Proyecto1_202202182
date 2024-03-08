@@ -481,7 +481,7 @@ public class arbol {
         }else if(raiz.lex == "COMENTARIO" && raiz.hijos.size()==2){
             
             raiz.result = raiz.hijos.get(0).lex;
-            txtconsola.append(raiz.hijos.get(1).result);
+            txtconsola.append(raiz.hijos.get(1).result + "\n");
             //raiz.result = raiz.hijos.get(1).result;
         }else if(raiz.lex == "ARREGLOSTIP" && raiz.hijos.size()==1){
             String val =  this.getArreglo(Ts, raiz.hijos.get(0).result);

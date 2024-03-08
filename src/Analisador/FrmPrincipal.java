@@ -444,6 +444,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnGraficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficaActionPerformed
         // TODO add your handling code here:
+        
+        FrmGraficas frmGraficas = new FrmGraficas();
+        frmGraficas.setVisible(true);
     }//GEN-LAST:event_btnGraficaActionPerformed
     
     
