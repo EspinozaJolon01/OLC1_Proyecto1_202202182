@@ -45,7 +45,8 @@ CODIGO ::= COMPILACION:c
                     cod.addHijo(c);
                     RESULT = cod;
         :}
-        |      ;
+        |      {:arbol cod = new arbol("CODIGO");
+                RESULT = cod;:};
 COMPILACION ::= SENTENCIA:s 
             {:
             arbol com = new arbol("COMPILACION");

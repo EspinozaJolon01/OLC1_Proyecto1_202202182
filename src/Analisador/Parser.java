@@ -352,7 +352,8 @@ class CUP$Parser$actions {
           case 3: // CODIGO ::= 
             {
               arbol RESULT =null;
-
+		arbol cod = new arbol("CODIGO");
+                RESULT = cod;
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("CODIGO",1, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;

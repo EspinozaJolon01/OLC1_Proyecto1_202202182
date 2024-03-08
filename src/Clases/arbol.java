@@ -36,6 +36,8 @@ public class arbol {
     public Map<String, String> hashMap = new HashMap<>();
     public static int imageCounter = 0;
     public static int imageCounter1 = 0;
+    public static int imageCounter2 = 0;
+    public static int imageCounter3 = 0;
     private String result;
     public int conteo = 1;
     
@@ -87,8 +89,8 @@ public class arbol {
         }
 
         return result.toString();
-}
-    public static void Graficar(String tipo,Map<String, String> hashMap) throws IOException{
+    }
+    public static void Graficar(String tipo,Map<String, String> hashMap,JTextArea txtconsola) throws IOException{
         System.out.println(tipo);
         switch (tipo){
             case "graphbar":
@@ -167,28 +169,151 @@ public class arbol {
             case "graphline":
                 System.out.println("obtengo una grafica graphline");
                 System.out.println("----------------------------");
-                String valora = hashMap.get("titulo");
-                String valorb = hashMap.get("ejeX");
-                String valorc = hashMap.get("ejeY");
-                String valord = hashMap.get("tituloX");
-                String valorf = hashMap.get("tituloY");
-                System.out.println("titulo: " + valora + "\n"
-                        + "ejeX: " + valorb + "\n"
-                        + "ejeY: " + valorc + "\n"
-                        + "tituloX: " + valord + "\n"
-                        + "tituloY: " + valorf + "\n");
+                String titulo = hashMap.get("titulo");
+                String tituloX = hashMap.get("tituloX");
+                String tituloY = hashMap.get("tituloY");
+                String ejeX = hashMap.get("ejeX");
+                String ejeY = hashMap.get("ejeY");
+
+                String[] categoriasLinea = ejeX.split(","); // Datos para el eje X
+                String[] valoresLineaStr = ejeY.split(","); // Datos para el eje Y
+                double[] valoresLinea = new double[valoresLineaStr.length];
+
+                // Convertir elementos de valoresLineaStr a double y guardarlos en valoresLinea
+                for (int i = 0; i < valoresLineaStr.length; i++) {
+                    valoresLinea[i] = Double.parseDouble(valoresLineaStr[i]);
+                }
+
+                DefaultCategoryDataset datasetLinea = new DefaultCategoryDataset();
+
+                for (int i = 0; i < categoriasLinea.length; i++) {
+                    datasetLinea.addValue(valoresLinea[i], tituloY, categoriasLinea[i]);
+                }
+
+                JFreeChart chartLinea = ChartFactory.createLineChart(
+                        titulo, // Título del gráfico
+                        tituloX, // Etiqueta del eje X
+                        tituloY, // Etiqueta del eje Y
+                        datasetLinea, // Dataset
+                        PlotOrientation.VERTICAL, // Orientación del gráfico
+                        true, // Incluir leyenda
+                        true, // Incluir tooltips
+                        false // Incluir URLs
+                );
+
+                // Crear un nombre de archivo único con un contador
+                String fileNameLinea = "lineChart_" + imageCounter2++ + ".png";
+
+                // Guardar la gráfica como imagen PNG con el nombre de archivo único
+                int widthLinea = 800;
+                int heightLinea = 600;
+                File lineChart = new File("C:/Users/Usuario/Desktop/img/" + fileNameLinea);
+                ChartUtilities.saveChartAsPNG(lineChart, chartLinea, widthLinea, heightLinea);
+   
                 break;
                 
             case "histogram":
                 System.out.println("----------------------------");
                 String valora1 = hashMap.get("titulo");
                 String valorb2 = hashMap.get("values");
-                System.out.println("titulo: " + valora1 + "\n"
-                        + "values: " + valorb2 + "\n" );
+                String[] valoresDato = valorb2.split(",");
+                int[] valoresINT = new int[valoresDato.length];
+
+                // Convertir elementos de valoresLineaStr a double y guardarlos en valoresLinea
+                for (int i = 0; i < valoresDato.length; i++) {
+                    valoresINT[i] = Integer.parseInt(valoresDato[i]);
+                }
+                
+                
+
+                Map<Integer, Integer> frecuenciaAbsoluta = new HashMap<>();
+                for (int i = 0; i < valoresINT.length; i++) {
+                    int valordato = valoresINT[i];
+                    frecuenciaAbsoluta.put(valordato, frecuenciaAbsoluta.getOrDefault(valordato, 0) + 1);
+                }
+
+                int frecuenciaAcumulada = 0;
+                Map<Integer, Integer> frecuenciaAcumuladaMap = new HashMap<>();
+                for (Map.Entry<Integer, Integer> entry : frecuenciaAbsoluta.entrySet()) {
+                    frecuenciaAcumulada += entry.getValue();
+                    frecuenciaAcumuladaMap.put(entry.getKey(), frecuenciaAcumulada);
+                }
+
+                int totalDatos = valoresINT.length;
+                Map<Integer, Double> frecuenciaRelativa = new HashMap<>();
+                for (Map.Entry<Integer, Integer> entry : frecuenciaAbsoluta.entrySet()) {
+                    frecuenciaRelativa.put(entry.getKey(), (double) entry.getValue() / totalDatos);
+                }
+                
+                
+
+                txtconsola.append(valora1 +"\n");
+                txtconsola.append("---------------------------\n");
+                txtconsola.append("valor     fb     fa   fr\n");
+
+                for (Map.Entry<Integer, Integer> entry : frecuenciaAbsoluta.entrySet()) {
+                    int valorres = entry.getKey();
+                    int fb = entry.getValue();
+                    int fa = frecuenciaAcumuladaMap.get(valorres);
+                    double fr = frecuenciaRelativa.get(valorres) * 100;
+
+                    txtconsola.append(String.format("%-9d %-6d %-6d %.0f%%\n", valorres, fb, fa, fr));
+                }
+
+                txtconsola.append("---------------------------\n");
+                txtconsola.append("totales:   " + frecuenciaAcumulada + "       " + totalDatos + "     100%\n");
+                
+                //grafica 
+                
+                DefaultCategoryDataset datasetLinea1 = new DefaultCategoryDataset();
+                
+                for (Map.Entry<Integer, Integer> entry : frecuenciaAbsoluta.entrySet()) {
+                    int valorres = entry.getKey();
+                    int fb = entry.getValue();
+                    datasetLinea1.addValue(fb , "",String.valueOf(valorres) );
+
+                    
+                }
+
+                
+
+                JFreeChart chartLinea1 = ChartFactory.createBarChart3D(
+                        valora1, // Título del gráfico
+                        "", // Etiqueta del eje X
+                        "", // Etiqueta del eje Y
+                        datasetLinea1, // Dataset
+                        PlotOrientation.VERTICAL, // Orientación del gráfico
+                        true, // Incluir leyenda
+                        true, // Incluir tooltips
+                        false // Incluir URLs
+                );
+
+                // Crear un nombre de archivo único con un contador
+                String fileNameLinea1 = "HistromChart_" + imageCounter3++ + ".png";
+
+                // Guardar la gráfica como imagen PNG con el nombre de archivo único
+                int widthLinea1 = 800;
+                int heightLinea1 = 600;
+                File lineChart1 = new File("C:/Users/Usuario/Desktop/img/" + fileNameLinea1);
+                ChartUtilities.saveChartAsPNG(lineChart1, chartLinea1, widthLinea1, heightLinea1);
                 break;
             default:
                 System.out.println("Tipo de gráfico no reconocido");
         }
+    }
+    
+    
+    public String imprimirHistrogram(String titulo, String contenido) {
+        StringBuilder result = new StringBuilder();
+        result.append("------------\n");
+        result.append(titulo).append("\n");
+        result.append("------------\n");
+        String[] arregloN = contenido.split(",");
+        for (String elemento : arregloN) {
+            result.append(elemento).append("\n");
+        }
+
+        return result.toString();
     }
 
 
@@ -274,7 +399,7 @@ public class arbol {
         }
         
         if(raiz.lex == "GRAFIC" && raiz.hijos.size() == 2){
-            Graficar(raiz.hijos.get(0).lex,hashMap);
+            Graficar(raiz.hijos.get(0).lex,hashMap,txtconsola);
             //System.out.println(raiz.hijos.get(0).lex);
             //System.out.println(raiz.hijos.get(1).result);
             raiz.result = raiz.hijos.get(0).lex;
