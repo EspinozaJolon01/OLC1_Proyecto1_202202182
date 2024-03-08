@@ -18,6 +18,10 @@ public class imgGraficas {
         public static void addImagePath(String path) {
             imagePaths.add(path);
         }
+        
+        public static void limpiar() {
+            imagePaths.clear();
+        }
 
         public static ArrayList<String> getImagePaths() {
             return imagePaths;

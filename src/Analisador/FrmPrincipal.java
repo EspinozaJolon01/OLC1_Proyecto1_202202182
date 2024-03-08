@@ -8,6 +8,7 @@ package Analisador;
 import Clases.Errores;
 import Clases.Tokens_L;
 import Clases.arbol;
+import Clases.imgGraficas;
 import Clases.nodoArbol;
 import java.util.LinkedList;
 import Lista.Lista_errores;
@@ -285,7 +286,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         JScrollPane scoo = new JScrollPane(textArea1);
         
         // Establecer el tamaño preferido del JScrollPane
-        scoo.setPreferredSize(new Dimension(523, 200));
+        scoo.setPreferredSize(new Dimension(1110, 220));
 
         // Agregar el JScrollPane al panel
         panel4.add(scoo);
@@ -368,7 +369,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     textArea1.setText(St);
                     
                     JScrollPane scoo =  new JScrollPane(textArea1);
-                    scoo.setPreferredSize(new Dimension(523, 200));
+                    scoo.setPreferredSize(new Dimension(1110, 220));
 
                     JPanel panel = new JPanel();
                     panel.add(scoo);
@@ -388,6 +389,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
+        imgGraficas.limpiar();
         lista_token.limpiar();
         lista_errores.limpiar();
         String datos_en_la_consola = "";
