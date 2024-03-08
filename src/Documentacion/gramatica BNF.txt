@@ -1,0 +1,35 @@
+<INICIO> ::= "Program" <CODIGO> "End" "Program";
+
+<CODIGO> ::= <COMPILACION> | ;
+
+<COMPILACION> ::= <SENTENCIA> | <COMPILACION> <SENTENCIA>;
+
+<SENTENCIA> ::= <DECLARACION> | <TARRELGOS> | <COMENT> | <GRAFIC>;
+
+<DECLARACION> ::= "Var" "Dos_puntos" "Tipo" "Doble_puntos" "Identificador" "Reserve" <TIPCONTENIDO> "End" "P_coma";
+
+<TIPCONTENIDO> ::= Identificador | Numero | Cadena | Arroba Identificador | OPA "Parentesis_a" <TIPCONTENIDO> "Coma" <TIPCONTENIDO> "Parentesis_c" | OPE "Parentesis_a" <FUNES> "Parentesis_c";
+
+<TARRELGOS> ::= "Arr" "Dos_puntos" "Tipo" "Doble_puntos" "Arroba Identificador Reserve Parent_a <LISTA_VALORES> Parent_c End P_coma";
+
+<LISTA_VALORES> ::= <LISTA_VALORES> "Coma" <TIPCONTENIDO> | <TIPCONTENIDO>;
+
+<FUNES> ::= Parent_a LISTA_VALORES Parent_c | LISTA_VALORES;
+
+<COMENT> ::= "Console" Doble_puntos <COMENTARIO>;
+
+<COMENTARIO> ::= Print Igual <LISTA_VALORES> End P_coma | <Column> Igual <LISTA_VALORES> Reservemenor <ARREGLOSTIP> End P_coma;
+
+<ARREGLOSTIP> ::= <LISTA_VALORES> | Parent_a <LISTA_VALORES> Parent_c;
+
+<GRAFIC> ::= G_tipo_grafica Parentesis_a <COMSENTENCIAS> G_exec G_tipo_grafica End P_coma Parentesis_c End P_coma;
+
+<COMSENTENCIAS> ::= <COMSENTENCIAS> <ATRIBUGRAFIC> | <ATRIBUGRAFIC>;
+
+<ATRIBUGRAFIC> ::= G_titulo:GT Doble_puntos Tipo Igual Cadena End P_coma
+                | G_ejex Doble_puntos Tipo Igual Parent_a <LISTA_VALORES> Parent_c End P_coma
+                | G_ejey Doble_puntos Tipo Igual Parent_a <LISTA_VALORES> Parent_c End P_coma
+                | G_titulox Doble_puntos Tipo Igual Cadena End P_coma
+                | G_tituloy Doble_puntos Tipo Igual Cadena End P_coma
+                | G_label Doble_puntos Tipo Igual Parent_a <LISTA_VALORES> Parent_c End P_coma
+                | G_values Doble_puntos Tipo Igual Parent_a <LISTA_VALORES> Parent_c End P_coma;

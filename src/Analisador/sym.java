@@ -42,7 +42,6 @@ public class sym {
   public static final int C_dobles_c = 40;
   public static final int G_tipo_grafica = 14;
   public static final int Print = 7;
-  public static final int ERROR = 45;
   public static final int C_dobles_a = 39;
   public static final int Doble_puntos = 42;
   public static final int Dos_puntos = 33;
@@ -99,8 +98,7 @@ public class sym {
   "Arroba",
   "Doble_puntos",
   "Identificador",
-  "Numero",
-  "ERROR"
+  "Numero"
   };
 }
 

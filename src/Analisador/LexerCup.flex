@@ -14,7 +14,8 @@ import java.util.List;
 %class LexerCup
 %type java_cup.runtime.Symbol
 %public
-%line 
+%column
+%line
 %char 
 %cup
 %unicode 
@@ -282,4 +283,4 @@ exec {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conte
 {COMMULTI} {/*Ignore*/}
 
 . {System.out.println("Este es un error lexico: "+ yytext() +
-    ", en la linea: "+yyline+", en la columna: "+yychar); return new Symbol(sym.ERROR, yyline, yycolumn, yytext());}
+    ", en la linea: "+yyline+", en la columna: "+yychar); }

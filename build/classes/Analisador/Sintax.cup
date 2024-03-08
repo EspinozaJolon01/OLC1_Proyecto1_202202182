@@ -23,7 +23,7 @@ OPA,
 OPE,
 G_tipo_grafica,G_titulo,G_label,G_ejex,G_ejey,G_titulox,G_tituloy,G_values,G_exec,
 Igual,Suma,Coma,Resta,Multiplicacion,Division,Parentesis_a,Parentesis_c,Llave_a,Llave_c,Dos_puntos,Reserve,P_coma,Parent_a,Parent_c,Punto,C_dobles_a,
-C_dobles_c,Arroba,Doble_puntos,Identificador,Numero,ERROR; 
+C_dobles_c,Arroba,Doble_puntos,Identificador,Numero; 
 
 non terminal arbol INICIO, CODIGO,COMPILACION,SENTENCIA,DECLRACION,TARRELGOS,CONTENIDO,TIPCONTENIDO,LISTA_VALORES,COMENT,EXP,CONT,FUNES,DATO,
 COMENTARIO,CADENA,ARREGLOSTIP,GRAFIC,COMSENTENCIAS,ATRIBUGRAFIC;
