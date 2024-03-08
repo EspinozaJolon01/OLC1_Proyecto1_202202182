@@ -6,8 +6,10 @@ package Clases;
 
 import Analisador.LexerCup;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,6 +17,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JTextArea;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -25,7 +34,8 @@ public class arbol {
     public String lex;
     public ArrayList<arbol>hijos;
     public Map<String, String> hashMap = new HashMap<>();
-
+    public static int imageCounter = 0;
+    public static int imageCounter1 = 0;
     private String result;
     public int conteo = 1;
     
@@ -78,7 +88,7 @@ public class arbol {
 
         return result.toString();
 }
-    public static void Graficar(String tipo,Map<String, String> hashMap){
+    public static void Graficar(String tipo,Map<String, String> hashMap) throws IOException{
         System.out.println(tipo);
         switch (tipo){
             case "graphbar":
@@ -86,24 +96,72 @@ public class arbol {
                 System.out.println("----------------------------");
                 String valor = hashMap.get("titulo");
                 String valor1 = hashMap.get("ejeX");
+                String[] categorias = valor1.split(",");
                 String valor2 = hashMap.get("ejeY");
+                String[] valoresStr = valor2.split(",");
+                double[] valores = new double[valoresStr.length];
+        
+                // Convertir elementos de valoresStr a double y guardarlos en valores[]
+                for (int i = 0; i < valoresStr.length; i++) {
+                    valores[i] = Double.parseDouble(valoresStr[i]);
+                }
+
                 String valor3 = hashMap.get("tituloX");
                 String valor4 = hashMap.get("tituloY");
-                System.out.println("titulo: " + valor + "\n"
-                        + "ejeX: " + valor1 + "\n"
-                        + "ejeY: " + valor2 + "\n"
-                        + "tituloX: " + valor3 + "\n"
-                        + "tituloY: " + valor4 + "\n");
+
+                DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+                for (int i = 0; i < categorias.length; i++) {
+                    dataset.addValue(valores[i], valor4, categorias[i]);
+                }
+
+                JFreeChart chart = ChartFactory.createBarChart3D(
+                        valor, valor3, valor4, dataset);
+
+                // Crear un nombre de archivo único con un contador
+                String fileName = "barChart_" + imageCounter++ + ".png";
+
+                // Guardar la gráfica como imagen PNG con el nombre de archivo único
+                int width = 800;
+                int height = 600;
+                File barChart = new File("C:/Users/Usuario/Desktop/img/" + fileName);
+                ChartUtilities.saveChartAsPNG(barChart, chart, width, height);
+                        
+                
                 break;
             case "graphpie":
                 System.out.println("obtengo una grafica graphpie");
                 System.out.println("----------------------------");
                 String valor11 = hashMap.get("label");
+                String[] categoriasLabel = valor11.split(",");
                 String valor12 = hashMap.get("values");
+                String[] valoresStr1 = valor12.split(",");
+                double[] valores1 = new double[valoresStr1.length];
+        
+                // Convertir elementos de valoresStr a double y guardarlos en valores[]
+                for (int i = 0; i < valoresStr1.length; i++) {
+                    valores1[i] = Double.parseDouble(valoresStr1[i]);
+                }
                 String valor13 = hashMap.get("titulo");
-                System.out.println("label: " + valor11 + "\n"
-                        + "values: " + valor12 + "\n"
-                        + "titulo: " + valor13+ "\n");
+                
+                DefaultPieDataset dataset1 = new DefaultPieDataset();
+                
+                for (int i = 0; i < categoriasLabel.length; i++) {
+                    
+                    dataset1.setValue(categoriasLabel[i],valores1[i]);
+                }
+                
+                JFreeChart grafica_circular = ChartFactory.createPieChart(valor13, dataset1);
+                
+                String fileName1 = "pieChart_" + imageCounter1++ + ".png";
+
+                // Guardar la gráfica como imagen PNG con el nombre de archivo único
+                int width1 = 800;
+                int height1 = 600;
+                File pieChart = new File("C:/Users/Usuario/Desktop/img/" + fileName1);
+                ChartUtilities.saveChartAsPNG(pieChart, grafica_circular, width1, height1);
+
+                
                 
                 break;
             case "graphline":
@@ -209,7 +267,7 @@ public class arbol {
 
 
     
-    public void run(arbol raiz, ArrayList<nodoArbol> Ts, JTextArea txtconsola){
+    public void run(arbol raiz, ArrayList<nodoArbol> Ts, JTextArea txtconsola) throws IOException{
         
         for(arbol hijo : raiz.hijos){
             run(hijo,Ts, txtconsola);
