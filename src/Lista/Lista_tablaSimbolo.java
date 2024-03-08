@@ -27,9 +27,9 @@ public class Lista_tablaSimbolo {
         htmlCodigo.append(" <meta charset=\"UTF-8\">");
         htmlCodigo.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">");
         htmlCodigo.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-        htmlCodigo.append("<title>Reporte Tokens</title>");
+        htmlCodigo.append("<title>Reporte Simbolos</title>");
         htmlCodigo.append("</head>");
-        htmlCodigo.append("<h1>Reporte de tokens</h1>");
+        htmlCodigo.append("<h1>Reporte de Simbolos</h1>");
         htmlCodigo.append("<center>");
         htmlCodigo.append("<table border=\"1\">");
         htmlCodigo.append("<thead>");
@@ -76,6 +76,10 @@ public class Lista_tablaSimbolo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public void limpiar(ArrayList<nodoArbol> Ts){
+        Ts.clear();
     }
     
 }

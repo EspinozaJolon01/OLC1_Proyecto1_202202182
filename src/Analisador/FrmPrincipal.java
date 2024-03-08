@@ -390,6 +390,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
         imgGraficas.limpiar();
+        lista_tabla.limpiar(Ts);
         lista_token.limpiar();
         lista_errores.limpiar();
         String datos_en_la_consola = "";

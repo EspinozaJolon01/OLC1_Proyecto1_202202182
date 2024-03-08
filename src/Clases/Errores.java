@@ -13,14 +13,16 @@ public class Errores {
     public int conteo;
     public String descip;
     public String tipo;
-    public String columna;
-    public String linea;
+    public int columna;
+    public int linea;
     
     
-    public Errores(int conteo, String tipo, String descip){
+    public Errores(int conteo, String tipo, String descip,int linea,int columna){
         this.conteo = conteo;
         this.descip = descip;
         this.tipo = tipo;
+        this.linea = linea;
+        this.columna = columna;
 
     
     }

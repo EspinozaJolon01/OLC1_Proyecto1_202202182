@@ -283,4 +283,6 @@ exec {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conte
 {COMMULTI} {/*Ignore*/}
 
 . {System.out.println("Este es un error lexico: "+ yytext() +
-    ", en la linea: "+yyline+", en la columna: "+yychar); }
+    ", en la linea: "+yyline+", en la columna: "+yychar); error = new Errores(conteo_errores, "Lexico", "El caracter " + yytext()+ " no pertenece al lenguaje",yyline,yycolumn);
+                            lista_E.add(error);
+                            conteo_errores++; }

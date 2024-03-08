@@ -220,62 +220,56 @@ public class arbol {
                 String valora1 = hashMap.get("titulo");
                 String valorb2 = hashMap.get("values");
                 String[] valoresDato = valorb2.split(",");
-                int[] valoresINT = new int[valoresDato.length];
+                double[] valoresDouble = new double[valoresDato.length];
 
-                // Convertir elementos de valoresLineaStr a double y guardarlos en valoresLinea
+                // Convertir elementos de valoresDato a double y guardarlos en valoresDouble
                 for (int i = 0; i < valoresDato.length; i++) {
-                    valoresINT[i] = Integer.parseInt(valoresDato[i]);
+                    valoresDouble[i] = Double.parseDouble(valoresDato[i]);
                 }
-                
-                
 
-                Map<Integer, Integer> frecuenciaAbsoluta = new HashMap<>();
-                for (int i = 0; i < valoresINT.length; i++) {
-                    int valordato = valoresINT[i];
+                Map<Double, Integer> frecuenciaAbsoluta = new HashMap<>();
+                for (int i = 0; i < valoresDouble.length; i++) {
+                    double valordato = valoresDouble[i];
                     frecuenciaAbsoluta.put(valordato, frecuenciaAbsoluta.getOrDefault(valordato, 0) + 1);
                 }
 
-                int frecuenciaAcumulada = 0;
-                Map<Integer, Integer> frecuenciaAcumuladaMap = new HashMap<>();
-                for (Map.Entry<Integer, Integer> entry : frecuenciaAbsoluta.entrySet()) {
+                double frecuenciaAcumulada = 0;
+                Map<Double, Double> frecuenciaAcumuladaMap = new HashMap<>();
+                for (Map.Entry<Double, Integer> entry : frecuenciaAbsoluta.entrySet()) {
                     frecuenciaAcumulada += entry.getValue();
                     frecuenciaAcumuladaMap.put(entry.getKey(), frecuenciaAcumulada);
                 }
 
-                int totalDatos = valoresINT.length;
-                Map<Integer, Double> frecuenciaRelativa = new HashMap<>();
-                for (Map.Entry<Integer, Integer> entry : frecuenciaAbsoluta.entrySet()) {
+                int totalDatos = valoresDouble.length;
+                Map<Double, Double> frecuenciaRelativa = new HashMap<>();
+                for (Map.Entry<Double, Integer> entry : frecuenciaAbsoluta.entrySet()) {
                     frecuenciaRelativa.put(entry.getKey(), (double) entry.getValue() / totalDatos);
                 }
-                
-                
 
                 txtconsola.append(valora1 +"\n");
                 txtconsola.append("---------------------------\n");
                 txtconsola.append("valor     fb     fa   fr\n");
 
-                for (Map.Entry<Integer, Integer> entry : frecuenciaAbsoluta.entrySet()) {
-                    int valorres = entry.getKey();
+                for (Map.Entry<Double, Integer> entry : frecuenciaAbsoluta.entrySet()) {
+                    double valorres = entry.getKey();
                     int fb = entry.getValue();
-                    int fa = frecuenciaAcumuladaMap.get(valorres);
+                    double fa = frecuenciaAcumuladaMap.get(valorres);
                     double fr = frecuenciaRelativa.get(valorres) * 100;
 
-                    txtconsola.append(String.format("%-9d %-6d %-6d %.0f%%\n", valorres, fb, fa, fr));
+                    txtconsola.append(String.format("%-9.2f %-6d %-6.2f %.2f%%\n", valorres, fb, fa, fr));
                 }
 
                 txtconsola.append("---------------------------\n");
                 txtconsola.append("totales:   " + frecuenciaAcumulada + "       " + totalDatos + "     100%\n");
-                
-                //grafica 
-                
-                DefaultCategoryDataset datasetLinea1 = new DefaultCategoryDataset();
-                
-                for (Map.Entry<Integer, Integer> entry : frecuenciaAbsoluta.entrySet()) {
-                    int valorres = entry.getKey();
-                    int fb = entry.getValue();
-                    datasetLinea1.addValue(fb , "",String.valueOf(valorres) );
 
-                    
+                // Gráfica
+
+                DefaultCategoryDataset datasetLinea1 = new DefaultCategoryDataset();
+
+                for (Map.Entry<Double, Integer> entry : frecuenciaAbsoluta.entrySet()) {
+                    double valorres = entry.getKey();
+                    int fb = entry.getValue();
+                    datasetLinea1.addValue(fb , "", String.valueOf(valorres));
                 }
 
                 
