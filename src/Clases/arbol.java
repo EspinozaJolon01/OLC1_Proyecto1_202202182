@@ -413,10 +413,7 @@ public class arbol {
             //System.out.println(raiz.hijos.get(0).result);
         }else if(raiz.lex == "ATRIBUGRAFIC" && raiz.hijos.size()==3){
             //obtengo todo los datos 
-            
-        
-        
-            
+
             //System.out.println(raiz.hijos.get(0).lex);
             if(raiz.hijos.get(0).lex.equalsIgnoreCase("values")){
                 //System.out.println(raiz.hijos.get(2).result);

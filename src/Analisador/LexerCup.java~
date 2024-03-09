@@ -876,7 +876,9 @@ public class LexerCup implements java_cup.runtime.Scanner {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
             { System.out.println("Este es un error lexico: "+ yytext() +
-    ", en la linea: "+yyline+", en la columna: "+yychar);
+    ", en la linea: "+yyline+", en la columna: "+yychar); error = new Errores(conteo_errores, "Lexico", "El caracter " + yytext()+ " no pertenece al lenguaje",yyline,yycolumn);
+                            lista_E.add(error);
+                            conteo_errores++;
             }
           // fall through
           case 58: break;

@@ -124,7 +124,7 @@ TIPCONTENIDO ::= Identificador:i
                     l.addHijo(c);
                     l.addHijo(c1);
                     RESULT = l;
-            :}
+            :} 
             | OPE:op1 Parentesis_a:pac FUNES:f Parentesis_c:pac1
             {:
             arbol l = new arbol("TIPCONTENIDO");
@@ -140,7 +140,7 @@ TIPCONTENIDO ::= Identificador:i
                 
 //----------------DECLARACION DE ARREGLO--------------------------------------------------------------------------
 
-TARRELGOS ::= Arr:a Dos_puntos Tipo:t Doble_puntos Arroba:ar Identificador:i Reserve Parent_a LISTA_VALORES:li Parent_c End P_coma 
+TARRELGOS ::= Arr:a Dos_puntos Tipo:t Doble_puntos Arroba:ar Identificador:i Reserve FUNES:li End P_coma 
             {:
             arbol larreglo = new arbol("TARRELGOS");
                     larreglo.addHijo(new arbol(a.toString())); 
@@ -177,7 +177,7 @@ LISTA_VALORES ::= LISTA_VALORES:li Coma:com TIPCONTENIDO:tip
 //----------------DECLARACION DE ESTADISTICAS --------------------------------------------------------------------------
 
 
-    //[]
+    //[   ]  @
 FUNES ::= Parent_a:pa  LISTA_VALORES:d  Parent_c:pc 
         {:arbol lfun = new arbol("FUNES");
                 lfun.addHijo(new arbol(pa.toString()));
@@ -275,7 +275,7 @@ ATRIBUGRAFIC ::= G_titulo:GT Doble_puntos Tipo:t7 Igual Cadena:titu End P_coma
                     latributograf.addHijo(new arbol(titu.toString()));
                     RESULT = latributograf;
                 :}
-                |G_ejex:GX Doble_puntos Tipo:t6 Igual Parent_a LISTA_VALORES:ejx Parent_c End P_coma
+                |G_ejex:GX Doble_puntos Tipo:t6 Igual  FUNES:ejx  End P_coma
                 {:
                     arbol latributograf = new arbol("ATRIBUGRAFIC");
                     latributograf.addHijo(new arbol(GX.toString()));
@@ -283,7 +283,7 @@ ATRIBUGRAFIC ::= G_titulo:GT Doble_puntos Tipo:t7 Igual Cadena:titu End P_coma
                     latributograf.addHijo(ejx);
                     RESULT = latributograf;
                 :}
-                |G_ejey:GY Doble_puntos Tipo:t3 Igual Parent_a LISTA_VALORES:ejy Parent_c End P_coma
+                |G_ejey:GY Doble_puntos Tipo:t3 Igual  FUNES:ejy  End P_coma
                 {:
                     arbol latributograf = new arbol("ATRIBUGRAFIC");
                         latributograf.addHijo(new arbol(GY.toString()));
@@ -307,7 +307,7 @@ ATRIBUGRAFIC ::= G_titulo:GT Doble_puntos Tipo:t7 Igual Cadena:titu End P_coma
                         latributograf.addHijo(new arbol(tituy.toString()));
                         RESULT = latributograf;
                 :}
-                |G_label:lab Doble_puntos Tipo:t1 Igual Parent_a LISTA_VALORES:PILC Parent_c End P_coma
+                |G_label:lab Doble_puntos Tipo:t1 Igual  FUNES:PILC  End P_coma
                 {:
                     arbol latributograf = new arbol("ATRIBUGRAFIC");
                         latributograf.addHijo(new arbol(lab.toString()));
@@ -315,7 +315,7 @@ ATRIBUGRAFIC ::= G_titulo:GT Doble_puntos Tipo:t7 Igual Cadena:titu End P_coma
                         latributograf.addHijo(PILC);
                         RESULT = latributograf;
                 :}
-                |G_values:value Doble_puntos Tipo:t2 Igual Parent_a LISTA_VALORES:PILD Parent_c End P_coma 
+                |G_values:value Doble_puntos Tipo:t2 Igual  FUNES:PILD  End P_coma 
                 {:
                     arbol latributograf = new arbol("ATRIBUGRAFIC");
                       latributograf.addHijo(new arbol(value.toString()));
@@ -323,6 +323,11 @@ ATRIBUGRAFIC ::= G_titulo:GT Doble_puntos Tipo:t7 Igual Cadena:titu End P_coma
                       latributograf.addHijo(PILD);
                       RESULT = latributograf;
                 :};
+
+
+
+
+
 
 
                      
