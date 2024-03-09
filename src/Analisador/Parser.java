@@ -7,6 +7,9 @@ package Analisador;
 
 import java_cup.runtime.Symbol;
 import Clases.arbol;
+import Clases.Errores;
+import java.util.ArrayList;
+import java.util.List;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -248,10 +251,19 @@ public class Parser extends java_cup.runtime.lr_parser {
 
 
 
+    public static List<Errores> lista_S =  new ArrayList<>();
+
+
     
+    
+    Errores error;
+    int conteo_errores = 1;
 
     public void syntax_error(Symbol s){
         System.out.println("Error sintactico: "+s.value+" linea: "+s.left+" columna: "+s.right);
+        error = new Errores(conteo_errores, "Sintactico", "El caracter " + s.value+ " no pertenece a la estructura",s.left,s.right);
+                            lista_S.add(error);
+                            conteo_errores++;
     }
     public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
         System.out.println("Error sintactico unrecovered: "+s.value+" linea: "+s.left+" columna: "+s.right);

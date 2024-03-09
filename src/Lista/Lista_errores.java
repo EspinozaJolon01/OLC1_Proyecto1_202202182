@@ -5,6 +5,7 @@
 package Lista;
 
 import Analisador.LexerCup;
+import Analisador.Parser;
 import Clases.Errores;
 import java.awt.Desktop;
 import java.io.File;
@@ -69,6 +70,17 @@ public class Lista_errores {
         
         for(int i=0;i <LexerCup.lista_E.size();i++){
              Errores error =  LexerCup.lista_E.get(i);
+             htmlCodigo.append("<td>" + error.conteo+ "</td>");
+             htmlCodigo.append("<td>"+ error.tipo + "</td>");
+             htmlCodigo.append("<td>"+ error.descip+"</td>");
+             htmlCodigo.append("<td>"+ error.linea+"</td>");
+             htmlCodigo.append("<td>"+ error.columna+"</td>");
+             htmlCodigo.append("</tr>");
+             
+        }
+        
+        for(int i=0;i <Parser.lista_S.size();i++){
+             Errores error =  Parser.lista_S.get(i);
              htmlCodigo.append("<td>" + error.conteo+ "</td>");
              htmlCodigo.append("<td>"+ error.tipo + "</td>");
              htmlCodigo.append("<td>"+ error.descip+"</td>");
