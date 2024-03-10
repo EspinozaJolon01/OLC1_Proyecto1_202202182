@@ -16,9 +16,11 @@ public class nodoArbol {
     public String entorno;
     public String pertenece_a;
     public String valor;
+    public int linea;
+    public int columna;
     public int conteo;
 
-    public nodoArbol(int conteo,String nombre, String rol, String tipo, String entorno, String pertenece_a, String valor) {
+    public nodoArbol(int conteo,String nombre, String rol, String tipo, String entorno, String pertenece_a, String valor,int linea,int columna) {
         this.conteo = conteo;
         this.nombre = nombre;
         this.rol = rol;
@@ -26,6 +28,8 @@ public class nodoArbol {
         this.entorno = entorno;
         this.pertenece_a = pertenece_a;
         this.valor = valor;
+        this.linea = linea;
+        this.columna = columna;
     }
     
     

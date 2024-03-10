@@ -93,10 +93,10 @@ SENTENCIA ::=  DECLRACION:d
 //----------------DECLARACION DE VARIABLEN--------------------------------------------------------------------------
 
 DECLRACION ::= Var:v Dos_puntos Tipo:t Doble_puntos Identificador:i Reserve TIPCONTENIDO:N End P_coma  
-                {:  arbol Deca = new arbol("DECLRACION");
-                    Deca.addHijo(new arbol(v.toString())); 
-                    Deca.addHijo(new arbol(t.toString())); 
-                    Deca.addHijo(new arbol(i.toString())); 
+                {:  arbol Deca = new arbol("DECLRACION",0,0);
+                    Deca.addHijo(new arbol(v.toString(),vleft,vright)); 
+                    Deca.addHijo(new arbol(t.toString(),tleft,tright)); 
+                    Deca.addHijo(new arbol(i.toString(),ileft,iright)); 
                     Deca.addHijo(N);
                     RESULT = Deca; :};
 
@@ -154,11 +154,11 @@ TIPCONTENIDO ::= Identificador:i
 
 TARRELGOS ::= Arr:a Dos_puntos Tipo:t Doble_puntos Arroba:ar Identificador:i Reserve FUNES:li End P_coma 
             {:
-            arbol larreglo = new arbol("TARRELGOS");
-                    larreglo.addHijo(new arbol(a.toString())); 
-                    larreglo.addHijo(new arbol(t.toString())); 
-                    larreglo.addHijo(new arbol(ar.toString())); 
-                    larreglo.addHijo(new arbol(i.toString())); 
+            arbol larreglo = new arbol("TARRELGOS",0,0);
+                    larreglo.addHijo(new arbol(a.toString(),aleft,aright)); 
+                    larreglo.addHijo(new arbol(t.toString(),tleft,tright)); 
+                    larreglo.addHijo(new arbol(ar.toString(),arleft,arright)); 
+                    larreglo.addHijo(new arbol(i.toString(),ileft,iright)); 
                     larreglo.addHijo(li);
                     RESULT = larreglo;
 

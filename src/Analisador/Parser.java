@@ -471,10 +471,10 @@ class CUP$Parser$actions {
 		int Nleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;
 		int Nright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
 		arbol N = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
-		  arbol Deca = new arbol("DECLRACION");
-                    Deca.addHijo(new arbol(v.toString())); 
-                    Deca.addHijo(new arbol(t.toString())); 
-                    Deca.addHijo(new arbol(i.toString())); 
+		  arbol Deca = new arbol("DECLRACION",0,0);
+                    Deca.addHijo(new arbol(v.toString(),vleft,vright)); 
+                    Deca.addHijo(new arbol(t.toString(),tleft,tright)); 
+                    Deca.addHijo(new arbol(i.toString(),ileft,iright)); 
                     Deca.addHijo(N);
                     RESULT = Deca; 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("DECLRACION",4, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
@@ -621,11 +621,11 @@ class CUP$Parser$actions {
 		int liright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
 		arbol li = (arbol)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
 		
-            arbol larreglo = new arbol("TARRELGOS");
-                    larreglo.addHijo(new arbol(a.toString())); 
-                    larreglo.addHijo(new arbol(t.toString())); 
-                    larreglo.addHijo(new arbol(ar.toString())); 
-                    larreglo.addHijo(new arbol(i.toString())); 
+            arbol larreglo = new arbol("TARRELGOS",0,0);
+                    larreglo.addHijo(new arbol(a.toString(),aleft,aright)); 
+                    larreglo.addHijo(new arbol(t.toString(),tleft,tright)); 
+                    larreglo.addHijo(new arbol(ar.toString(),arleft,arright)); 
+                    larreglo.addHijo(new arbol(i.toString(),ileft,iright)); 
                     larreglo.addHijo(li);
                     RESULT = larreglo;
 

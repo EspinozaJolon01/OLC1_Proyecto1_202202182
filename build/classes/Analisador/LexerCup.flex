@@ -28,6 +28,7 @@ espacio=[ \t\r\n]+
 ESPACIO=[ ]
 NUMERO = {D}+("."{D}+)?
 COMMULTI = "<!"~"!>"
+CADENAS2 = \"([^\"\r\n]*)\"
 
 %{
     public static List<Errores> lista_E =  new ArrayList<>();
@@ -269,7 +270,7 @@ exec {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conte
                             conteo_tokens++;
         return new Symbol(sym.Numero, yyline, yycolumn, yytext());}
 
-"\""({L}|{D}|{ESPACIO}|{NUMERO}|[-]|[:])*"\""  {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "cadena",yyline,yycolumn);
+{CADENAS2}  {System.out.println("Encontrado "+ yytext()); tokens_L = new Tokens_L(conteo_tokens, yytext(), "cadena",yyline,yycolumn);
                             lista_T.add(tokens_L);
                             conteo_tokens++;
         return new Symbol(sym.Cadena, yyline, yycolumn, yytext());}

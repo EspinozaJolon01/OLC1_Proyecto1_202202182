@@ -32,6 +32,8 @@ import org.jfree.data.general.DefaultPieDataset;
 public class arbol {
     
     public String lex;
+    public int linea;
+    public int columna;
     public ArrayList<arbol>hijos;
     public Map<String, String> hashMap = new HashMap<>();
     public static int imageCounter = 0;
@@ -47,9 +49,19 @@ public class arbol {
     }
     
     
+    public arbol(String lex, int linea,int columna){
+        this.lex = lex;
+        this.linea = linea;
+        this.columna = columna;
+        this.hijos = new ArrayList();
+    }
+    
+    
     public void addHijo(arbol hijo){
         this.hijos.add(hijo);
     }
+    
+    
     
     public void printArbol(arbol raiz){
         for (arbol hijo : raiz.hijos ) {
@@ -510,7 +522,7 @@ public class arbol {
         }else if(raiz.lex == "LISTA_VALORES" && raiz.hijos.size()==3){
             raiz.result = raiz.hijos.get(0).result + raiz.hijos.get(1).lex + raiz.hijos.get(2).result;
         }else if(raiz.lex == "TARRELGOS" && raiz.hijos.size()==5){ //Arr:a Tipo:t  Arroba:ar Identificador:i  LISTA_VALORES:li  
-            nodoArbol nA= new nodoArbol(conteo,raiz.hijos.get(2).lex + raiz.hijos.get(3).lex, "arreglo", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(4).result);
+            nodoArbol nA= new nodoArbol(conteo,raiz.hijos.get(2).lex + raiz.hijos.get(3).lex, "arreglo", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(4).result,raiz.hijos.get(2).linea,raiz.hijos.get(2).columna);
             Ts.add(nA);
             conteo++;
         }
@@ -553,7 +565,8 @@ public class arbol {
             
         }else if(raiz.lex == "DECLRACION" && raiz.hijos.size()==4){ //Var:v  Tipo:t  Identificador:i  CONTENIDO:N  
             //System.out.println("Var: " + raiz.hijos.get(2));
-            nodoArbol nA= new nodoArbol(conteo,raiz.hijos.get(2).lex, "variable", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(3).result);
+            
+            nodoArbol nA= new nodoArbol(conteo,raiz.hijos.get(2).lex, "variable", raiz.hijos.get(1).lex, "local", "--", raiz.hijos.get(3).result,raiz.hijos.get(2).linea,raiz.hijos.get(2).columna);
             conteo++;
             Ts.add(nA);
             

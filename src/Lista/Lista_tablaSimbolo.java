@@ -38,7 +38,8 @@ public class Lista_tablaSimbolo {
         htmlCodigo.append("<th style=\"background-color: #1E1E1E; color: #FFFFFF;\">Nombre</th>");
         htmlCodigo.append("<th style=\"background-color: #1E1E1E; color: #FFFFFF;\">Tipo</th>");
         htmlCodigo.append("<th style=\"background-color: #1E1E1E; color: #FFFFFF;\">Valor</th>");
-        //htmlCodigo.append("<th style=\"background-color: #1E1E1E; color: #FFFFFF;\">Columna</th>");
+        htmlCodigo.append("<th style=\"background-color: #1E1E1E; color: #FFFFFF;\">Linea</th>");
+        htmlCodigo.append("<th style=\"background-color: #1E1E1E; color: #FFFFFF;\">Columna</th>");
 
         htmlCodigo.append("</tr>");
         htmlCodigo.append("</thead>");
@@ -52,7 +53,8 @@ public class Lista_tablaSimbolo {
              htmlCodigo.append("<td>"+ elemento.nombre + "</td>");
              htmlCodigo.append("<td>"+ elemento.rol + " " + elemento.tipo +"</td>");
              htmlCodigo.append("<td>"+ elemento.valor+"</td>");
-             //htmlCodigo.append("<td>"+ tokens_L.Columna+"</td>");
+             htmlCodigo.append("<td>"+ elemento.linea+"</td>");
+             htmlCodigo.append("<td>"+ elemento.columna+"</td>");
              htmlCodigo.append("</tr>");
              
         }
