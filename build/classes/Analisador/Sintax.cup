@@ -87,7 +87,12 @@ SENTENCIA ::=  DECLRACION:d
                     RESULT = sen;:}
                 | GRAFIC:g {:arbol sen = new arbol("SENTENCIA");
                     sen.addHijo(g);
-                    RESULT = sen;:};
+                    RESULT = sen;:}
+                |error 
+                    {:
+                        arbol sen = new arbol("SENTENCIA");
+                        RESULT = sen;    
+                    :};
 
 
 //----------------DECLARACION DE VARIABLEN--------------------------------------------------------------------------
@@ -146,6 +151,13 @@ TIPCONTENIDO ::= Identificador:i
                     l.addHijo(new arbol(pac1.toString())); 
                     RESULT = l;
             :}
+            |error 
+                    {:
+                        arbol l = new arbol("TIPCONTENIDO");
+                        RESULT = l;    
+                    :}
+
+            
              ; 
 
 
@@ -334,7 +346,10 @@ ATRIBUGRAFIC ::= G_titulo:GT Doble_puntos Tipo:t7 Igual Cadena:titu End P_coma
                       latributograf.addHijo(new arbol(t2.toString()));
                       latributograf.addHijo(PILD);
                       RESULT = latributograf;
-                :};
+                :}
+
+
+            ;
 
 
 
