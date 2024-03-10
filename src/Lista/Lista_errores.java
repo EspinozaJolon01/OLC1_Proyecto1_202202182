@@ -35,7 +35,7 @@ public class Lista_errores {
     
     public void limpiar(){
         LexerCup.lista_E.clear();
-        LexerCup.lista_T.clear();
+        Parser.lista_S.clear();
     }
     
     
