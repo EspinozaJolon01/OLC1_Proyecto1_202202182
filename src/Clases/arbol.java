@@ -442,14 +442,14 @@ public class arbol {
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("tituloX")){
                 //System.out.println(raiz.hijos.get(2).lex);
                 raiz.result = raiz.hijos.get(1).lex;
-                raiz.result = raiz.hijos.get(2).lex;
-                hashMap.put("tituloX", raiz.hijos.get(2).lex);
+                raiz.result = raiz.hijos.get(2).result;
+                hashMap.put("tituloX", raiz.hijos.get(2).result);
                 
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("tituloY")){
                 //System.out.println(raiz.hijos.get(2).lex);
                 raiz.result = raiz.hijos.get(1).lex;
-                raiz.result = raiz.hijos.get(2).lex;
-                hashMap.put("tituloY", raiz.hijos.get(2).lex);
+                raiz.result = raiz.hijos.get(2).result;
+                hashMap.put("tituloY", raiz.hijos.get(2).result);
                 
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("ejeY")){
                 //System.out.println(raiz.hijos.get(2).result);
@@ -466,8 +466,8 @@ public class arbol {
             }else if(raiz.hijos.get(0).lex.equalsIgnoreCase("titulo")){
                 //System.out.println("--" +raiz.hijos.get(2).lex);
                 raiz.result = raiz.hijos.get(1).lex;
-                raiz.result = raiz.hijos.get(2).lex;
-                hashMap.put("titulo", raiz.hijos.get(2).lex);
+                raiz.result = raiz.hijos.get(2).result;
+                hashMap.put("titulo", raiz.hijos.get(2).result);
             }
      
          
